@@ -1,4 +1,22 @@
 window.I18N_PAGE = {
+  idx_hero_badge: { en: "Non-profit · Building since 2021", bn: "অলাভজনক · ২০২১ সাল থেকে নির্মাণাধীন" },
+
+  idx_fc1_label: { en: "Programmes live", bn: "চলমান কার্যক্রম" },
+  idx_fc1_num: { en: "10", bn: "১০" },
+  idx_fc1_sub: { en: "Across three initiatives", bn: "তিনটি উদ্যোগ জুড়ে" },
+
+  idx_fc2_label: { en: "Where it began", bn: "যেখানে শুরু" },
+  idx_fc2_num: { en: "2021", bn: "২০২১" },
+  idx_fc2_sub: { en: "Research and groundwork started", bn: "গবেষণা ও প্রাথমিক কাজ শুরু হয়েছিল" },
+
+  idx_fc3_label: { en: "Ways to contribute", bn: "অবদান রাখার উপায়" },
+  idx_fc3_num: { en: "9", bn: "৯" },
+  idx_fc3_sub: { en: "No blockchain background required", bn: "ব্লকচেইন জ্ঞানের প্রয়োজন নেই" },
+
+  idx_fc4_label: { en: "Status", bn: "অবস্থা" },
+  idx_fc4_num: { en: "Non-profit", bn: "অলাভজনক" },
+  idx_fc4_sub: { en: "Registered in Bangladesh, 2024", bn: "বাংলাদেশে নিবন্ধিত, ২০২৪" },
+
   idx_card1_stat1_v: { en: "In development", bn: "উন্নয়নাধীন" },
   idx_card1_stat1_l: { en: "Status", bn: "অবস্থা" },
   idx_card1_stat2_v: { en: "4", bn: "৪" },

@@ -139,7 +139,37 @@ body{
   to{filter:drop-shadow(0 0 28px rgba(90,150,255,.68)) drop-shadow(0 0 74px rgba(62,139,255,.44))}
 }
 @media (prefers-reduced-motion:reduce){.orb-map{animation:none}}
-.hero-cta{margin:2px 0 130px}
+.hero-cta{margin:2px 0 60px}
+
+/* ---------- hero badge ---------- */
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:26px;
+  padding:8px 18px;border-radius:999px;
+  background:rgba(62,139,255,.12);border:1px solid rgba(90,150,255,.32);
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary-lift);
+}
+
+/* ---------- hero globe: orb + floating connected stat cards ---------- */
+.hero-globe{position:relative;max-width:1100px;margin:0 auto 70px}
+.hero-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.hero-globe .orb-wrap{position:relative;z-index:2}
+.float-card{
+  position:absolute;z-index:3;width:198px;padding:16px 18px;border-radius:16px;text-align:left;
+  background:rgba(8,14,28,.55);border:1px solid var(--hairline-lit);
+  backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);
+  box-shadow:0 14px 34px rgba(2,6,16,.4);
+  animation:floatCard 7s ease-in-out infinite;
+}
+.fc-head{display:block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--on-dark-faint);margin-bottom:8px}
+.float-card b{display:block;font-size:22px;font-weight:800;letter-spacing:-.01em;color:var(--on-dark)}
+.float-card .fc-sub{display:block;margin-top:5px;font-size:11px;color:var(--on-dark-mute);line-height:1.45}
+.fc-1{left:-2%;top:4%;animation-delay:0s}
+.fc-2{left:1%;top:62%;animation-delay:1.4s}
+.fc-3{right:-2%;top:0%;animation-delay:.7s}
+.fc-4{right:0%;top:58%;animation-delay:2.1s}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@media (prefers-reduced-motion:reduce){.float-card{animation:none}}
+@media (max-width:1180px){.float-card,.hero-lines{display:none}}
 
 /* ---------- generic section ---------- */
 section{padding:var(--sp-section) 0}
@@ -349,43 +379,9 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
 
   <header class="hero" id="top">
     <div class="shell">
+      <span class="hero-badge" data-i18n="idx_hero_badge">Non-profit · Building since 2021</span>
       <h1><span data-i18n="idx_hero_h1_lead">Digital infrastructure</span> <em data-i18n="idx_hero_h1_em">Bangladesh actually owns.</em></h1>
       <p class="hero-sub" data-i18n="idx_hero_sub">A non-profit building decentralized public infrastructure, so data rights, financial access, and civic systems stay in the hands of citizens.</p>
-
-      <div class="orb-wrap">
-        <canvas id="orb" width="920" height="920" role="img"
-                data-i18n-attr="aria-label:idx_orb_aria"
-                aria-label="A rotating sphere of connected network nodes with the outline of Bangladesh at its centre"></canvas>
-        <div class="orb-veil" aria-hidden="true"></div>
-        <div class="orb-ring" aria-hidden="true"></div>
-
-        <!-- ============================================================
-             Bangladesh silhouette.
-             APPROXIMATE OUTLINE — simplified from boundary coordinates and
-             smoothed for display at this size. Replace this single path
-             with an authoritative outline (Survey of Bangladesh or a
-             licensed GeoJSON, projected the same way) before launch.
-             ============================================================ -->
-        <svg class="orb-map" viewBox="0 0 180 244" fill="none" aria-hidden="true">
-          <defs>
-            <linearGradient id="bdFill" x1="0" y1="0" x2="0.4" y2="1">
-              <stop offset="0%" stop-color="#bfe0ff"/>
-              <stop offset="45%" stop-color="#4f8bff"/>
-              <stop offset="100%" stop-color="#1d4ed8"/>
-            </linearGradient>
-          </defs>
-          <path d="M16.6 6.8 L5.5 22 L7.4 50 L31.3 60 L5.5 78 L11 94 L23.9 100
-                   L29.4 102 L25.8 128 L31.3 144 L36.8 168 L42.3 202 L60.7 198
-                   L80.9 198 L99.4 188 L115.9 194 L128.8 180 L143.5 180 L149 208
-                   L160.1 230 L163.8 236 L173 220 L174.8 192.8 L163.8 184
-                   L156.4 144 L141.7 142 L128.8 150 L125.1 136 L119.6 126
-                   L127 112 L136.2 108 L138 96 L152.7 96 L163.8 78 L158.2 68
-                   L136.2 66 L121.4 64 L99.4 66 L77.3 60 L71.8 58 L69.9 34
-                   L64.4 26 L44.2 32 L38.6 36 L20.2 20 Z"
-                fill="url(#bdFill)" stroke="#cfe4ff" stroke-width="1.1"
-                stroke-linejoin="round" opacity=".95"/>
-        </svg>
-      </div>
 
       <div class="hero-cta">
         <a class="pill pill-solid pill-lg" href="#work">
@@ -395,6 +391,77 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
           <span data-i18n="idx_hero_cta">Explore Our Work</span>
         </a>
       </div>
+
+      <div class="hero-globe">
+        <svg class="hero-lines" viewBox="0 0 1100 500" fill="none" aria-hidden="true" preserveAspectRatio="none">
+          <path d="M250 90 C 380 150, 460 220, 550 250" stroke="rgba(90,150,255,.35)" stroke-width="1.2"/>
+          <path d="M280 380 C 400 340, 470 290, 550 250" stroke="rgba(90,150,255,.35)" stroke-width="1.2"/>
+          <path d="M850 70 C 720 140, 620 210, 550 250" stroke="rgba(90,150,255,.35)" stroke-width="1.2"/>
+          <path d="M880 360 C 740 320, 630 280, 550 250" stroke="rgba(90,150,255,.35)" stroke-width="1.2"/>
+          <circle cx="550" cy="250" r="4" fill="#3E8BFF"/>
+          <circle cx="250" cy="90" r="3" fill="#6BA8FF" opacity=".85"/>
+          <circle cx="280" cy="380" r="3" fill="#6BA8FF" opacity=".85"/>
+          <circle cx="850" cy="70" r="3" fill="#6BA8FF" opacity=".85"/>
+          <circle cx="880" cy="360" r="3" fill="#6BA8FF" opacity=".85"/>
+        </svg>
+
+        <div class="float-card fc-1" aria-hidden="true">
+          <span class="fc-head" data-i18n="idx_fc1_label">Programmes live</span>
+          <b data-i18n="idx_fc1_num">10</b>
+          <span class="fc-sub" data-i18n="idx_fc1_sub">Across three initiatives</span>
+        </div>
+        <div class="float-card fc-2" aria-hidden="true">
+          <span class="fc-head" data-i18n="idx_fc2_label">Where it began</span>
+          <b data-i18n="idx_fc2_num">2021</b>
+          <span class="fc-sub" data-i18n="idx_fc2_sub">Research and groundwork started</span>
+        </div>
+        <div class="float-card fc-3" aria-hidden="true">
+          <span class="fc-head" data-i18n="idx_fc3_label">Ways to contribute</span>
+          <b data-i18n="idx_fc3_num">9</b>
+          <span class="fc-sub" data-i18n="idx_fc3_sub">No blockchain background required</span>
+        </div>
+        <div class="float-card fc-4" aria-hidden="true">
+          <span class="fc-head" data-i18n="idx_fc4_label">Status</span>
+          <b data-i18n="idx_fc4_num">Non-profit</b>
+          <span class="fc-sub" data-i18n="idx_fc4_sub">Registered in Bangladesh, 2024</span>
+        </div>
+
+        <div class="orb-wrap">
+          <canvas id="orb" width="920" height="920" role="img"
+                  data-i18n-attr="aria-label:idx_orb_aria"
+                  aria-label="A rotating sphere of connected network nodes with the outline of Bangladesh at its centre"></canvas>
+          <div class="orb-veil" aria-hidden="true"></div>
+          <div class="orb-ring" aria-hidden="true"></div>
+
+          <!-- ============================================================
+               Bangladesh silhouette.
+               APPROXIMATE OUTLINE — simplified from boundary coordinates and
+               smoothed for display at this size. Replace this single path
+               with an authoritative outline (Survey of Bangladesh or a
+               licensed GeoJSON, projected the same way) before launch.
+               ============================================================ -->
+          <svg class="orb-map" viewBox="0 0 180 244" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="bdFill" x1="0" y1="0" x2="0.4" y2="1">
+                <stop offset="0%" stop-color="#bfe0ff"/>
+                <stop offset="45%" stop-color="#4f8bff"/>
+                <stop offset="100%" stop-color="#1d4ed8"/>
+              </linearGradient>
+            </defs>
+            <path d="M16.6 6.8 L5.5 22 L7.4 50 L31.3 60 L5.5 78 L11 94 L23.9 100
+                     L29.4 102 L25.8 128 L31.3 144 L36.8 168 L42.3 202 L60.7 198
+                     L80.9 198 L99.4 188 L115.9 194 L128.8 180 L143.5 180 L149 208
+                     L160.1 230 L163.8 236 L173 220 L174.8 192.8 L163.8 184
+                     L156.4 144 L141.7 142 L128.8 150 L125.1 136 L119.6 126
+                     L127 112 L136.2 108 L138 96 L152.7 96 L163.8 78 L158.2 68
+                     L136.2 66 L121.4 64 L99.4 66 L77.3 60 L71.8 58 L69.9 34
+                     L64.4 26 L44.2 32 L38.6 36 L20.2 20 Z"
+                  fill="url(#bdFill)" stroke="#cfe4ff" stroke-width="1.1"
+                  stroke-linejoin="round" opacity=".95"/>
+          </svg>
+        </div>
+      </div>
+
     </div>
   </header>
 </div>
