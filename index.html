@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hikaru Foundation — Digital infrastructure Bangladesh actually owns</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   NVIDIA tokens (core) + bloom extension for this composition
+   ============================================================ */
+:root{
+  --primary:#76b900;
+  --primary-lift:#8fd414;
+  --on-primary:#000;
+  --ink:#04070a;
+  --ink-deep:#010203;
+  --on-dark:#fff;
+  --on-dark-mute:rgba(255,255,255,.62);
+  --on-dark-faint:rgba(255,255,255,.34);
+  --hairline:rgba(255,255,255,.10);
+  --hairline-lit:rgba(255,255,255,.20);
+  --panel:rgba(255,255,255,.035);
+
+  --t-hero:60px; --t-display:40px; --t-h-xl:24px; --t-h-md:20px;
+  --t-card:17px; --t-body:16px; --t-sm:15px; --t-cap:13px; --t-xs:11px;
+
+  --sp-section:120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,sans-serif;background:var(--ink-deep);color:var(--on-dark);
+  -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.shell{max-width:1200px;margin:0 auto;padding:0 40px}
+.center{text-align:center}
+
+/* ---------- stage: the bloom slab ---------- */
+.stage{position:relative;background:var(--ink);overflow:hidden;isolation:isolate}
+.stage::before{
+  content:"";position:absolute;left:50%;bottom:-46%;transform:translateX(-50%);
+  width:150%;height:105%;pointer-events:none;z-index:0;
+  background:radial-gradient(closest-side,
+    rgba(196,255,130,.92),
+    rgba(143,212,20,.60) 34%,
+    rgba(118,185,0,.28) 52%,
+    rgba(60,110,10,.11) 68%,
+    transparent 80%);
+  filter:blur(28px);
+  animation:breathe 11s ease-in-out infinite alternate;
+}
+.stage::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:130px;z-index:1;
+  background:linear-gradient(to bottom, transparent, rgba(1,2,3,.55) 62%, var(--ink-deep));
+  pointer-events:none;
+}
+@keyframes breathe{
+  from{transform:translateX(-50%) scale(1);opacity:.92}
+  to{transform:translateX(-50%) scale(1.07);opacity:1}
+}
+@media (prefers-reduced-motion:reduce){.stage::before{animation:none}}
+.stage > *{position:relative;z-index:2}
+
+/* ---------- nav ---------- */
+.nav-wrap{padding:26px 0 0}
+.nav{
+  margin:0 auto;width:max-content;display:flex;align-items:center;gap:28px;
+  padding:9px 9px 9px 22px;border-radius:999px;
+  background:rgba(255,255,255,.05);border:1px solid var(--hairline-lit);
+  backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);
+  box-shadow:0 8px 30px rgba(0,0,0,.45);
+}
+.brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none}
+.brand svg{flex:none}
+.brand b{font-size:var(--t-sm);font-weight:700;letter-spacing:-.01em}
+.nav-links{display:flex;gap:24px}
+.nav-links a{color:var(--on-dark-mute);text-decoration:none;font-size:var(--t-cap);font-weight:500}
+.nav-links a:hover{color:var(--on-dark)}
+.nav-cta{display:flex;gap:8px}
+
+/* ---------- pills ---------- */
+.pill{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:36px;padding:0 18px;border-radius:999px;border:1px solid transparent;
+  font:inherit;font-size:var(--t-cap);font-weight:700;text-decoration:none;cursor:pointer;
+  transition:transform .18s, background .18s, box-shadow .18s, border-color .18s;
+}
+.pill-solid{background:var(--primary);color:var(--on-primary);box-shadow:0 0 0 1px rgba(196,255,130,.35), 0 6px 20px rgba(118,185,0,.35)}
+.pill-solid:hover{background:var(--primary-lift);transform:translateY(-1px);box-shadow:0 0 0 1px rgba(196,255,130,.5), 0 8px 26px rgba(118,185,0,.5)}
+.pill-ghost{background:rgba(255,255,255,.06);color:var(--on-dark);border-color:var(--hairline-lit)}
+.pill-ghost:hover{border-color:rgba(255,255,255,.4);transform:translateY(-1px)}
+.pill-lg{height:48px;padding:0 30px;font-size:var(--t-body)}
+:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{padding:88px 0 0;text-align:center}
+.hero h1{
+  font-size:var(--t-hero);font-weight:700;line-height:1.12;letter-spacing:-.03em;
+  max-width:17ch;margin:0 auto;color:var(--on-dark-faint);
+}
+.hero h1 em{font-style:normal;color:var(--on-dark)}
+.hero-sub{
+  margin:24px auto 0;max-width:52ch;font-size:var(--t-body);
+  color:var(--on-dark-mute);line-height:1.65;
+}
+.orb-wrap{position:relative;width:460px;height:460px;margin:14px auto 0}
+#orb{width:100%;height:100%;display:block}
+
+/* darkens the node field behind the map so the silhouette reads */
+.orb-veil{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:300px;height:300px;border-radius:999px;pointer-events:none;
+  background:radial-gradient(closest-side, rgba(2,4,6,.88), rgba(2,4,6,.55) 52%, transparent 76%);
+}
+/* faint orbit ring, echoes the sphere's equator */
+.orb-ring{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:262px;height:262px;border-radius:999px;pointer-events:none;
+  border:1px solid rgba(196,255,130,.18);
+  box-shadow:inset 0 0 40px rgba(118,185,0,.10);
+}
+.orb-map{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  height:196px;width:auto;pointer-events:none;
+  filter:drop-shadow(0 0 22px rgba(143,212,20,.55)) drop-shadow(0 0 60px rgba(118,185,0,.35));
+  animation:mapPulse 6s ease-in-out infinite alternate;
+}
+@keyframes mapPulse{
+  from{filter:drop-shadow(0 0 18px rgba(143,212,20,.42)) drop-shadow(0 0 48px rgba(118,185,0,.26))}
+  to{filter:drop-shadow(0 0 28px rgba(143,212,20,.68)) drop-shadow(0 0 74px rgba(118,185,0,.44))}
+}
+@media (prefers-reduced-motion:reduce){.orb-map{animation:none}}
+.hero-cta{margin:2px 0 130px}
+
+/* ---------- generic section ---------- */
+section{padding:var(--sp-section) 0}
+.rule{width:120px;height:1px;margin:0 auto 40px;background:linear-gradient(90deg,transparent,var(--hairline-lit),transparent)}
+.eyebrow{font-size:var(--t-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--primary)}
+h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.02em}
+.lede{margin:18px auto 0;max-width:58ch;color:var(--on-dark-mute);font-size:var(--t-body);line-height:1.7}
+
+/* ---------- initiatives ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.card{
+  position:relative;padding:34px 28px 28px;text-align:left;overflow:hidden;
+  background:var(--panel);border:1px solid var(--hairline);border-radius:18px;
+  backdrop-filter:blur(14px);
+  transition:border-color .22s, transform .22s, background .22s;
+}
+.card:hover{border-color:rgba(143,212,20,.4);transform:translateY(-4px);background:rgba(255,255,255,.055)}
+.card::before{content:"";position:absolute;top:0;left:0;width:12px;height:12px;background:var(--primary)}
+.card svg{color:var(--primary);margin-bottom:20px}
+.card h3{font-size:var(--t-card);font-weight:700;margin-bottom:12px;letter-spacing:-.01em}
+.card p{font-size:var(--t-sm);color:var(--on-dark-mute);line-height:1.7;margin-bottom:22px}
+.card a{color:var(--primary);font-size:var(--t-sm);font-weight:700;text-decoration:none;display:inline-flex;gap:7px}
+.card a:hover{gap:12px;transition:gap .18s}
+
+/* ---------- mission ---------- */
+.mission-lead{font-size:var(--t-h-xl);font-weight:700;line-height:1.45;max-width:26ch;margin:0 auto;letter-spacing:-.01em}
+.mission-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:900px;margin:40px auto 0;text-align:left}
+.mission-cols p{color:var(--on-dark-mute);font-size:var(--t-sm);line-height:1.8}
+.vm{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:56px auto 0;text-align:left}
+.vm div{padding:28px;border-radius:18px;background:var(--panel);border:1px solid var(--hairline)}
+.vm p{margin-top:12px;font-size:var(--t-sm);color:var(--on-dark-mute);line-height:1.7}
+.values{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:40px}
+.chip{padding:8px 16px;border-radius:999px;background:var(--panel);border:1px solid var(--hairline);font-size:var(--t-cap);font-weight:500;color:var(--on-dark-mute)}
+.deep-link{display:inline-flex;gap:8px;margin-top:40px;color:var(--primary);font-weight:700;font-size:var(--t-sm);text-decoration:none}
+
+/* ---------- timeline ---------- */
+.tl{display:grid;grid-template-columns:repeat(3,1fr);max-width:880px;margin:56px auto 0;border-top:1px solid var(--hairline)}
+.tl div{padding:32px 24px;border-right:1px solid var(--hairline)}
+.tl div:last-child{border-right:0}
+.tl b{display:block;font-size:var(--t-h-md);font-weight:700;color:var(--primary);margin-bottom:8px;letter-spacing:-.01em}
+.tl span{font-size:var(--t-sm);color:var(--on-dark-mute);line-height:1.6}
+
+/* ---------- involve ---------- */
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:56px auto 44px;text-align:left}
+.path{padding:26px;border-radius:18px;background:var(--panel);border:1px solid var(--hairline)}
+.path h3{font-size:var(--t-card);font-weight:700;margin-bottom:8px}
+.path p{font-size:var(--t-sm);color:var(--on-dark-mute);line-height:1.65}
+
+/* ---------- contact ---------- */
+.contact{padding:var(--sp-section) 0 150px}
+.form{display:flex;gap:10px;justify-content:center;max-width:720px;margin:44px auto 0}
+.field{
+  flex:1;height:46px;padding:0 18px;border-radius:12px;color:#fff;font:inherit;font-size:var(--t-sm);
+  background:rgba(255,255,255,.045);border:1px solid var(--hairline-lit);
+  backdrop-filter:blur(12px);
+}
+.field::placeholder{color:var(--on-dark-faint)}
+.field:focus{border-color:var(--primary);outline:none}
+.form .pill{height:46px;flex:none}
+.consent{margin-top:16px;font-size:var(--t-xs);color:var(--on-dark-faint)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- footer ---------- */
+.foot{background:var(--ink-deep);border-top:1px solid var(--hairline);padding:56px 0 40px}
+.foot-grid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:32px}
+.foot-brand p{margin-top:14px;font-size:var(--t-cap);color:var(--on-dark-faint);max-width:28ch;line-height:1.65}
+.foot h4{font-size:var(--t-cap);font-weight:700;margin-bottom:14px}
+.foot a{display:block;padding:5px 0;font-size:var(--t-cap);color:var(--on-dark-faint);text-decoration:none}
+.foot a:hover{color:var(--primary)}
+.foot .brand{display:flex}
+.foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--hairline)}
+.foot-bottom span,.foot-bottom a{font-size:var(--t-xs);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+
+
+/* ---------- explore: routes to every page ---------- */
+.explore{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;text-align:left}
+.dest{
+  position:relative;display:flex;flex-direction:column;padding:30px 26px 26px;overflow:hidden;
+  background:var(--panel);border:1px solid var(--hairline);border-radius:18px;
+  text-decoration:none;color:inherit;backdrop-filter:blur(14px);
+  transition:border-color .22s, transform .22s, background .22s;
+}
+.dest:hover{border-color:rgba(143,212,20,.4);transform:translateY(-4px);background:rgba(255,255,255,.055)}
+.dest::before{content:"";position:absolute;top:0;left:0;width:12px;height:12px;background:var(--primary)}
+.dest .n{font-size:var(--t-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-faint);margin-bottom:16px}
+.dest h3{font-size:var(--t-card);font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+.dest:hover h3{color:var(--primary-lift)}
+.dest p{font-size:var(--t-sm);color:var(--on-dark-mute);line-height:1.65;flex:1;margin-bottom:18px}
+.dest .go{font-size:var(--t-sm);font-weight:700;color:var(--primary);display:inline-flex;gap:7px;align-items:center}
+.dest:hover .go{gap:12px;transition:gap .18s}
+.dest.wide{grid-column:span 3;flex-direction:row;align-items:center;gap:32px;padding:30px 32px}
+.dest.wide p{margin-bottom:0}
+.dest.wide .go{flex:none}
+@media (max-width:980px){
+  .explore{grid-template-columns:1fr}
+  .dest.wide{grid-column:span 1;flex-direction:column;align-items:flex-start;gap:16px}
+}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(22px)}
+.rv.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+/* ---------- narrow fallback (spec is desktop 1440) ---------- */
+@media (max-width:980px){
+  :root{--t-hero:34px;--t-display:26px;--sp-section:72px}
+  .shell{padding:0 20px}
+  .nav-links{display:none}
+  .orb-wrap{width:320px;height:320px}
+  .orb-map{height:136px}
+  .orb-veil{width:210px;height:210px}
+  .orb-ring{width:182px;height:182px}
+  .cards,.mission-cols,.vm,.paths,.tl,.foot-grid{grid-template-columns:1fr}
+  .tl div{border-right:0;border-bottom:1px solid var(--hairline)}
+  .form{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== STAGE: nav + hero ==================== -->
+<div class="stage">
+  <div class="nav-wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="10" stroke="#76b900" stroke-width="1.4" opacity=".55"/>
+          <circle cx="11" cy="11" r="5.6" stroke="#76b900" stroke-width="1.2" opacity=".8"/>
+          <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
+        </svg>
+        <b>Hikaru Foundation</b>
+      </a>
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="work.html">Our Work</a>
+        <a href="news.html">Research</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a class="pill pill-solid" href="involved.html">Get Involved</a>
+      </div>
+    </nav>
+  </div>
+
+  <header class="hero" id="top">
+    <div class="shell">
+      <h1>Digital infrastructure <em>Bangladesh actually owns.</em></h1>
+      <p class="hero-sub">A non-profit building decentralized public infrastructure, so data rights, financial access, and civic systems stay in the hands of citizens.</p>
+
+      <div class="orb-wrap">
+        <canvas id="orb" width="920" height="920" role="img"
+                aria-label="A rotating sphere of connected network nodes with the outline of Bangladesh at its centre"></canvas>
+        <div class="orb-veil" aria-hidden="true"></div>
+        <div class="orb-ring" aria-hidden="true"></div>
+
+        <!-- ============================================================
+             Bangladesh silhouette.
+             APPROXIMATE OUTLINE — simplified from boundary coordinates and
+             smoothed for display at this size. Replace this single path
+             with an authoritative outline (Survey of Bangladesh or a
+             licensed GeoJSON, projected the same way) before launch.
+             ============================================================ -->
+        <svg class="orb-map" viewBox="0 0 180 244" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="bdFill" x1="0" y1="0" x2="0.4" y2="1">
+              <stop offset="0%" stop-color="#c4ff82"/>
+              <stop offset="45%" stop-color="#8fd414"/>
+              <stop offset="100%" stop-color="#5f9c04"/>
+            </linearGradient>
+          </defs>
+          <path d="M16.6 6.8 L5.5 22 L7.4 50 L31.3 60 L5.5 78 L11 94 L23.9 100
+                   L29.4 102 L25.8 128 L31.3 144 L36.8 168 L42.3 202 L60.7 198
+                   L80.9 198 L99.4 188 L115.9 194 L128.8 180 L143.5 180 L149 208
+                   L160.1 230 L163.8 236 L173 220 L174.8 192.8 L163.8 184
+                   L156.4 144 L141.7 142 L128.8 150 L125.1 136 L119.6 126
+                   L127 112 L136.2 108 L138 96 L152.7 96 L163.8 78 L158.2 68
+                   L136.2 66 L121.4 64 L99.4 66 L77.3 60 L71.8 58 L69.9 34
+                   L64.4 26 L44.2 32 L38.6 36 L20.2 20 Z"
+                fill="url(#bdFill)" stroke="#e2ffb0" stroke-width="1.1"
+                stroke-linejoin="round" opacity=".95"/>
+        </svg>
+      </div>
+
+      <div class="hero-cta">
+        <a class="pill pill-solid pill-lg" href="#work">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+            <path d="M2 7.5h11M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Explore Our Work
+        </a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main>
+
+<!-- ==================== INITIATIVES ==================== -->
+<section id="work">
+  <div class="shell center">
+    <div class="rule"></div>
+    <div class="rv">
+      <span class="eyebrow">Our work</span>
+      <h2 style="margin-top:16px">Three initiatives, one purpose</h2>
+      <p class="lede">Digital autonomy needs more than working code. It needs infrastructure people control, rules that protect them, and the knowledge to use both.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card rv">
+        <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <circle cx="14" cy="6" r="3" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="5" cy="21" r="3" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="23" cy="21" r="3" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M12 8.5L7 18.5M16 8.5l5 10M8 21h12" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        <h3>Hikaru, a Layer-1 blockchain</h3>
+        <p>A sovereign Layer-1 network run on community infrastructure. It keeps an immutable ledger and supports payments, supply chain tracking, and digital identity.</p>
+        <a href="network.html">Learn about Hikaru →</a>
+      </article>
+
+      <article class="card rv">
+        <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <path d="M14 3l9 3.5v7c0 5.5-3.8 10-9 11.5C8.8 23.5 5 19 5 13.5v-7L14 3z" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M10 13.5l2.8 2.8L18 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <h3>Research and policy advocacy</h3>
+        <p>We study blockchain security and privacy at the protocol level, and work with government, industry, and academia on the regulation adoption will require.</p>
+        <a href="work.html#research">See our research →</a>
+      </article>
+
+      <article class="card rv">
+        <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <path d="M4 6h7a3 3 0 013 3v14a3 3 0 00-3-3H4V6zM24 6h-7a3 3 0 00-3 3v14a3 3 0 013-3h7V6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+        <h3>Digital literacy through Hikaru Academy</h3>
+        <p>Hikaru Academy will run programmes, workshops, and training on blockchain fundamentals and advanced practice, for students, professionals, and community leaders.</p>
+        <a href="work.html#academy">About the Academy →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MISSION ==================== -->
+<section id="mission">
+  <div class="shell center">
+    <div class="rule"></div>
+    <div class="rv">
+      <span class="eyebrow">Why we exist</span>
+      <p class="mission-lead" style="margin-top:20px">Bangladesh's digital landscape runs on infrastructure it does not own.</p>
+    </div>
+
+    <div class="mission-cols rv">
+      <p>Foreign companies hold exclusive control and centralized data centers hold a monopoly. International business organizations collect and use citizen data for their own commercial interests, an uncontrolled interference in the data rights and freedoms of people here.</p>
+      <p>A sovereign blockchain decentralizes that control. It makes activity transparent, secures access to financial and civic systems, and returns the digital commons to the people who depend on it. That is the work Hikaru Foundation exists to do.</p>
+    </div>
+
+    <div class="vm rv">
+      <div>
+        <span class="eyebrow" style="color:var(--on-dark-faint)">Vision</span>
+        <p>A digitally empowered world where technology and innovation ensure justice, equity, and social welfare.</p>
+      </div>
+      <div>
+        <span class="eyebrow" style="color:var(--on-dark-faint)">Mission</span>
+        <p>To apply emerging technologies to real-world challenges, promoting social justice and inclusive development. We work to improve digital literacy, promote ethical technological innovation, and advance technology policy through collaborative research and engagement.</p>
+      </div>
+    </div>
+
+    <div class="values rv">
+      <span class="chip">Transparency and accountability</span>
+      <span class="chip">Ethical innovation</span>
+      <span class="chip">Decentralized governance</span>
+      <span class="chip">Sustainability</span>
+      <span class="chip">Technological autonomy</span>
+    </div>
+
+    <div class="tl rv">
+      <div><b>2021</b><span>Work begins</span></div>
+      <div><b>2024</b><span>Onchain Software and Research Limited established, March</span></div>
+      <div><b>2025</b><span>Hikaru Layer-1 project initiated</span></div>
+    </div>
+
+    <a class="deep-link rv" href="about.html#story">Read our full story →</a>
+  </div>
+</section>
+
+<!-- ==================== GET INVOLVED ==================== -->
+<!-- ==================== EXPLORE: every page reachable from home ==================== -->
+<section id="explore">
+  <div class="shell center">
+    <div class="rule"></div>
+    <div class="rv">
+      <span class="eyebrow">Where to next</span>
+      <h2 style="margin-top:16px">Six places to go from here</h2>
+      <p class="lede">Whatever brought you here, one of these answers it. Nothing on this site is behind a form.</p>
+    </div>
+
+    <div class="explore">
+
+      <a class="dest rv" href="about.html">
+        <span class="n">01 · About</span>
+        <h3>Why this exists</h3>
+        <p>The origin story from 2021, the vision and mission, the five values, and how we can be held to them.</p>
+        <span class="go">Read our story →</span>
+      </a>
+
+      <a class="dest rv" href="work.html">
+        <span class="n">02 · Our work</span>
+        <h3>Ten programmes, three initiatives</h3>
+        <p>The full catalogue, filterable by who you are. Every programme states plainly whether it is running yet.</p>
+        <span class="go">Browse the catalogue →</span>
+      </a>
+
+      <a class="dest rv" href="network.html">
+        <span class="n">03 · The network</span>
+        <h3>Hikaru Layer-1 in detail</h3>
+        <p>How the ledger works, what it carries, what is decided and what is not. Explained for engineers or for anyone.</p>
+        <span class="go">See the technical detail →</span>
+      </a>
+
+      <a class="dest rv" href="news.html">
+        <span class="n">04 · Research</span>
+        <h3>Findings and updates</h3>
+        <p>Protocol research, policy submissions, and development notes. Published as they complete, not held back.</p>
+        <span class="go">Read the latest →</span>
+      </a>
+
+      <a class="dest rv" href="involved.html">
+        <span class="n">05 · Get involved</span>
+        <h3>Nine routes in</h3>
+        <p>Answer two questions and see which contribution routes fit what you already do. Four of them need no technical background.</p>
+        <span class="go">Find your route →</span>
+      </a>
+
+      <a class="dest rv" href="contact.html">
+        <span class="n">06 · Contact</span>
+        <h3>Ask us directly</h3>
+        <p>A five-field form that routes to the right part of the work, plus phone, email, address, and opening hours.</p>
+        <span class="go">Send a message →</span>
+      </a>
+
+      <a class="dest wide rv" href="involved.html#faq">
+        <div>
+          <span class="n">Quick answers</span>
+          <h3>Is there a token? Is this paid? Can I use it today?</h3>
+          <p>No, no, and not yet. The straight answers to the six questions people actually ask, in one place.</p>
+        </div>
+        <span class="go">Read the answers →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="involved">
+  <div class="shell center">
+    <div class="rule"></div>
+    <div class="rv">
+      <span class="eyebrow">Get involved</span>
+      <h2 style="margin:16px auto 0;max-width:20ch">Bangladesh's digital future should belong to its people.</h2>
+      <p class="lede">Hikaru Foundation brings together technologists, activists, researchers, economists, legal experts, and citizens. There is a place here for what you already do.</p>
+    </div>
+
+    <div class="paths rv">
+      <div class="path"><h3>Build</h3><p>Contribute to the protocol, the tooling, or node infrastructure.</p></div>
+      <div class="path"><h3>Research</h3><p>Join the security, privacy, or policy work.</p></div>
+      <div class="path"><h3>Teach and learn</h3><p>Help shape Hikaru Academy, or take part in it.</p></div>
+    </div>
+
+    <a class="pill pill-solid pill-lg rv" href="involved.html">Get Involved</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== CONTACT, on a second bloom ==================== -->
+<div class="stage">
+  <section class="contact" id="contact">
+    <div class="shell center">
+      <div class="rule"></div>
+      <div class="rv">
+        <h2>Follow the work</h2>
+        <p class="lede">Updates on the Hikaru network, our research, and Hikaru Academy. No more than once a month.</p>
+
+        <div class="form">
+          <label class="sr" for="nm">Your name</label>
+          <input id="nm" class="field" type="text" placeholder="Name" autocomplete="name">
+          <label class="sr" for="em">Your email address</label>
+          <input id="em" class="field" type="email" placeholder="Email" autocomplete="email">
+          <button class="pill pill-solid" type="button">Subscribe</button>
+        </div>
+        <p class="consent">We use your address only to send these updates. Unsubscribe any time.</p>
+        <p style="margin-top:22px;font-size:var(--t-sm);color:var(--on-dark-mute)">Need to reach a person instead? <a href="contact.html" style="color:var(--primary);font-weight:700;text-decoration:none">Use the contact page →</a></p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="foot">
+  <div class="shell">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="10" stroke="#76b900" stroke-width="1.4" opacity=".55"/>
+            <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
+          </svg>
+          <b>Hikaru Foundation</b>
+        </a>
+        <p>Technology with conscience. A non-profit building decentralized digital infrastructure for Bangladesh.</p>
+      </div>
+      <div><h4>About</h4><a href="about.html#story">Our story</a><a href="about.html">Vision and mission</a><a href="about.html#values">Values</a><a href="about.html#team">People</a></div>
+      <div><h4>Our Work</h4><a href="network.html">Hikaru Layer-1</a><a href="work.html#research">Research and policy</a><a href="work.html#academy">Hikaru Academy</a><a href="work.html">All programmes</a></div>
+      <div><h4>Take part</h4><a href="involved.html">Get involved</a><a href="news.html">Research and updates</a><a href="contact.html">Contact</a><a href="contact.html#hours">Opening hours</a></div>
+      <div><h4>Legal</h4><a href="#">Privacy policy</a><a href="#">Terms of use</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Hikaru Foundation. All rights reserved.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- node-network orb ---------- */
+(function(){
+  var cv = document.getElementById('orb');
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d');
+  var W = cv.width, H = cv.height, CX = W/2, CY = H/2, R = W*0.43;
+  var N = 900, LINK = R*0.17;
+  // nodes projected inside this radius sit behind the map, so they get faded out
+  var COREFADE = W*0.20;
+  var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  var pts = [];
+  var phi = Math.PI * (3 - Math.sqrt(5));
+  for (var i = 0; i < N; i++) {
+    var y = 1 - (i / (N - 1)) * 2;
+    var r = Math.sqrt(Math.max(0, 1 - y*y));
+    var th = phi * i;
+    pts.push({ x: Math.cos(th)*r, y: y, z: Math.sin(th)*r });
+  }
+
+  var a = 0;
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    var cos = Math.cos(a), sin = Math.sin(a);
+    var tilt = 0.32, ct = Math.cos(tilt), st = Math.sin(tilt);
+
+    var proj = pts.map(function(p){
+      var x1 =  p.x*cos + p.z*sin;
+      var z1 = -p.x*sin + p.z*cos;
+      var y2 =  p.y*ct - z1*st;
+      var z2 =  p.y*st + z1*ct;
+      var sx = CX + x1*R, sy = CY + y2*R;
+      var rad = Math.sqrt((sx-CX)*(sx-CX) + (sy-CY)*(sy-CY));
+      // 0 at the centre, 1 once clear of the map
+      var k = Math.min(1, Math.max(0, (rad - COREFADE*0.55) / (COREFADE*0.75)));
+      return { sx: sx, sy: sy, d: (z2 + 1) / 2, k: k };
+    });
+
+    ctx.lineWidth = 1;
+    for (var i = 0; i < proj.length; i += 2) {
+      var p = proj[i];
+      if (p.d < 0.5) continue;
+      for (var j = i + 2; j < i + 40 && j < proj.length; j += 2) {
+        var q = proj[j];
+        if (q.d < 0.5) continue;
+        var dist = Math.sqrt((p.sx-q.sx)*(p.sx-q.sx) + (p.sy-q.sy)*(p.sy-q.sy));
+        if (dist < LINK) {
+          ctx.strokeStyle = 'rgba(143,212,20,' + (0.16 * (1 - dist/LINK) * p.d * p.k * q.k).toFixed(3) + ')';
+          ctx.beginPath(); ctx.moveTo(p.sx, p.sy); ctx.lineTo(q.sx, q.sy); ctx.stroke();
+        }
+      }
+    }
+
+    proj.sort(function(m,n){ return m.d - n.d; }).forEach(function(p){
+      ctx.beginPath();
+      ctx.arc(p.sx, p.sy, 0.7 + p.d * 2.4, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(' + Math.round(150 + p.d*105) + ',' + Math.round(215 + p.d*40) + ',' + Math.round(90 + p.d*70) + ',' + ((0.12 + p.d*0.8) * p.k).toFixed(3) + ')';
+      ctx.fill();
+    });
+
+    if (!reduce) { a += 0.0022; requestAnimationFrame(frame); }
+  }
+  frame();
+})();
+
+/* ---------- scroll reveal ---------- */
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: .1 });
+Array.prototype.forEach.call(document.querySelectorAll('.rv'), function(el){ io.observe(el); });
+</script>
+
+</body>
+</html>

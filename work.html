@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Work — Hikaru Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Same token set as the homepage and About page.
+   New rules: filter bar, catalogue cards, roadmap.
+   ============================================================ */
+:root{
+  --primary:#76b900;
+  --primary-lift:#8fd414;
+  --on-primary:#000;
+  --ink:#04070a;
+  --ink-deep:#010203;
+  --on-dark:#fff;
+  --on-dark-mute:rgba(255,255,255,.62);
+  --on-dark-faint:rgba(255,255,255,.34);
+  --hairline:rgba(255,255,255,.10);
+  --hairline-lit:rgba(255,255,255,.20);
+  --panel:rgba(255,255,255,.035);
+
+  --t-hero:52px; --t-display:40px; --t-h-xl:24px; --t-h-md:20px;
+  --t-card:17px; --t-body:16px; --t-sm:15px; --t-cap:13px; --t-xs:11px;
+
+  --sp-section:110px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,sans-serif;background:var(--ink-deep);color:var(--on-dark);
+  -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.shell{max-width:1200px;margin:0 auto;padding:0 40px}
+.center{text-align:center}
+
+/* ---------- stage: bloom slab ---------- */
+.stage{position:relative;background:var(--ink);overflow:hidden;isolation:isolate}
+.stage::before{
+  content:"";position:absolute;left:50%;bottom:-46%;transform:translateX(-50%);
+  width:150%;height:105%;pointer-events:none;z-index:0;
+  background:radial-gradient(closest-side,
+    rgba(196,255,130,.92),
+    rgba(143,212,20,.60) 34%,
+    rgba(118,185,0,.28) 52%,
+    rgba(60,110,10,.11) 68%,
+    transparent 80%);
+  filter:blur(28px);
+  animation:breathe 11s ease-in-out infinite alternate;
+}
+.stage::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:130px;z-index:1;
+  background:linear-gradient(to bottom, transparent, rgba(1,2,3,.55) 62%, var(--ink-deep));
+  pointer-events:none;
+}
+@keyframes breathe{
+  from{transform:translateX(-50%) scale(1);opacity:.92}
+  to{transform:translateX(-50%) scale(1.07);opacity:1}
+}
+@media (prefers-reduced-motion:reduce){.stage::before{animation:none}}
+.stage > *{position:relative;z-index:2}
+
+/* ---------- nav ---------- */
+.nav-wrap{padding:26px 0 0}
+.nav{
+  margin:0 auto;width:max-content;display:flex;align-items:center;gap:28px;
+  padding:9px 9px 9px 22px;border-radius:999px;
+  background:rgba(255,255,255,.05);border:1px solid var(--hairline-lit);
+  backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);
+  box-shadow:0 8px 30px rgba(0,0,0,.45);
+}
+.brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none}
+.brand svg{flex:none}
+.brand b{font-size:var(--t-sm);font-weight:700;letter-spacing:-.01em}
+.nav-links{display:flex;gap:24px}
+.nav-links a{color:var(--on-dark-mute);text-decoration:none;font-size:var(--t-cap);font-weight:500}
+.nav-links a:hover{color:var(--on-dark)}
+.nav-links a[aria-current]{color:var(--primary)}
+.nav-cta{display:flex;gap:8px}
+
+/* ---------- pills ---------- */
+.pill{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:36px;padding:0 18px;border-radius:999px;border:1px solid transparent;
+  font:inherit;font-size:var(--t-cap);font-weight:700;text-decoration:none;cursor:pointer;
+  transition:transform .18s, background .18s, box-shadow .18s, border-color .18s;
+}
+.pill-solid{background:var(--primary);color:var(--on-primary);box-shadow:0 0 0 1px rgba(196,255,130,.35), 0 6px 20px rgba(118,185,0,.35)}
+.pill-solid:hover{background:var(--primary-lift);transform:translateY(-1px);box-shadow:0 0 0 1px rgba(196,255,130,.5), 0 8px 26px rgba(118,185,0,.5)}
+.pill-ghost{background:rgba(255,255,255,.06);color:var(--on-dark);border-color:var(--hairline-lit)}
+.pill-ghost:hover{border-color:rgba(255,255,255,.4);transform:translateY(-1px)}
+.pill-lg{height:48px;padding:0 30px;font-size:var(--t-body)}
+:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+
+/* ---------- shared type ---------- */
+.eyebrow{font-size:var(--t-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--primary)}
+h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.02em}
+.lede{margin:18px auto 0;max-width:60ch;color:var(--on-dark-mute);font-size:var(--t-body);line-height:1.7}
+section{padding:var(--sp-section) 0}
+.rule{width:120px;height:1px;margin:0 auto 40px;background:linear-gradient(90deg,transparent,var(--hairline-lit),transparent)}
+
+/* ---------- header ---------- */
+.head{padding:88px 0 130px;text-align:center}
+.head h1{font-size:var(--t-hero);font-weight:700;line-height:1.14;letter-spacing:-.03em;max-width:18ch;margin:18px auto 0;color:var(--on-dark-faint)}
+.head h1 em{font-style:normal;color:var(--on-dark)}
+.head .lede{margin-top:22px}
+.pillar-jump{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+
+/* ==================== FILTER BAR ==================== */
+.filterbar{
+  position:sticky;top:0;z-index:40;
+  padding:16px 0;margin-bottom:8px;
+  background:rgba(1,2,3,.82);
+  backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+  border-bottom:1px solid var(--hairline);
+}
+.filter-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.filter-label{font-size:var(--t-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-faint);flex:none}
+.chips{display:flex;gap:8px;flex-wrap:wrap;flex:1}
+.chip{
+  height:34px;padding:0 15px;border-radius:999px;cursor:pointer;
+  background:rgba(255,255,255,.04);border:1px solid var(--hairline);
+  color:var(--on-dark-mute);font:inherit;font-size:var(--t-cap);font-weight:500;
+  transition:background .18s, border-color .18s, color .18s;
+}
+.chip:hover{border-color:var(--hairline-lit);color:var(--on-dark)}
+.chip[aria-pressed="true"]{
+  background:var(--primary);border-color:var(--primary);color:var(--on-primary);font-weight:700;
+  box-shadow:0 0 0 1px rgba(196,255,130,.3), 0 4px 16px rgba(118,185,0,.3);
+}
+.count{font-size:var(--t-cap);color:var(--on-dark-faint);flex:none}
+.count b{color:var(--on-dark)}
+
+/* ==================== CATALOGUE ==================== */
+.pillar{padding:72px 0 0}
+.pillar-head{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:10px}
+.pillar-head h2{font-size:var(--t-h-xl)}
+.pillar-head .n{
+  font-size:var(--t-cap);font-weight:700;color:var(--primary);
+  padding:4px 11px;border-radius:999px;border:1px solid rgba(143,212,20,.3);background:rgba(118,185,0,.08);
+}
+.pillar-intro{color:var(--on-dark-mute);font-size:var(--t-sm);line-height:1.75;max-width:70ch;margin-bottom:34px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{
+  position:relative;padding:30px 26px 26px;overflow:hidden;
+  display:flex;flex-direction:column;
+  background:var(--panel);border:1px solid var(--hairline);border-radius:18px;
+  backdrop-filter:blur(14px);
+  transition:border-color .22s, transform .22s, background .22s;
+}
+.card:hover{border-color:rgba(143,212,20,.4);transform:translateY(-4px);background:rgba(255,255,255,.055)}
+.card::before{content:"";position:absolute;top:0;left:0;width:12px;height:12px;background:var(--primary)}
+.card .top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:20px}
+.card svg{color:var(--primary);flex:none}
+.card h3{font-size:var(--t-card);font-weight:700;margin-bottom:10px;letter-spacing:-.01em;line-height:1.35}
+.card p{font-size:var(--t-sm);color:var(--on-dark-mute);line-height:1.7;flex:1;margin-bottom:18px}
+.card .who{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.card .who span{
+  font-size:var(--t-xs);color:var(--on-dark-faint);
+  padding:4px 10px;border-radius:999px;border:1px solid var(--hairline);
+}
+.card a.more{color:var(--primary);font-size:var(--t-sm);font-weight:700;text-decoration:none;display:inline-flex;gap:7px;align-self:flex-start}
+.card a.more:hover{gap:12px;transition:gap .18s}
+
+.status{
+  flex:none;font-size:var(--t-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:5px 11px;border-radius:999px;white-space:nowrap;
+}
+.status.live{background:rgba(118,185,0,.14);color:var(--primary);border:1px solid rgba(143,212,20,.35)}
+.status.dev{color:rgba(255,255,255,.72);border:1px solid var(--hairline-lit)}
+.status.plan{color:var(--on-dark-faint);border:1px dashed var(--hairline-lit)}
+
+.card.hide{display:none}
+.empty{
+  display:none;text-align:center;padding:56px 24px;margin-top:24px;
+  border:1px dashed var(--hairline-lit);border-radius:18px;color:var(--on-dark-mute);
+}
+.empty.show{display:block}
+.pillar.hide{display:none}
+
+/* ==================== ROADMAP ==================== */
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;position:relative}
+.road::before{
+  content:"";position:absolute;top:34px;left:16%;right:16%;height:1px;
+  background:linear-gradient(90deg, rgba(143,212,20,.5), rgba(143,212,20,.5));
+  opacity:.35;
+}
+.step{position:relative;padding:0 24px;text-align:center}
+.step .num{
+  position:relative;z-index:2;width:68px;height:68px;margin:0 auto 22px;border-radius:999px;
+  display:grid;place-items:center;font-size:var(--t-h-md);font-weight:700;
+  background:var(--ink-deep);color:var(--primary);
+  border:1px solid rgba(143,212,20,.45);
+  box-shadow:0 0 26px rgba(118,185,0,.28);
+}
+.step h3{font-size:var(--t-card);font-weight:700;margin-bottom:10px}
+.step p{font-size:var(--t-sm);color:var(--on-dark-mute);line-height:1.7;max-width:32ch;margin:0 auto}
+
+/* ==================== PERSISTENT CTA BANNER ==================== */
+.helpbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  transform:translateY(120%);transition:transform .35s cubic-bezier(.22,.61,.36,1);
+}
+.helpbar.up{transform:none}
+.helpbar-inner{
+  max-width:1000px;margin:0 auto 18px;padding:14px 14px 14px 26px;border-radius:999px;
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:space-between;
+  background:rgba(10,16,8,.86);border:1px solid rgba(143,212,20,.28);
+  backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);
+  box-shadow:0 12px 40px rgba(0,0,0,.6);
+}
+.helpbar b{font-size:var(--t-sm);font-weight:700}
+.helpbar span{font-size:var(--t-cap);color:var(--on-dark-mute)}
+.helpbar .acts{display:flex;align-items:center;gap:8px}
+.helpbar .close{
+  width:34px;height:34px;border-radius:999px;display:grid;place-items:center;cursor:pointer;
+  background:transparent;border:1px solid var(--hairline);color:var(--on-dark-mute);font-size:16px;line-height:1;
+}
+.helpbar .close:hover{border-color:var(--hairline-lit);color:var(--on-dark)}
+@media (prefers-reduced-motion:reduce){.helpbar{transition:none}}
+
+/* ---------- build note ---------- */
+.note{
+  max-width:820px;margin:44px auto 0;padding:22px 26px;border-radius:14px;text-align:left;
+  background:rgba(118,185,0,.06);border:1px solid rgba(143,212,20,.28);
+  font-size:var(--t-sm);line-height:1.7;color:rgba(255,255,255,.78);
+}
+.note b{color:var(--primary)}
+
+/* ---------- closing ---------- */
+.close-sec{padding:var(--sp-section) 0 150px;text-align:center}
+
+/* ---------- footer ---------- */
+.foot{background:var(--ink-deep);border-top:1px solid var(--hairline);padding:56px 0 110px}
+.foot-grid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:32px}
+.foot-brand p{margin-top:14px;font-size:var(--t-cap);color:var(--on-dark-faint);max-width:28ch;line-height:1.65}
+.foot h4{font-size:var(--t-cap);font-weight:700;margin-bottom:14px}
+.foot a{display:block;padding:5px 0;font-size:var(--t-cap);color:var(--on-dark-faint);text-decoration:none}
+.foot a:hover{color:var(--primary)}
+.foot .brand{display:flex}
+.foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--hairline)}
+.foot-bottom span,.foot-bottom a{font-size:var(--t-xs);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(20px)}
+.rv.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+/* ---------- narrow fallback (spec is desktop 1440) ---------- */
+@media (max-width:980px){
+  :root{--t-hero:32px;--t-display:26px;--sp-section:72px}
+  .shell{padding:0 20px}
+  .nav-links{display:none}
+  .grid,.road,.foot-grid{grid-template-columns:1fr}
+  .road::before{display:none}
+  .step{padding:0 0 40px}
+  .filter-label,.count{display:none}
+  .helpbar-inner{border-radius:20px;margin:0 12px 12px;padding:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== STAGE: nav + header ==================== -->
+<div class="stage">
+  <div class="nav-wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="10" stroke="#76b900" stroke-width="1.4" opacity=".55"/>
+          <circle cx="11" cy="11" r="5.6" stroke="#76b900" stroke-width="1.2" opacity=".8"/>
+          <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
+        </svg>
+        <b>Hikaru Foundation</b>
+      </a>
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="work.html" aria-current="page">Our Work</a>
+        <a href="news.html">Research</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a class="pill pill-solid" href="involved.html">Get Involved</a>
+      </div>
+    </nav>
+  </div>
+
+  <header class="head" id="top">
+    <div class="shell">
+      <span class="eyebrow">Our work</span>
+      <h1>Ten programmes across <em>three initiatives.</em></h1>
+      <p class="lede">Digital autonomy needs more than working code. It needs infrastructure people control, rules that protect them, and the knowledge to use both. Filter by who you are, or read the whole catalogue.</p>
+      <div class="pillar-jump">
+        <a class="pill pill-ghost" href="#network">The network</a>
+        <a class="pill pill-ghost" href="#research">Research and policy</a>
+        <a class="pill pill-ghost" href="#academy">Hikaru Academy</a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- ==================== FILTER BAR ==================== -->
+<div class="filterbar" id="filters">
+  <div class="shell">
+    <div class="filter-row">
+      <span class="filter-label">Show work for</span>
+      <div class="chips" role="group" aria-label="Filter programmes by audience">
+        <button class="chip" data-f="all" aria-pressed="true" type="button">Everyone</button>
+        <button class="chip" data-f="tech" aria-pressed="false" type="button">Technologists</button>
+        <button class="chip" data-f="research" aria-pressed="false" type="button">Researchers</button>
+        <button class="chip" data-f="legal" aria-pressed="false" type="button">Policy and legal</button>
+        <button class="chip" data-f="student" aria-pressed="false" type="button">Students</button>
+        <button class="chip" data-f="business" aria-pressed="false" type="button">Business</button>
+        <button class="chip" data-f="citizen" aria-pressed="false" type="button">Citizens</button>
+      </div>
+      <span class="count" id="count" aria-live="polite"><b>10</b> of 10</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- ==================== PILLAR 1 — THE NETWORK ==================== -->
+<div class="pillar" id="network">
+  <div class="shell">
+    <div class="pillar-head rv">
+      <h2>Hikaru, a Layer-1 blockchain</h2>
+      <span class="n" data-pillar-count>4 programmes</span>
+    </div>
+    <p class="pillar-intro rv">A sovereign Layer-1 network powered by community-driven decentralized infrastructure. It maintains an immutable ledger and enables secure peer-to-peer interaction. These are the applications it is built to carry.</p>
+
+    <div class="grid">
+
+      <article class="card rv" data-a="tech citizen business">
+        <div class="top">
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <rect x="4" y="8" width="20" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M4 13h20" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M8 18h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="status dev">In development</span>
+        </div>
+        <h3>Financial transactions</h3>
+        <p>Peer-to-peer value transfer settled on the network's own ledger, without a foreign intermediary holding the rails or the record.</p>
+        <div class="who"><span>Citizens</span><span>Business</span><span>Developers</span></div>
+        <a class="more" href="network.html">Learn more →</a>
+      </article>
+
+      <article class="card rv" data-a="tech business">
+        <div class="top">
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <rect x="3" y="10" width="9" height="8" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+            <rect x="16" y="10" width="9" height="8" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M12 14h4" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M7.5 10V6M20.5 18v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="status dev">In development</span>
+        </div>
+        <h3>Supply chain tracking</h3>
+        <p>An immutable record of custody and movement, so provenance claims can be checked rather than taken on trust.</p>
+        <div class="who"><span>Business</span><span>Developers</span></div>
+        <a class="more" href="network.html">Learn more →</a>
+      </article>
+
+      <article class="card rv" data-a="tech citizen legal">
+        <div class="top">
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <rect x="4" y="6" width="20" height="16" rx="2.5" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="11" cy="13" r="2.8" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M6.5 19c1-2 3-3 4.5-3s3.5 1 4.5 3M18 11h4M18 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="status dev">In development</span>
+        </div>
+        <h3>Digital identity management</h3>
+        <p>Identity credentials the holder controls, rather than records held and monetised by organisations outside the country.</p>
+        <div class="who"><span>Citizens</span><span>Policy and legal</span><span>Developers</span></div>
+        <a class="more" href="network.html">Learn more →</a>
+      </article>
+
+      <article class="card rv" data-a="tech">
+        <div class="top">
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <circle cx="14" cy="6" r="3" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="5" cy="21" r="3" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="23" cy="21" r="3" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M12 8.5L7 18.5M16 8.5l5 10M8 21h12" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+          <span class="status dev">In development</span>
+        </div>
+        <h3>Community node infrastructure</h3>
+        <p>The network runs on infrastructure contributed by its participants. Operating a node is how ownership stays distributed in practice, not just in principle.</p>
+        <div class="who"><span>Technologists</span></div>
+        <a class="more" href="network.html">Learn more →</a>
+      </article>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PILLAR 2 — RESEARCH AND POLICY ==================== -->
+<div class="pillar" id="research">
+  <div class="shell">
+    <div class="pillar-head rv">
+      <h2>Research and policy advocacy</h2>
+      <span class="n" data-pillar-count>3 programmes</span>
+    </div>
+    <p class="pillar-intro rv">We research blockchain networks at the protocol level, and work with government authorities, industry experts, and academic institutions on the legal and regulatory frameworks adoption in Bangladesh will need.</p>
+
+    <div class="grid">
+
+      <article class="card rv" data-a="tech research">
+        <div class="top">
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <path d="M14 3l9 3.5v7c0 5.5-3.8 10-9 11.5C8.8 24.5 5 20 5 13.5v-7L14 3z" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M10 13.5l2.8 2.8L18 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="status live">Active</span>
+        </div>
+        <h3>Protocol security research</h3>
+        <p>Examining the security properties of blockchain networks at the protocol layer, where the assumptions everything else rests on are made.</p>
+        <div class="who"><span>Researchers</span><span>Technologists</span></div>
+        <a class="more" href="#">Learn more →</a>
+      </article>
+
+      <article class="card rv" data-a="research legal citizen">
+        <div class="top">
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <rect x="5" y="12" width="18" height="12" rx="2.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M9.5 12V9a4.5 4.5 0 019 0v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="14" cy="18" r="1.8" fill="currentColor"/>
+          </svg>
+          <span class="status live">Active</span>
+        </div>
+        <h3>Privacy research</h3>
+        <p>Studying how much a public ledger reveals and what can be done about it, because transparency and surveillance are separated by design choices.</p>
+        <div class="who"><span>Researchers</span><span>Policy and legal</span><span>Citizens</span></div>
+        <a class="more" href="#">Learn more →</a>
+      </article>
+
+      <article class="card rv" data-a="legal research business">
+        <div class="top">
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <path d="M14 4v20M6 9h16M9 9l-3.5 8h7L9 9zM19 9l-3.5 8h7L19 9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M10 24h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="status live">Active</span>
+        </div>
+        <h3>Regulatory and legal engagement</h3>
+        <p>Working with government authorities, industry experts, and academic institutions to shape the frameworks blockchain adoption in Bangladesh will require.</p>
+        <div class="who"><span>Policy and legal</span><span>Researchers</span><span>Business</span></div>
+        <a class="more" href="#">Learn more →</a>
+      </article>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PILLAR 3 — ACADEMY ==================== -->
+<div class="pillar" id="academy">
+  <div class="shell">
+    <div class="pillar-head rv">
+      <h2>Hikaru Academy</h2>
+      <span class="n" data-pillar-count>3 programmes</span>
+    </div>
+    <p class="pillar-intro rv">Hikaru Academy will deliver educational programmes, workshops, and training sessions covering fundamental and advanced blockchain concepts, built for students, professionals, and community leaders. All three are planned, not yet running.</p>
+
+    <div class="grid">
+
+      <article class="card rv" data-a="student citizen">
+        <div class="top">
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <path d="M14 5l11 5-11 5-11-5 11-5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M7 12.5V19c0 1.7 3.1 3 7 3s7-1.3 7-3v-6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="status plan">Planned</span>
+        </div>
+        <h3>Blockchain fundamentals</h3>
+        <p>The foundational track: what a distributed ledger is, what it can and cannot do, and why any of it matters to people who will never write code.</p>
+        <div class="who"><span>Students</span><span>Citizens</span></div>
+        <a class="more" href="#">Learn more →</a>
+      </article>
+
+      <article class="card rv" data-a="tech student research">
+        <div class="top">
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <path d="M10 8l-6 6 6 6M18 8l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15.5 5.5l-3 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="status plan">Planned</span>
+        </div>
+        <h3>Advanced concepts</h3>
+        <p>The technical track for people who will build on or operate the network: consensus, cryptography, and protocol-level design decisions.</p>
+        <div class="who"><span>Technologists</span><span>Students</span><span>Researchers</span></div>
+        <a class="more" href="#">Learn more →</a>
+      </article>
+
+      <article class="card rv" data-a="citizen student business">
+        <div class="top">
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <circle cx="10" cy="9" r="3.2" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="19.5" cy="10.5" r="2.6" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M4 21c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M17 15.6c2.9.2 5 2.2 5 5.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <span class="status plan">Planned</span>
+        </div>
+        <h3>Workshops and training sessions</h3>
+        <p>Shorter in-person and remote sessions aimed at professionals and community leaders who need working knowledge rather than a full course.</p>
+        <div class="who"><span>Citizens</span><span>Students</span><span>Business</span></div>
+        <a class="more" href="#">Learn more →</a>
+      </article>
+
+    </div>
+  </div>
+</div>
+
+<div class="shell">
+  <div class="empty" id="empty">
+    <p style="font-size:var(--t-h-md);font-weight:700;color:#fff;margin-bottom:10px">Nothing matches that filter yet.</p>
+    <p style="font-size:var(--t-sm)">Try another audience, or clear the filter to see all ten programmes.</p>
+    <button class="pill pill-ghost" style="margin-top:20px" type="button" data-clear>Clear filter</button>
+  </div>
+</div>
+
+<!-- ==================== ROADMAP ==================== -->
+<section id="start">
+  <div class="shell center">
+    <div class="rule"></div>
+    <div class="rv">
+      <span class="eyebrow">Getting started</span>
+      <h2 style="margin-top:16px">Three steps in</h2>
+      <p class="lede">There is no application process and no fee. Find the work that fits what you already do, then tell us.</p>
+    </div>
+
+    <div class="road">
+      <div class="step rv">
+        <div class="num">1</div>
+        <h3>Find your fit</h3>
+        <p>Filter the catalogue above by what you do. Every programme lists who it is for and whether it is running yet.</p>
+      </div>
+      <div class="step rv">
+        <div class="num">2</div>
+        <h3>Tell us where you'd help</h3>
+        <p>Send a short note naming the programme and what you bring. Code, research, legal work, teaching, or time.</p>
+      </div>
+      <div class="step rv">
+        <div class="num">3</div>
+        <h3>Start</h3>
+        <p>We reply with the current state of that work, who else is on it, and where you can pick something up.</p>
+      </div>
+    </div>
+
+    <div class="note rv">
+      <b>Build note.</b> These three steps describe an intended process, not one documented in the source profile. Confirm the real onboarding path before launch, including who replies and how fast. A stated response time you cannot meet does more damage than no roadmap at all.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== CLOSING, on a second bloom ==================== -->
+<div class="stage">
+  <section class="close-sec">
+    <div class="shell center">
+      <div class="rule"></div>
+      <div class="rv">
+        <h2 style="margin:0 auto;max-width:20ch">Ten programmes, one purpose.</h2>
+        <p class="lede">Infrastructure people control, rules that protect them, and the knowledge to use both. That is the whole plan.</p>
+        <div style="margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+          <a class="pill pill-solid pill-lg" href="involved.html">Get Involved</a>
+          <a class="pill pill-ghost pill-lg" href="about.html">Read our story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="foot">
+  <div class="shell">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="10" stroke="#76b900" stroke-width="1.4" opacity=".55"/>
+            <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
+          </svg>
+          <b>Hikaru Foundation</b>
+        </a>
+        <p>Technology with conscience. A non-profit building decentralized digital infrastructure for Bangladesh.</p>
+      </div>
+      <div><h4>About</h4><a href="about.html#story">Our story</a><a href="about.html">Vision and mission</a><a href="about.html#values">Values</a><a href="about.html#team">People</a></div>
+      <div><h4>Our Work</h4><a href="network.html">Hikaru Layer-1</a><a href="work.html#research">Research and policy</a><a href="work.html#academy">Hikaru Academy</a><a href="work.html">All programmes</a></div>
+      <div><h4>Take part</h4><a href="involved.html">Get involved</a><a href="news.html">Research and updates</a><a href="contact.html">Contact</a><a href="contact.html#hours">Opening hours</a></div>
+      <div><h4>Legal</h4><a href="#">Privacy policy</a><a href="#">Terms of use</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Hikaru Foundation. All rights reserved.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ==================== PERSISTENT HELP BANNER ==================== -->
+<div class="helpbar" id="helpbar">
+  <div class="helpbar-inner">
+    <div>
+      <b>Not sure which programme fits you?</b><br>
+      <span>Tell us what you do and we'll point you at the right one.</span>
+    </div>
+    <div class="acts">
+      <a class="pill pill-solid" href="contact.html">Talk to us</a>
+      <button class="close" type="button" id="helpClose" aria-label="Dismiss">×</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- scroll reveal ---------- */
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: .1 });
+Array.prototype.forEach.call(document.querySelectorAll('.rv'), function(el){ io.observe(el); });
+
+/* ---------- audience filter ---------- */
+(function(){
+  var chips  = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var cards  = Array.prototype.slice.call(document.querySelectorAll('.card[data-a]'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('.pillar'));
+  var count  = document.getElementById('count');
+  var empty  = document.getElementById('empty');
+  var total  = cards.length;
+
+  function apply(f){
+    var shown = 0;
+
+    cards.forEach(function(c){
+      var hit = f === 'all' || c.getAttribute('data-a').split(' ').indexOf(f) !== -1;
+      c.classList.toggle('hide', !hit);
+      if (hit) shown++;
+    });
+
+    groups.forEach(function(g){
+      var live = g.querySelectorAll('.card[data-a]:not(.hide)').length;
+      g.classList.toggle('hide', live === 0);
+      var tag = g.querySelector('[data-pillar-count]');
+      if (tag) tag.textContent = live + (live === 1 ? ' programme' : ' programmes');
+    });
+
+    count.innerHTML = '<b>' + shown + '</b> of ' + total;
+    empty.classList.toggle('show', shown === 0);
+  }
+
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.setAttribute('aria-pressed', String(c === chip)); });
+      apply(chip.getAttribute('data-f'));
+    });
+  });
+
+  var clear = document.querySelector('[data-clear]');
+  if (clear) clear.addEventListener('click', function(){
+    chips.forEach(function(c){ c.setAttribute('aria-pressed', String(c.getAttribute('data-f') === 'all')); });
+    apply('all');
+    document.getElementById('filters').scrollIntoView({ block: 'start' });
+  });
+})();
+
+/* ---------- persistent help banner ---------- */
+(function(){
+  var bar = document.getElementById('helpbar');
+  var btn = document.getElementById('helpClose');
+  var dismissed = false;
+
+  btn.addEventListener('click', function(){ dismissed = true; bar.classList.remove('up'); });
+
+  var ticking = false;
+  function check(){
+    ticking = false;
+    if (dismissed) return;
+    // appears once the reader is into the catalogue, hides at the very bottom
+    var y = window.scrollY;
+    var nearEnd = (y + window.innerHeight) > (document.body.scrollHeight - 260);
+    bar.classList.toggle('up', y > 700 && !nearEnd);
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { ticking = true; requestAnimationFrame(check); }
+  }, { passive: true });
+  check();
+})();
+</script>
+
+</body>
+</html>

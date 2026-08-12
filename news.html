@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research and Updates — Hikaru Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Same token set as index / about / work.
+   New rules: featured slab, category nav, feed grid, sidebar.
+   ============================================================ */
+:root{
+  --primary:#76b900;
+  --primary-lift:#8fd414;
+  --on-primary:#000;
+  --ink:#04070a;
+  --ink-deep:#010203;
+  --on-dark:#fff;
+  --on-dark-mute:rgba(255,255,255,.62);
+  --on-dark-faint:rgba(255,255,255,.34);
+  --hairline:rgba(255,255,255,.10);
+  --hairline-lit:rgba(255,255,255,.20);
+  --panel:rgba(255,255,255,.035);
+
+  --t-hero:44px; --t-display:36px; --t-h-xl:24px; --t-h-md:20px;
+  --t-card:17px; --t-body:16px; --t-sm:15px; --t-cap:13px; --t-xs:11px;
+
+  --sp-section:100px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,sans-serif;background:var(--ink-deep);color:var(--on-dark);
+  -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden;
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.shell{max-width:1200px;margin:0 auto;padding:0 40px}
+.center{text-align:center}
+
+/* ---------- stage ---------- */
+.stage{position:relative;background:var(--ink);overflow:hidden;isolation:isolate}
+.stage::before{
+  content:"";position:absolute;left:50%;bottom:-46%;transform:translateX(-50%);
+  width:150%;height:105%;pointer-events:none;z-index:0;
+  background:radial-gradient(closest-side,
+    rgba(196,255,130,.92), rgba(143,212,20,.60) 34%,
+    rgba(118,185,0,.28) 52%, rgba(60,110,10,.11) 68%, transparent 80%);
+  filter:blur(28px);animation:breathe 11s ease-in-out infinite alternate;
+}
+.stage::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:130px;z-index:1;
+  background:linear-gradient(to bottom, transparent, rgba(1,2,3,.55) 62%, var(--ink-deep));
+  pointer-events:none;
+}
+@keyframes breathe{from{transform:translateX(-50%) scale(1);opacity:.92}to{transform:translateX(-50%) scale(1.07);opacity:1}}
+@media (prefers-reduced-motion:reduce){.stage::before{animation:none}}
+.stage > *{position:relative;z-index:2}
+
+/* ---------- nav ---------- */
+.nav-wrap{padding:26px 0 0}
+.nav{
+  margin:0 auto;width:max-content;display:flex;align-items:center;gap:28px;
+  padding:9px 9px 9px 22px;border-radius:999px;
+  background:rgba(255,255,255,.05);border:1px solid var(--hairline-lit);
+  backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);
+  box-shadow:0 8px 30px rgba(0,0,0,.45);
+}
+.brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none}
+.brand svg{flex:none}
+.brand b{font-size:var(--t-sm);font-weight:700;letter-spacing:-.01em}
+.nav-links{display:flex;gap:24px}
+.nav-links a{color:var(--on-dark-mute);text-decoration:none;font-size:var(--t-cap);font-weight:500}
+.nav-links a:hover{color:var(--on-dark)}
+.nav-links a[aria-current]{color:var(--primary)}
+.nav-cta{display:flex;gap:8px}
+
+/* ---------- pills ---------- */
+.pill{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:36px;padding:0 18px;border-radius:999px;border:1px solid transparent;
+  font:inherit;font-size:var(--t-cap);font-weight:700;text-decoration:none;cursor:pointer;
+  transition:transform .18s, background .18s, box-shadow .18s, border-color .18s;
+}
+.pill-solid{background:var(--primary);color:var(--on-primary);box-shadow:0 0 0 1px rgba(196,255,130,.35), 0 6px 20px rgba(118,185,0,.35)}
+.pill-solid:hover{background:var(--primary-lift);transform:translateY(-1px);box-shadow:0 0 0 1px rgba(196,255,130,.5), 0 8px 26px rgba(118,185,0,.5)}
+.pill-ghost{background:rgba(255,255,255,.06);color:var(--on-dark);border-color:var(--hairline-lit)}
+.pill-ghost:hover{border-color:rgba(255,255,255,.4);transform:translateY(-1px)}
+.pill-lg{height:48px;padding:0 30px;font-size:var(--t-body)}
+:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+
+/* ---------- shared ---------- */
+.eyebrow{font-size:var(--t-xs);font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--primary)}
+.rule{width:120px;height:1px;margin:0 auto 40px;background:linear-gradient(90deg,transparent,var(--hairline-lit),transparent)}
+.meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:var(--t-xs);color:var(--on-dark-faint)}
+.meta .dot{width:3px;height:3px;border-radius:999px;background:currentColor;opacity:.6}
+.tag{
+  font-size:var(--t-xs);font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 11px;border-radius:999px;
+  color:var(--primary);background:rgba(118,185,0,.10);border:1px solid rgba(143,212,20,.3);
+}
+.sample{
+  font-size:var(--t-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 10px;border-radius:999px;
+  color:rgba(255,190,80,.95);background:rgba(255,170,40,.10);border:1px dashed rgba(255,180,60,.45);
+}
+
+/* ---------- header ---------- */
+.head{padding:88px 0 44px;text-align:center}
+.head h1{font-size:var(--t-hero);font-weight:700;line-height:1.14;letter-spacing:-.03em;max-width:20ch;margin:18px auto 0}
+.head p{margin:20px auto 0;max-width:56ch;color:var(--on-dark-mute);font-size:var(--t-body);line-height:1.7}
+
+/* ==================== FEATURED SLAB ==================== */
+.featured{padding:0 0 130px}
+.feat{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:0;overflow:hidden;
+  border-radius:24px;border:1px solid var(--hairline-lit);
+  background:rgba(255,255,255,.045);backdrop-filter:blur(18px);
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+.feat-cover{
+  position:relative;min-height:400px;
+  background:
+    radial-gradient(120% 100% at 20% 15%, rgba(143,212,20,.30), transparent 62%),
+    linear-gradient(140deg, #0d1608, #061012 55%, #04070a);
+  display:grid;place-items:center;
+}
+.feat-cover::after{ /* faint node lattice, stands in for the cover photo */
+  content:"";position:absolute;inset:0;
+  background-image:
+    radial-gradient(rgba(196,255,130,.30) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size:26px 26px, 78px 78px, 78px 78px;
+  mask-image:radial-gradient(90% 80% at 35% 40%, #000 25%, transparent 75%);
+}
+.feat-cover .glyph{position:relative;z-index:2;opacity:.9;filter:drop-shadow(0 0 26px rgba(143,212,20,.45))}
+.feat-cover .imgnote{
+  position:absolute;left:20px;bottom:18px;z-index:3;
+  font-size:var(--t-xs);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.30);
+}
+.feat-body{padding:48px 44px;display:flex;flex-direction:column;justify-content:center}
+.feat-body .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.feat-body h2{font-size:var(--t-display);font-weight:700;line-height:1.22;letter-spacing:-.02em;margin-bottom:16px}
+.feat-body p{color:var(--on-dark-mute);font-size:var(--t-body);line-height:1.75;margin-bottom:26px}
+.feat-body .meta{margin-bottom:26px}
+.feat-body .go{align-self:flex-start}
+
+/* ==================== CATEGORY NAV ==================== */
+.catbar{
+  position:sticky;top:0;z-index:40;padding:16px 0;
+  background:rgba(1,2,3,.82);
+  backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+  border-bottom:1px solid var(--hairline);
+}
+.catrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.catrow .lbl{font-size:var(--t-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-faint);flex:none}
+.cats{display:flex;gap:8px;flex-wrap:wrap;flex:1}
+.cat{
+  height:34px;padding:0 15px;border-radius:999px;cursor:pointer;
+  background:rgba(255,255,255,.04);border:1px solid var(--hairline);
+  color:var(--on-dark-mute);font:inherit;font-size:var(--t-cap);font-weight:500;
+  transition:background .18s, border-color .18s, color .18s;
+}
+.cat:hover{border-color:var(--hairline-lit);color:var(--on-dark)}
+.cat[aria-pressed="true"]{
+  background:var(--primary);border-color:var(--primary);color:var(--on-primary);font-weight:700;
+  box-shadow:0 0 0 1px rgba(196,255,130,.3), 0 4px 16px rgba(118,185,0,.3);
+}
+.tally{font-size:var(--t-cap);color:var(--on-dark-faint);flex:none}
+.tally b{color:var(--on-dark)}
+
+/* ==================== FEED + SIDEBAR ==================== */
+.hub{display:grid;grid-template-columns:1fr 336px;gap:44px;align-items:start;padding:64px 0 var(--sp-section)}
+.feed{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+
+.post{
+  display:flex;flex-direction:column;overflow:hidden;
+  background:var(--panel);border:1px solid var(--hairline);border-radius:18px;
+  text-decoration:none;color:inherit;
+  transition:border-color .22s, transform .22s, background .22s;
+}
+.post:hover{border-color:rgba(143,212,20,.4);transform:translateY(-4px);background:rgba(255,255,255,.055)}
+.thumb{
+  position:relative;aspect-ratio:16/9;
+  background:linear-gradient(140deg, #0c1408, #061012 60%, #04070a);
+  display:grid;place-items:center;
+}
+.thumb::after{
+  content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(196,255,130,.24) 1px, transparent 1px);
+  background-size:22px 22px;
+  mask-image:radial-gradient(80% 80% at 50% 45%, #000 20%, transparent 76%);
+}
+.thumb svg{position:relative;z-index:2;opacity:.85;color:var(--primary);filter:drop-shadow(0 0 18px rgba(143,212,20,.35))}
+.thumb .stamp{position:absolute;z-index:3;top:12px;right:12px}
+.post-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.post-body .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.post-body h3{font-size:var(--t-card);font-weight:700;line-height:1.4;letter-spacing:-.01em;margin-bottom:10px}
+.post:hover h3{color:var(--primary-lift)}
+.post-body p{font-size:var(--t-sm);color:var(--on-dark-mute);line-height:1.65;flex:1;margin-bottom:16px}
+
+.post.hide{display:none}
+
+.loadmore{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:40px}
+.pages{display:flex;gap:6px;align-items:center}
+.pg{
+  min-width:36px;height:36px;padding:0 10px;border-radius:10px;cursor:pointer;
+  background:transparent;border:1px solid var(--hairline);color:var(--on-dark-mute);
+  font:inherit;font-size:var(--t-cap);font-weight:700;
+}
+.pg:hover{border-color:var(--hairline-lit);color:var(--on-dark)}
+.pg[aria-current]{background:rgba(118,185,0,.14);border-color:rgba(143,212,20,.4);color:var(--primary)}
+.pg[disabled]{opacity:.3;cursor:default}
+
+/* ---------- sidebar ---------- */
+.side{position:sticky;top:88px;display:flex;flex-direction:column;gap:20px}
+.side-card{
+  padding:28px;border-radius:18px;position:relative;overflow:hidden;
+  background:var(--panel);border:1px solid var(--hairline);backdrop-filter:blur(14px);
+}
+.side-card.sub{background:rgba(118,185,0,.07);border-color:rgba(143,212,20,.3)}
+.side-card.sub::before{content:"";position:absolute;top:0;left:0;width:12px;height:12px;background:var(--primary)}
+.side-card h3{font-size:var(--t-h-md);font-weight:700;letter-spacing:-.01em;margin:14px 0 10px}
+.side-card p{font-size:var(--t-sm);color:var(--on-dark-mute);line-height:1.65}
+.side-form{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.field{
+  height:44px;padding:0 16px;border-radius:12px;color:#fff;font:inherit;font-size:var(--t-sm);
+  background:rgba(255,255,255,.05);border:1px solid var(--hairline-lit);
+}
+.field::placeholder{color:var(--on-dark-faint)}
+.field:focus{border-color:var(--primary);outline:none}
+.side-form .pill{height:44px}
+.consent{margin-top:12px;font-size:var(--t-xs);color:var(--on-dark-faint);line-height:1.6}
+
+.topics{display:flex;flex-direction:column}
+.topics a{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 0;border-bottom:1px solid var(--hairline);
+  color:var(--on-dark-mute);text-decoration:none;font-size:var(--t-sm);
+}
+.topics a:last-child{border-bottom:0}
+.topics a:hover{color:var(--primary)}
+.topics em{font-style:normal;font-size:var(--t-xs);color:var(--on-dark-faint)}
+
+/* ==================== EMPTY / LAUNCH STATE ==================== */
+.launch{display:none}
+body.state-launch .launch{display:block}
+body.state-launch .featured,
+body.state-launch .catbar,
+body.state-launch .feed,
+body.state-launch .loadmore{display:none}
+body.state-launch .hub{grid-template-columns:1fr 336px;padding-top:0}
+
+.empty{
+  padding:64px 40px;text-align:center;border-radius:22px;
+  border:1px dashed var(--hairline-lit);background:rgba(255,255,255,.02);
+}
+.empty .orbit{width:74px;height:74px;margin:0 auto 26px;display:grid;place-items:center;border-radius:999px;
+  border:1px solid rgba(143,212,20,.35);box-shadow:0 0 30px rgba(118,185,0,.22);color:var(--primary)}
+.empty h2{font-size:var(--t-h-xl);font-weight:700;letter-spacing:-.01em;margin-bottom:14px}
+.empty p{max-width:50ch;margin:0 auto;color:var(--on-dark-mute);font-size:var(--t-sm);line-height:1.75}
+.upcoming{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:760px;margin:36px auto 0;text-align:left}
+.up{padding:20px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid var(--hairline)}
+.up b{display:block;font-size:var(--t-sm);font-weight:700;margin-bottom:6px}
+.up span{font-size:var(--t-xs);color:var(--on-dark-faint);line-height:1.6}
+
+/* ---------- state toggle (build tool, delete before launch) ---------- */
+.switch{
+  position:fixed;left:18px;bottom:18px;z-index:80;display:flex;gap:6px;padding:6px;
+  border-radius:999px;background:rgba(10,14,8,.9);border:1px solid var(--hairline-lit);
+  backdrop-filter:blur(18px);box-shadow:0 10px 30px rgba(0,0,0,.55);
+}
+.switch button{
+  height:32px;padding:0 14px;border-radius:999px;cursor:pointer;border:0;
+  background:transparent;color:var(--on-dark-mute);font:inherit;font-size:var(--t-xs);font-weight:700;
+}
+.switch button[aria-pressed="true"]{background:var(--primary);color:var(--on-primary)}
+
+/* ---------- footer ---------- */
+.foot{background:var(--ink-deep);border-top:1px solid var(--hairline);padding:56px 0 40px}
+.foot-grid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:32px}
+.foot-brand p{margin-top:14px;font-size:var(--t-cap);color:var(--on-dark-faint);max-width:28ch;line-height:1.65}
+.foot h4{font-size:var(--t-cap);font-weight:700;margin-bottom:14px}
+.foot a{display:block;padding:5px 0;font-size:var(--t-cap);color:var(--on-dark-faint);text-decoration:none}
+.foot a:hover{color:var(--primary)}
+.foot .brand{display:flex}
+.foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--hairline)}
+.foot-bottom span,.foot-bottom a{font-size:var(--t-xs);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(20px)}
+.rv.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+/* ---------- narrow fallback (spec is desktop 1440) ---------- */
+@media (max-width:1040px){
+  :root{--t-hero:30px;--t-display:24px;--sp-section:64px}
+  .shell{padding:0 20px}
+  .nav-links{display:none}
+  .feat,.hub,.feed,.upcoming,.foot-grid{grid-template-columns:1fr}
+  body.state-launch .hub{grid-template-columns:1fr}
+  .side{position:static}
+  .feat-body{padding:28px}
+  .catrow .lbl,.tally{display:none}
+}
+</style>
+</head>
+<body class="state-sample">
+
+<!-- ==================== STAGE: nav + header + featured ==================== -->
+<div class="stage">
+  <div class="nav-wrap">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="10" stroke="#76b900" stroke-width="1.4" opacity=".55"/>
+          <circle cx="11" cy="11" r="5.6" stroke="#76b900" stroke-width="1.2" opacity=".8"/>
+          <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
+        </svg>
+        <b>Hikaru Foundation</b>
+      </a>
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="work.html">Our Work</a>
+        <a href="news.html" aria-current="page">Research</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a class="pill pill-solid" href="involved.html">Get Involved</a>
+      </div>
+    </nav>
+  </div>
+
+  <header class="head" id="top">
+    <div class="shell">
+      <span class="eyebrow">Research and updates</span>
+      <h1>What we are finding, and what we are building.</h1>
+      <p>Protocol research, policy work, network development, and Hikaru Academy. Published as it completes, not held back.</p>
+    </div>
+  </header>
+
+  <!-- ===== FEATURED ===== -->
+  <section class="featured">
+    <div class="shell">
+      <article class="feat rv">
+        <div class="feat-cover">
+          <svg class="glyph" width="120" height="120" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <circle cx="14" cy="6" r="3" stroke="#8fd414" stroke-width="1.3"/>
+            <circle cx="5" cy="21" r="3" stroke="#8fd414" stroke-width="1.3"/>
+            <circle cx="23" cy="21" r="3" stroke="#8fd414" stroke-width="1.3"/>
+            <path d="M12 8.5L7 18.5M16 8.5l5 10M8 21h12" stroke="#8fd414" stroke-width="1.3"/>
+          </svg>
+          <span class="imgnote">Cover image · 16:9 · replace</span>
+        </div>
+
+        <div class="feat-body">
+          <div class="row">
+            <span class="tag">Protocol research</span>
+            <span class="sample">Sample</span>
+          </div>
+          <h2>Featured article headline sits here, two lines at most</h2>
+          <p>The featured slot carries one piece at a time: the newest substantial output, or the one you most want read. A snippet of two to three lines runs here, written as a summary rather than a teaser, so a reader can decide without clicking.</p>
+          <div class="meta">
+            <time datetime="2026-08-04">4 August 2026</time>
+            <span class="dot"></span><span>9 min read</span>
+            <span class="dot"></span><span>Hikaru Foundation</span>
+          </div>
+          <a class="pill pill-solid pill-lg go" href="#">Read the article →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== CATEGORY NAV ==================== -->
+<div class="catbar" id="cats">
+  <div class="shell">
+    <div class="catrow">
+      <span class="lbl">Browse by</span>
+      <div class="cats" role="group" aria-label="Filter articles by category">
+        <button class="cat" data-c="all" aria-pressed="true" type="button">All</button>
+        <button class="cat" data-c="research" aria-pressed="false" type="button">Protocol research</button>
+        <button class="cat" data-c="policy" aria-pressed="false" type="button">Policy and regulation</button>
+        <button class="cat" data-c="network" aria-pressed="false" type="button">Network updates</button>
+        <button class="cat" data-c="academy" aria-pressed="false" type="button">Academy</button>
+        <button class="cat" data-c="press" aria-pressed="false" type="button">Announcements</button>
+      </div>
+      <span class="tally" id="tally" aria-live="polite"><b>9</b> articles</span>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="shell">
+    <div class="hub">
+
+      <!-- ===== FEED ===== -->
+      <div>
+
+        <!-- ===== LAUNCH / EMPTY STATE ===== -->
+        <div class="launch">
+          <div class="empty">
+            <div class="orbit">
+              <svg width="30" height="30" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                <circle cx="14" cy="14" r="9" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+                <rect x="11" y="11" width="6" height="6" fill="currentColor"/>
+              </svg>
+            </div>
+            <h2>Nothing published yet</h2>
+            <p>Hikaru Foundation is early. Rather than fill this page with reposted commentary, we are holding it for our own work: research findings, policy submissions, and network development notes. The first pieces are in progress.</p>
+
+            <div class="upcoming">
+              <div class="up"><b>Protocol research</b><span>Security and privacy findings from the Layer-1 work.</span></div>
+              <div class="up"><b>Policy and regulation</b><span>Submissions and positions from the advocacy work.</span></div>
+              <div class="up"><b>Network updates</b><span>Development progress on the Layer-1 network.</span></div>
+            </div>
+
+            <p style="margin-top:32px;font-size:var(--t-cap);color:var(--on-dark-faint)">Subscribe on the right and the first piece reaches you directly.</p>
+          </div>
+        </div>
+
+        <!-- ===== SAMPLE GRID ===== -->
+        <div class="feed" id="feed">
+
+          <a class="post rv" data-c="research" href="#">
+            <div class="thumb">
+              <svg width="42" height="42" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 3l9 3.5v7c0 5.5-3.8 10-9 11.5C8.8 24.5 5 20 5 13.5v-7L14 3z" stroke="currentColor" stroke-width="1.4"/><path d="M10 13.5l2.8 2.8L18 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              <span class="sample stamp">Sample</span>
+            </div>
+            <div class="post-body">
+              <div class="row"><span class="tag">Protocol research</span></div>
+              <h3>Article title runs to two lines in most cases, occasionally three</h3>
+              <p>A snippet of roughly two lines gives the reader the finding, not a tease. Cards that withhold the point get fewer clicks, not more.</p>
+              <div class="meta"><time datetime="2026-07-28">28 July 2026</time><span class="dot"></span><span>7 min read</span></div>
+            </div>
+          </a>
+
+          <a class="post rv" data-c="policy" href="#">
+            <div class="thumb">
+              <svg width="42" height="42" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 4v20M6 9h16M9 9l-3.5 8h7L9 9zM19 9l-3.5 8h7L19 9z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M10 24h8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              <span class="sample stamp">Sample</span>
+            </div>
+            <div class="post-body">
+              <div class="row"><span class="tag">Policy and regulation</span></div>
+              <h3>A policy piece title, usually longer because the topic is specific</h3>
+              <p>Regulatory writing runs long. The snippet is where you state the position plainly before the reader commits fifteen minutes.</p>
+              <div class="meta"><time datetime="2026-07-21">21 July 2026</time><span class="dot"></span><span>12 min read</span></div>
+            </div>
+          </a>
+
+          <a class="post rv" data-c="network" href="#">
+            <div class="thumb">
+              <svg width="42" height="42" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="6" r="3" stroke="currentColor" stroke-width="1.4"/><circle cx="5" cy="21" r="3" stroke="currentColor" stroke-width="1.4"/><circle cx="23" cy="21" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M12 8.5L7 18.5M16 8.5l5 10M8 21h12" stroke="currentColor" stroke-width="1.4"/></svg>
+              <span class="sample stamp">Sample</span>
+            </div>
+            <div class="post-body">
+              <div class="row"><span class="tag">Network updates</span></div>
+              <h3>Development note on the Layer-1 network</h3>
+              <p>Short-form progress updates keep the page alive between longer research pieces. Two or three a month is enough.</p>
+              <div class="meta"><time datetime="2026-07-14">14 July 2026</time><span class="dot"></span><span>4 min read</span></div>
+            </div>
+          </a>
+
+          <a class="post rv" data-c="academy" href="#">
+            <div class="thumb">
+              <svg width="42" height="42" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 5l11 5-11 5-11-5 11-5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M7 12.5V19c0 1.7 3.1 3 7 3s7-1.3 7-3v-6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              <span class="sample stamp">Sample</span>
+            </div>
+            <div class="post-body">
+              <div class="row"><span class="tag">Academy</span></div>
+              <h3>Teaching material and workshop write-ups</h3>
+              <p>Academy posts double as public education, which is the point of the initiative. They should read as the least technical writing on the site.</p>
+              <div class="meta"><time datetime="2026-07-07">7 July 2026</time><span class="dot"></span><span>6 min read</span></div>
+            </div>
+          </a>
+
+          <a class="post rv" data-c="press" href="#">
+            <div class="thumb">
+              <svg width="42" height="42" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="4" y="6" width="20" height="16" rx="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M8 11h8M8 15h12M8 19h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              <span class="sample stamp">Sample</span>
+            </div>
+            <div class="post-body">
+              <div class="row"><span class="tag">Announcements</span></div>
+              <h3>Organisational announcement or partnership notice</h3>
+              <p>Announcements are the shortest posts on the page. If one needs more than four hundred words, it is probably a research piece.</p>
+              <div class="meta"><time datetime="2026-06-30">30 June 2026</time><span class="dot"></span><span>3 min read</span></div>
+            </div>
+          </a>
+
+          <a class="post rv" data-c="research" href="#">
+            <div class="thumb">
+              <svg width="42" height="42" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="5" y="12" width="18" height="12" rx="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M9.5 12V9a4.5 4.5 0 019 0v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="14" cy="18" r="1.8" fill="currentColor"/></svg>
+              <span class="sample stamp">Sample</span>
+            </div>
+            <div class="post-body">
+              <div class="row"><span class="tag">Protocol research</span></div>
+              <h3>Privacy findings from the ledger analysis work</h3>
+              <p>Privacy research is the most reusable content you will produce, and the most likely to be cited elsewhere.</p>
+              <div class="meta"><time datetime="2026-06-23">23 June 2026</time><span class="dot"></span><span>10 min read</span></div>
+            </div>
+          </a>
+
+          <a class="post rv" data-c="policy" href="#">
+            <div class="thumb">
+              <svg width="42" height="42" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="6" y="4" width="16" height="20" rx="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M10 10h8M10 14h8M10 18h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              <span class="sample stamp">Sample</span>
+            </div>
+            <div class="post-body">
+              <div class="row"><span class="tag">Policy and regulation</span></div>
+              <h3>Submission to a regulatory consultation</h3>
+              <p>Publishing submissions in full is the cheapest credibility you will ever buy, and it costs nothing to do.</p>
+              <div class="meta"><time datetime="2026-06-16">16 June 2026</time><span class="dot"></span><span>15 min read</span></div>
+            </div>
+          </a>
+
+          <a class="post rv" data-c="network" href="#">
+            <div class="thumb">
+              <svg width="42" height="42" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="3" y="10" width="9" height="8" rx="1.5" stroke="currentColor" stroke-width="1.4"/><rect x="16" y="10" width="9" height="8" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M12 14h4M7.5 10V6M20.5 18v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              <span class="sample stamp">Sample</span>
+            </div>
+            <div class="post-body">
+              <div class="row"><span class="tag">Network updates</span></div>
+              <h3>Running a node: what the first operators reported</h3>
+              <p>Operator experience posts recruit better than any call to action, because they show the work is real.</p>
+              <div class="meta"><time datetime="2026-06-09">9 June 2026</time><span class="dot"></span><span>8 min read</span></div>
+            </div>
+          </a>
+
+          <a class="post rv" data-c="academy" href="#">
+            <div class="thumb">
+              <svg width="42" height="42" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="10" cy="9" r="3.2" stroke="currentColor" stroke-width="1.4"/><circle cx="19.5" cy="10.5" r="2.6" stroke="currentColor" stroke-width="1.4"/><path d="M4 21c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M17 15.6c2.9.2 5 2.2 5 5.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              <span class="sample stamp">Sample</span>
+            </div>
+            <div class="post-body">
+              <div class="row"><span class="tag">Academy</span></div>
+              <h3>What a first workshop taught us about explaining ledgers</h3>
+              <p>Reflection pieces from teaching sessions are useful to other educators and cheap for you to write.</p>
+              <div class="meta"><time datetime="2026-06-02">2 June 2026</time><span class="dot"></span><span>5 min read</span></div>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="loadmore">
+          <button class="pill pill-ghost pill-lg" id="more" type="button">Load more articles</button>
+          <div class="pages" id="pages" aria-label="Pagination">
+            <button class="pg" type="button" disabled>←</button>
+            <button class="pg" type="button" aria-current="page">1</button>
+            <button class="pg" type="button">2</button>
+            <button class="pg" type="button">3</button>
+            <button class="pg" type="button">→</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== SIDEBAR ===== -->
+      <aside class="side">
+
+        <div class="side-card sub">
+          <span class="eyebrow">Subscribe</span>
+          <h3>Follow the work</h3>
+          <p>Research findings, policy submissions, and network progress, sent as they publish. No more than once a month.</p>
+          <div class="side-form">
+            <label class="eyebrow" for="sname" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your name</label>
+            <input id="sname" class="field" type="text" placeholder="Name" autocomplete="name">
+            <label class="eyebrow" for="semail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your email address</label>
+            <input id="semail" class="field" type="email" placeholder="you@example.com" autocomplete="email">
+            <button class="pill pill-solid" type="button">Subscribe</button>
+          </div>
+          <p class="consent">We use your address only to send these updates. Unsubscribe any time.</p>
+        </div>
+
+        <div class="side-card">
+          <span class="eyebrow">Topics</span>
+          <div class="topics" style="margin-top:16px">
+            <a href="#cats" data-jump="research">Protocol research <em id="t-research">2</em></a>
+            <a href="#cats" data-jump="policy">Policy and regulation <em id="t-policy">2</em></a>
+            <a href="#cats" data-jump="network">Network updates <em id="t-network">2</em></a>
+            <a href="#cats" data-jump="academy">Academy <em id="t-academy">2</em></a>
+            <a href="#cats" data-jump="press">Announcements <em id="t-press">1</em></a>
+          </div>
+        </div>
+
+        <div class="side-card">
+          <span class="eyebrow">Elsewhere</span>
+          <p style="margin-top:14px">Social accounts are not yet listed in the source profile. Add them here once confirmed, or delete this card.</p>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="foot">
+  <div class="shell">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="10" stroke="#76b900" stroke-width="1.4" opacity=".55"/>
+            <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
+          </svg>
+          <b>Hikaru Foundation</b>
+        </a>
+        <p>Technology with conscience. A non-profit building decentralized digital infrastructure for Bangladesh.</p>
+      </div>
+      <div><h4>About</h4><a href="about.html#story">Our story</a><a href="about.html">Vision and mission</a><a href="about.html#values">Values</a><a href="about.html#team">People</a></div>
+      <div><h4>Our Work</h4><a href="network.html">Hikaru Layer-1</a><a href="work.html#research">Research and policy</a><a href="work.html#academy">Hikaru Academy</a><a href="work.html">All programmes</a></div>
+      <div><h4>Take part</h4><a href="involved.html">Get involved</a><a href="news.html">Research and updates</a><a href="contact.html">Contact</a><a href="contact.html#hours">Opening hours</a></div>
+      <div><h4>Legal</h4><a href="#">Privacy policy</a><a href="#">Terms of use</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Hikaru Foundation. All rights reserved.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     BUILD TOOL — delete this block and the .switch CSS before launch.
+     ============================================================ -->
+<div class="switch" role="group" aria-label="Preview state">
+  <button type="button" data-state="sample" aria-pressed="true">Sample content</button>
+  <button type="button" data-state="launch" aria-pressed="false">Launch state</button>
+</div>
+
+<script>
+/* ---------- reveal ---------- */
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: .1 });
+Array.prototype.forEach.call(document.querySelectorAll('.rv'), function(el){ io.observe(el); });
+
+/* ---------- category filter ---------- */
+(function(){
+  var cats  = Array.prototype.slice.call(document.querySelectorAll('.cat'));
+  var posts = Array.prototype.slice.call(document.querySelectorAll('.post[data-c]'));
+  var tally = document.getElementById('tally');
+
+  function apply(c){
+    var n = 0;
+    posts.forEach(function(p){
+      var hit = c === 'all' || p.getAttribute('data-c') === c;
+      p.classList.toggle('hide', !hit);
+      if (hit) n++;
+    });
+    tally.innerHTML = '<b>' + n + '</b> ' + (n === 1 ? 'article' : 'articles');
+  }
+
+  cats.forEach(function(cat){
+    cat.addEventListener('click', function(){
+      cats.forEach(function(c){ c.setAttribute('aria-pressed', String(c === cat)); });
+      apply(cat.getAttribute('data-c'));
+    });
+  });
+
+  /* sidebar topic links drive the same filter */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-jump]'), function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      var want = link.getAttribute('data-jump');
+      var target = cats.filter(function(c){ return c.getAttribute('data-c') === want; })[0];
+      if (target) { target.click(); document.getElementById('cats').scrollIntoView({ block: 'start' }); }
+    });
+  });
+
+  /* keep the sidebar tallies honest */
+  ['research','policy','network','academy','press'].forEach(function(key){
+    var el = document.getElementById('t-' + key);
+    if (el) el.textContent = posts.filter(function(p){ return p.getAttribute('data-c') === key; }).length;
+  });
+})();
+
+/* ---------- load more ---------- */
+(function(){
+  var btn = document.getElementById('more');
+  if (!btn) return;
+  btn.addEventListener('click', function(){
+    btn.textContent = 'No more articles to load';
+    btn.disabled = true;
+    btn.style.opacity = '.5';
+    btn.style.cursor = 'default';
+  });
+})();
+
+/* ---------- state switch (build tool) ---------- */
+(function(){
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.switch button'));
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.setAttribute('aria-pressed', String(x === b)); });
+      document.body.className = 'state-' + b.getAttribute('data-state');
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
