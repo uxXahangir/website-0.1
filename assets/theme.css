@@ -63,7 +63,7 @@
 :root[data-theme="light"] .side-card,
 :root[data-theme="light"] .empty,
 :root[data-theme="light"] .honest{background:rgba(11,17,8,.025)}
-:root[data-theme="light"] .helpbar-inner{background:rgba(255,255,255,.92);border-color:rgba(143,212,20,.4)}
+:root[data-theme="light"] .helpbar-inner{background:rgba(255,255,255,.92);border-color:rgba(62,139,255,.4)}
 :root[data-theme="light"] .helpbar b{color:#0b1108}
 
 /* catches a handful of one-off inline style="color:#fff" spots that would

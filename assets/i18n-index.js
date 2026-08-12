@@ -1,4 +1,28 @@
 window.I18N_PAGE = {
+  idx_card1_stat1_v: { en: "In development", bn: "উন্নয়নাধীন" },
+  idx_card1_stat1_l: { en: "Status", bn: "অবস্থা" },
+  idx_card1_stat2_v: { en: "4", bn: "৪" },
+  idx_card1_stat2_l: { en: "Applications", bn: "প্রয়োগ" },
+  idx_card2_stat1_v: { en: "Active", bn: "সক্রিয়" },
+  idx_card2_stat1_l: { en: "Status", bn: "অবস্থা" },
+  idx_card2_stat2_v: { en: "3", bn: "৩" },
+  idx_card2_stat2_l: { en: "Workstreams", bn: "কর্মধারা" },
+  idx_card3_stat1_v: { en: "Planned", bn: "পরিকল্পিত" },
+  idx_card3_stat1_l: { en: "Status", bn: "অবস্থা" },
+  idx_card3_stat2_v: { en: "3", bn: "৩" },
+  idx_card3_stat2_l: { en: "Programmes", bn: "কার্যক্রম" },
+
+  idx_bigstat_num: { en: "2021", bn: "২০২১" },
+  idx_bigstat_label: { en: "Where the work began", bn: "যেখানে কাজ শুরু হয়েছিল" },
+  idx_bigstat_sub: { en: "Research and groundwork that would become Hikaru Foundation started years before the name did.",
+                      bn: "গবেষণা ও প্রাথমিক কাজ, যা পরে হিকারু ফাউন্ডেশনে পরিণত হয়, নামটি আসার বহু বছর আগেই শুরু হয়েছিল।" },
+
+  idx_stat_a_num: { en: "10", bn: "১০" },
+  idx_stat_a_label: { en: "Programmes across three initiatives", bn: "তিনটি উদ্যোগ জুড়ে দশটি কার্যক্রম" },
+  idx_stat_b_num: { en: "9", bn: "৯" },
+  idx_stat_b_label: { en: "Ways to contribute, no blockchain background required",
+                       bn: "অবদান রাখার নয়টি উপায়, ব্লকচেইন জ্ঞানের প্রয়োজন নেই" },
+
   idx_hero_h1_lead: { en: "Digital infrastructure", bn: "ডিজিটাল অবকাঠামো" },
   idx_hero_h1_em:   { en: "Bangladesh actually owns.", bn: "যার প্রকৃত মালিক বাংলাদেশ।" },
   idx_hero_sub: { en: "A non-profit building decentralized public infrastructure, so data rights, financial access, and civic systems stay in the hands of citizens.",

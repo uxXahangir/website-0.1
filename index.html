@@ -14,17 +14,18 @@
    NVIDIA tokens (core) + bloom extension for this composition
    ============================================================ */
 :root{
-  --primary:#76b900;
-  --primary-lift:#8fd414;
-  --on-primary:#000;
-  --ink:#04070a;
-  --ink-deep:#010203;
-  --on-dark:#fff;
-  --on-dark-mute:rgba(255,255,255,.62);
-  --on-dark-faint:rgba(255,255,255,.34);
-  --hairline:rgba(255,255,255,.10);
-  --hairline-lit:rgba(255,255,255,.20);
-  --panel:rgba(255,255,255,.035);
+  --primary:#3E8BFF;
+  --primary-lift:#6BA8FF;
+  --primary-deep:#1D4ED8;
+  --on-primary:#051024;
+  --ink:#050b16;
+  --ink-deep:#02060d;
+  --on-dark:#f3f7ff;
+  --on-dark-mute:rgba(228,236,255,.64);
+  --on-dark-faint:rgba(228,236,255,.36);
+  --hairline:rgba(140,175,255,.12);
+  --hairline-lit:rgba(140,175,255,.22);
+  --panel:rgba(140,175,255,.045);
 
   --t-hero:60px; --t-display:40px; --t-h-xl:24px; --t-h-md:20px;
   --t-card:17px; --t-body:16px; --t-sm:15px; --t-cap:13px; --t-xs:11px;
@@ -48,17 +49,17 @@ body{
   content:"";position:absolute;left:50%;bottom:-46%;transform:translateX(-50%);
   width:150%;height:105%;pointer-events:none;z-index:0;
   background:radial-gradient(closest-side,
-    rgba(196,255,130,.92),
-    rgba(143,212,20,.60) 34%,
-    rgba(118,185,0,.28) 52%,
-    rgba(60,110,10,.11) 68%,
+    rgba(140,190,255,.90),
+    rgba(80,140,255,.58) 34%,
+    rgba(40,95,225,.28) 52%,
+    rgba(18,45,130,.12) 68%,
     transparent 80%);
   filter:blur(28px);
   animation:breathe 11s ease-in-out infinite alternate;
 }
 .stage::after{
   content:"";position:absolute;left:0;right:0;bottom:0;height:130px;z-index:1;
-  background:linear-gradient(to bottom, transparent, rgba(1,2,3,.55) 62%, var(--ink-deep));
+  background:linear-gradient(to bottom, transparent, rgba(2,4,10,.55) 62%, var(--ink-deep));
   pointer-events:none;
 }
 @keyframes breathe{
@@ -67,23 +68,24 @@ body{
 }
 @media (prefers-reduced-motion:reduce){.stage::before{animation:none}}
 .stage > *{position:relative;z-index:2}
+.stage .hero-ribbons{position:absolute;inset:0;z-index:1;pointer-events:none}
 
 /* ---------- nav ---------- */
-.nav-wrap{padding:26px 0 0}
+.nav-wrap{padding:22px 0 0}
 .nav{
-  margin:0 auto;width:max-content;display:flex;align-items:center;gap:28px;
-  padding:9px 9px 9px 22px;border-radius:999px;
-  background:rgba(255,255,255,.05);border:1px solid var(--hairline-lit);
+  width:100%;display:flex;align-items:center;gap:28px;
+  padding:13px 20px 13px 22px;border-radius:20px;
+  background:rgba(140,175,255,.055);border:1px solid var(--hairline-lit);
   backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);
-  box-shadow:0 8px 30px rgba(0,0,0,.45);
+  box-shadow:0 8px 30px rgba(2,6,16,.45);
 }
-.brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none}
+.brand{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;flex:none}
 .brand svg{flex:none}
 .brand b{font-size:var(--t-sm);font-weight:700;letter-spacing:-.01em}
-.nav-links{display:flex;gap:24px}
-.nav-links a{color:var(--on-dark-mute);text-decoration:none;font-size:var(--t-cap);font-weight:500}
+.nav-links{display:flex;gap:32px;flex:1;justify-content:center}
+.nav-links a{color:var(--on-dark-mute);text-decoration:none;font-size:var(--t-cap);font-weight:500;transition:color .18s}
 .nav-links a:hover{color:var(--on-dark)}
-.nav-cta{display:flex;gap:8px}
+.nav-cta{display:flex;align-items:center;gap:10px;flex:none}
 
 /* ---------- pills ---------- */
 .pill{
@@ -92,10 +94,10 @@ body{
   font:inherit;font-size:var(--t-cap);font-weight:700;text-decoration:none;cursor:pointer;
   transition:transform .18s, background .18s, box-shadow .18s, border-color .18s;
 }
-.pill-solid{background:var(--primary);color:var(--on-primary);box-shadow:0 0 0 1px rgba(196,255,130,.35), 0 6px 20px rgba(118,185,0,.35)}
-.pill-solid:hover{background:var(--primary-lift);transform:translateY(-1px);box-shadow:0 0 0 1px rgba(196,255,130,.5), 0 8px 26px rgba(118,185,0,.5)}
-.pill-ghost{background:rgba(255,255,255,.06);color:var(--on-dark);border-color:var(--hairline-lit)}
-.pill-ghost:hover{border-color:rgba(255,255,255,.4);transform:translateY(-1px)}
+.pill-solid{background:var(--primary);color:var(--on-primary);box-shadow:0 0 0 1px rgba(160,200,255,.35), 0 6px 20px rgba(62,139,255,.35)}
+.pill-solid:hover{background:var(--primary-lift);transform:translateY(-1px);box-shadow:0 0 0 1px rgba(160,200,255,.5), 0 8px 26px rgba(62,139,255,.5)}
+.pill-ghost{background:rgba(140,175,255,.06);color:var(--on-dark);border-color:var(--hairline-lit)}
+.pill-ghost:hover{border-color:rgba(160,200,255,.4);transform:translateY(-1px)}
 .pill-lg{height:48px;padding:0 30px;font-size:var(--t-body)}
 :focus-visible{outline:2px solid var(--primary);outline-offset:3px}
 
@@ -117,24 +119,24 @@ body{
 .orb-veil{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   width:300px;height:300px;border-radius:999px;pointer-events:none;
-  background:radial-gradient(closest-side, rgba(2,4,6,.88), rgba(2,4,6,.55) 52%, transparent 76%);
+  background:radial-gradient(closest-side, rgba(2,5,12,.88), rgba(2,5,12,.55) 52%, transparent 76%);
 }
 /* faint orbit ring, echoes the sphere's equator */
 .orb-ring{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   width:262px;height:262px;border-radius:999px;pointer-events:none;
-  border:1px solid rgba(196,255,130,.18);
-  box-shadow:inset 0 0 40px rgba(118,185,0,.10);
+  border:1px solid rgba(160,200,255,.18);
+  box-shadow:inset 0 0 40px rgba(62,139,255,.10);
 }
 .orb-map{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   height:196px;width:auto;pointer-events:none;
-  filter:drop-shadow(0 0 22px rgba(143,212,20,.55)) drop-shadow(0 0 60px rgba(118,185,0,.35));
+  filter:drop-shadow(0 0 22px rgba(90,150,255,.55)) drop-shadow(0 0 60px rgba(62,139,255,.35));
   animation:mapPulse 6s ease-in-out infinite alternate;
 }
 @keyframes mapPulse{
-  from{filter:drop-shadow(0 0 18px rgba(143,212,20,.42)) drop-shadow(0 0 48px rgba(118,185,0,.26))}
-  to{filter:drop-shadow(0 0 28px rgba(143,212,20,.68)) drop-shadow(0 0 74px rgba(118,185,0,.44))}
+  from{filter:drop-shadow(0 0 18px rgba(90,150,255,.42)) drop-shadow(0 0 48px rgba(62,139,255,.26))}
+  to{filter:drop-shadow(0 0 28px rgba(90,150,255,.68)) drop-shadow(0 0 74px rgba(62,139,255,.44))}
 }
 @media (prefers-reduced-motion:reduce){.orb-map{animation:none}}
 .hero-cta{margin:2px 0 130px}
@@ -154,13 +156,44 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
   backdrop-filter:blur(14px);
   transition:border-color .22s, transform .22s, background .22s;
 }
-.card:hover{border-color:rgba(143,212,20,.4);transform:translateY(-4px);background:rgba(255,255,255,.055)}
+.card:hover{border-color:rgba(90,150,255,.4);transform:translateY(-4px);background:rgba(140,175,255,.055)}
 .card::before{content:"";position:absolute;top:0;left:0;width:12px;height:12px;background:var(--primary)}
 .card svg{color:var(--primary);margin-bottom:20px}
 .card h3{font-size:var(--t-card);font-weight:700;margin-bottom:12px;letter-spacing:-.01em}
-.card p{font-size:var(--t-sm);color:var(--on-dark-mute);line-height:1.7;margin-bottom:22px}
+.card p{font-size:var(--t-sm);color:var(--on-dark-mute);line-height:1.7;margin-bottom:20px}
+.card-stats{display:flex;gap:14px;margin-bottom:20px;padding-top:18px;border-top:1px solid var(--hairline)}
+.card-stats div{flex:1}
+.card-stats b{display:block;font-size:var(--t-h-md);font-weight:700;color:var(--on-dark);letter-spacing:-.01em}
+.card-stats span{display:block;font-size:10px;color:var(--on-dark-faint);margin-top:3px;text-transform:uppercase;letter-spacing:.06em}
 .card a{color:var(--primary);font-size:var(--t-sm);font-weight:700;text-decoration:none;display:inline-flex;gap:7px}
 .card a:hover{gap:12px;transition:gap .18s}
+
+/* ---------- big stat + two-stat row ---------- */
+.big-stat{max-width:640px;margin:0 auto}
+.big-stat-num{
+  display:block;font-size:88px;font-weight:800;letter-spacing:-.03em;line-height:1;
+  background:linear-gradient(180deg, var(--on-dark), var(--primary-lift));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.big-stat h3{margin-top:16px;font-size:var(--t-h-xl);font-weight:700;letter-spacing:-.01em}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:760px;margin:56px auto 0;text-align:left}
+.stat-box{padding:32px 28px;border-radius:18px;background:var(--panel);border:1px solid var(--hairline)}
+.stat-box b{display:block;font-size:44px;font-weight:800;letter-spacing:-.02em;color:var(--primary-lift)}
+.stat-box span{display:block;margin-top:10px;font-size:var(--t-sm);color:var(--on-dark-mute);line-height:1.55}
+@media (max-width:980px){.big-stat-num{font-size:56px}.stat-row{grid-template-columns:1fr}}
+
+/* ---------- CTA card + waveform decoration ---------- */
+.cta-card{
+  position:relative;overflow:hidden;border-radius:28px;padding:64px 40px 0;text-align:center;
+  background:linear-gradient(180deg, rgba(62,139,255,.09), rgba(2,6,13,.35));
+  border:1px solid var(--hairline-lit);
+}
+.wave-bars{
+  display:flex;align-items:flex-end;gap:3px;height:56px;margin-top:52px;
+  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+}
+.wave-bars span{flex:1;background:linear-gradient(180deg, var(--primary-lift), transparent);border-radius:2px;opacity:.55}
 
 /* ---------- mission ---------- */
 .mission-lead{font-size:var(--t-h-xl);font-weight:700;line-height:1.45;max-width:26ch;margin:0 auto;letter-spacing:-.01em}
@@ -191,7 +224,7 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
 .form{display:flex;gap:10px;justify-content:center;max-width:720px;margin:44px auto 0}
 .field{
   flex:1;height:46px;padding:0 18px;border-radius:12px;color:#fff;font:inherit;font-size:var(--t-sm);
-  background:rgba(255,255,255,.045);border:1px solid var(--hairline-lit);
+  background:rgba(140,175,255,.045);border:1px solid var(--hairline-lit);
   backdrop-filter:blur(12px);
 }
 .field::placeholder{color:var(--on-dark-faint)}
@@ -209,7 +242,7 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
 .foot a:hover{color:var(--primary)}
 .foot .brand{display:flex}
 .foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--hairline)}
-.foot-bottom span,.foot-bottom a{font-size:var(--t-xs);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+.foot-bottom span,.foot-bottom a{font-size:var(--t-xs);letter-spacing:.08em;text-transform:uppercase;color:rgba(228,236,255,.28)}
 
 
 /* ---------- explore: routes to every page ---------- */
@@ -220,7 +253,7 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
   text-decoration:none;color:inherit;backdrop-filter:blur(14px);
   transition:border-color .22s, transform .22s, background .22s;
 }
-.dest:hover{border-color:rgba(143,212,20,.4);transform:translateY(-4px);background:rgba(255,255,255,.055)}
+.dest:hover{border-color:rgba(90,150,255,.4);transform:translateY(-4px);background:rgba(140,175,255,.055)}
 .dest::before{content:"";position:absolute;top:0;left:0;width:12px;height:12px;background:var(--primary)}
 .dest .n{font-size:var(--t-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-faint);margin-bottom:16px}
 .dest h3{font-size:var(--t-card);font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
@@ -250,9 +283,17 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
   .orb-map{height:136px}
   .orb-veil{width:210px;height:210px}
   .orb-ring{width:182px;height:182px}
-  .cards,.mission-cols,.vm,.paths,.tl,.foot-grid{grid-template-columns:1fr}
+  .cards,.mission-cols,.vm,.paths,.tl,.foot-grid,.stat-row{grid-template-columns:1fr}
   .tl div{border-right:0;border-bottom:1px solid var(--hairline)}
   .form{flex-direction:column}
+  .nav{padding:12px 16px;border-radius:16px}
+  .nav-cta{gap:6px}
+  .cta-card{padding:44px 22px 0;border-radius:20px}
+  .wave-bars{height:38px;margin-top:36px;gap:2px}
+}
+@media (max-width:520px){
+  .lang-btn{min-width:32px;padding:0 8px}
+  .icon-btn{padding:0 8px}
 }
 </style>
 </head>
@@ -260,31 +301,50 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
 
 <!-- ==================== STAGE: nav + hero ==================== -->
 <div class="stage">
+  <svg class="hero-ribbons" viewBox="0 0 1200 700" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="ribbonGrad1" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#3E8BFF" stop-opacity="0"/>
+        <stop offset="50%" stop-color="#6BA8FF" stop-opacity=".55"/>
+        <stop offset="100%" stop-color="#3E8BFF" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="ribbonGrad2" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#1D4ED8" stop-opacity="0"/>
+        <stop offset="50%" stop-color="#4F8BFF" stop-opacity=".45"/>
+        <stop offset="100%" stop-color="#1D4ED8" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="M-80 360 C 220 250, 460 460, 760 300 S 1180 240, 1280 340" stroke="url(#ribbonGrad1)" stroke-width="1.4"/>
+    <path d="M-80 430 C 280 340, 520 540, 820 380 S 1180 320, 1280 420" stroke="url(#ribbonGrad2)" stroke-width="1.4"/>
+    <path d="M-80 290 C 200 210, 440 370, 720 230 S 1150 180, 1280 270" stroke="url(#ribbonGrad2)" stroke-width="1"/>
+  </svg>
   <div class="nav-wrap">
-    <nav class="nav" aria-label="Primary">
-      <a class="brand" href="#top">
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-          <circle cx="11" cy="11" r="10" stroke="#76b900" stroke-width="1.4" opacity=".55"/>
-          <circle cx="11" cy="11" r="5.6" stroke="#76b900" stroke-width="1.2" opacity=".8"/>
-          <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
-        </svg>
-        <b data-i18n="brand_name">Hikaru Foundation</b>
-      </a>
-      <div class="nav-links">
-        <a href="about.html" data-i18n="nav_about">About</a>
-        <a href="work.html" data-i18n="nav_work">Our Work</a>
-        <a href="news.html" data-i18n="nav_research">Research</a>
-        <a href="contact.html" data-i18n="nav_contact">Contact</a>
-      </div>
-      <div class="nav-cta">
-        <button class="icon-btn js-theme-toggle" type="button" aria-pressed="false" aria-label="Switch to light mode">
-          <svg class="i-dark" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.8 9.6A6.3 6.3 0 016.4 2.2a6.3 6.3 0 108.9 8.9c-.5.3-1 .5-1.5.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
-          <svg class="i-light" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.6v1.7M8 12.7v1.7M14.4 8h-1.7M3.3 8H1.6M12.7 3.3l-1.2 1.2M4.5 11.5l-1.2 1.2M12.7 12.7l-1.2-1.2M4.5 4.5L3.3 3.3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-        </button>
-        <button class="icon-btn lang-btn js-lang-toggle" type="button" aria-label="Switch to Bangla">বাং</button>
-        <a class="pill pill-solid" href="involved.html" data-i18n="nav_getinvolved">Get Involved</a>
-      </div>
-    </nav>
+    <div class="shell">
+      <nav class="nav" aria-label="Primary">
+        <a class="brand" href="#top">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="10" stroke="#3E8BFF" stroke-width="1.4" opacity=".55"/>
+            <circle cx="11" cy="11" r="5.6" stroke="#3E8BFF" stroke-width="1.2" opacity=".8"/>
+            <rect x="8" y="8" width="6" height="6" fill="#3E8BFF"/>
+          </svg>
+          <b data-i18n="brand_name">Hikaru Foundation</b>
+        </a>
+        <div class="nav-links">
+          <a href="about.html" data-i18n="nav_about">About</a>
+          <a href="work.html" data-i18n="nav_work">Our Work</a>
+          <a href="news.html" data-i18n="nav_research">Research</a>
+          <a href="contact.html" data-i18n="nav_contact">Contact</a>
+        </div>
+        <div class="nav-cta">
+          <button class="icon-btn js-theme-toggle" type="button" aria-pressed="false" aria-label="Switch to light mode">
+            <svg class="i-dark" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.8 9.6A6.3 6.3 0 016.4 2.2a6.3 6.3 0 108.9 8.9c-.5.3-1 .5-1.5.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            <svg class="i-light" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.6v1.7M8 12.7v1.7M14.4 8h-1.7M3.3 8H1.6M12.7 3.3l-1.2 1.2M4.5 11.5l-1.2 1.2M12.7 12.7l-1.2-1.2M4.5 4.5L3.3 3.3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </button>
+          <button class="icon-btn lang-btn js-lang-toggle" type="button" aria-label="Switch to Bangla">বাং</button>
+          <a class="pill pill-solid" href="involved.html" data-i18n="nav_getinvolved">Get Involved</a>
+        </div>
+      </nav>
+    </div>
   </div>
 
   <header class="hero" id="top">
@@ -309,9 +369,9 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
         <svg class="orb-map" viewBox="0 0 180 244" fill="none" aria-hidden="true">
           <defs>
             <linearGradient id="bdFill" x1="0" y1="0" x2="0.4" y2="1">
-              <stop offset="0%" stop-color="#c4ff82"/>
-              <stop offset="45%" stop-color="#8fd414"/>
-              <stop offset="100%" stop-color="#5f9c04"/>
+              <stop offset="0%" stop-color="#bfe0ff"/>
+              <stop offset="45%" stop-color="#4f8bff"/>
+              <stop offset="100%" stop-color="#1d4ed8"/>
             </linearGradient>
           </defs>
           <path d="M16.6 6.8 L5.5 22 L7.4 50 L31.3 60 L5.5 78 L11 94 L23.9 100
@@ -322,7 +382,7 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
                    L127 112 L136.2 108 L138 96 L152.7 96 L163.8 78 L158.2 68
                    L136.2 66 L121.4 64 L99.4 66 L77.3 60 L71.8 58 L69.9 34
                    L64.4 26 L44.2 32 L38.6 36 L20.2 20 Z"
-                fill="url(#bdFill)" stroke="#e2ffb0" stroke-width="1.1"
+                fill="url(#bdFill)" stroke="#cfe4ff" stroke-width="1.1"
                 stroke-linejoin="round" opacity=".95"/>
         </svg>
       </div>
@@ -361,6 +421,10 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
         </svg>
         <h3 data-i18n="idx_card1_h3">Hikaru, a Layer-1 blockchain</h3>
         <p data-i18n="idx_card1_p">A sovereign Layer-1 network run on community infrastructure. It keeps an immutable ledger and supports payments, supply chain tracking, and digital identity.</p>
+        <div class="card-stats">
+          <div><b data-i18n="idx_card1_stat1_v">In development</b><span data-i18n="idx_card1_stat1_l">Status</span></div>
+          <div><b data-i18n="idx_card1_stat2_v">4</b><span data-i18n="idx_card1_stat2_l">Applications</span></div>
+        </div>
         <a href="network.html" data-i18n="idx_card1_a">Learn about Hikaru →</a>
       </article>
 
@@ -371,6 +435,10 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
         </svg>
         <h3 data-i18n="idx_card2_h3">Research and policy advocacy</h3>
         <p data-i18n="idx_card2_p">We study blockchain security and privacy at the protocol level, and work with government, industry, and academia on the regulation adoption will require.</p>
+        <div class="card-stats">
+          <div><b data-i18n="idx_card2_stat1_v">Active</b><span data-i18n="idx_card2_stat1_l">Status</span></div>
+          <div><b data-i18n="idx_card2_stat2_v">3</b><span data-i18n="idx_card2_stat2_l">Workstreams</span></div>
+        </div>
         <a href="work.html#research" data-i18n="idx_card2_a">See our research →</a>
       </article>
 
@@ -380,8 +448,36 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
         </svg>
         <h3 data-i18n="idx_card3_h3">Digital literacy through Hikaru Academy</h3>
         <p data-i18n="idx_card3_p">Hikaru Academy will run programmes, workshops, and training on blockchain fundamentals and advanced practice, for students, professionals, and community leaders.</p>
+        <div class="card-stats">
+          <div><b data-i18n="idx_card3_stat1_v">Planned</b><span data-i18n="idx_card3_stat1_l">Status</span></div>
+          <div><b data-i18n="idx_card3_stat2_v">3</b><span data-i18n="idx_card3_stat2_l">Programmes</span></div>
+        </div>
         <a href="work.html#academy" data-i18n="idx_card3_a">About the Academy →</a>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== IMPACT: honest stats, big numeral treatment ==================== -->
+<section id="impact">
+  <div class="shell center">
+    <div class="rule"></div>
+    <div class="rv">
+      <div class="big-stat">
+        <span class="big-stat-num" data-i18n="idx_bigstat_num">2021</span>
+        <h3 data-i18n="idx_bigstat_label">Where the work began</h3>
+        <p class="lede" data-i18n="idx_bigstat_sub">Research and groundwork that would become Hikaru Foundation started years before the name did.</p>
+      </div>
+      <div class="stat-row">
+        <div class="stat-box">
+          <b data-i18n="idx_stat_a_num">10</b>
+          <span data-i18n="idx_stat_a_label">Programmes across three initiatives</span>
+        </div>
+        <div class="stat-box">
+          <b data-i18n="idx_stat_b_num">9</b>
+          <span data-i18n="idx_stat_b_label">Ways to contribute, no blockchain background required</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -498,21 +594,24 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
 </section>
 
 <section id="involved">
-  <div class="shell center">
-    <div class="rule"></div>
-    <div class="rv">
+  <div class="shell">
+    <div class="cta-card rv">
       <span class="eyebrow" data-i18n="idx_involved_eyebrow">Get involved</span>
       <h2 style="margin:16px auto 0;max-width:20ch" data-i18n="idx_involved_h2">Bangladesh's digital future should belong to its people.</h2>
       <p class="lede" data-i18n="idx_involved_lede">Hikaru Foundation brings together technologists, activists, researchers, economists, legal experts, and citizens. There is a place here for what you already do.</p>
-    </div>
 
-    <div class="paths rv">
-      <div class="path"><h3 data-i18n="idx_path1_h3">Build</h3><p data-i18n="idx_path1_p">Contribute to the protocol, the tooling, or node infrastructure.</p></div>
-      <div class="path"><h3 data-i18n="idx_path2_h3">Research</h3><p data-i18n="idx_path2_p">Join the security, privacy, or policy work.</p></div>
-      <div class="path"><h3 data-i18n="idx_path3_h3">Teach and learn</h3><p data-i18n="idx_path3_p">Help shape Hikaru Academy, or take part in it.</p></div>
-    </div>
+      <div class="paths">
+        <div class="path"><h3 data-i18n="idx_path1_h3">Build</h3><p data-i18n="idx_path1_p">Contribute to the protocol, the tooling, or node infrastructure.</p></div>
+        <div class="path"><h3 data-i18n="idx_path2_h3">Research</h3><p data-i18n="idx_path2_p">Join the security, privacy, or policy work.</p></div>
+        <div class="path"><h3 data-i18n="idx_path3_h3">Teach and learn</h3><p data-i18n="idx_path3_p">Help shape Hikaru Academy, or take part in it.</p></div>
+      </div>
 
-    <a class="pill pill-solid pill-lg rv" href="involved.html" data-i18n="idx_get_involved_btn">Get Involved</a>
+      <a class="pill pill-solid pill-lg" href="involved.html" data-i18n="idx_get_involved_btn">Get Involved</a>
+
+      <div class="wave-bars" aria-hidden="true">
+        <span style="height:28%"></span><span style="height:52%"></span><span style="height:74%"></span><span style="height:40%"></span><span style="height:88%"></span><span style="height:60%"></span><span style="height:34%"></span><span style="height:70%"></span><span style="height:46%"></span><span style="height:82%"></span><span style="height:58%"></span><span style="height:30%"></span><span style="height:66%"></span><span style="height:94%"></span><span style="height:50%"></span><span style="height:38%"></span><span style="height:76%"></span><span style="height:44%"></span><span style="height:62%"></span><span style="height:86%"></span><span style="height:32%"></span><span style="height:54%"></span><span style="height:90%"></span><span style="height:42%"></span><span style="height:68%"></span><span style="height:56%"></span><span style="height:80%"></span><span style="height:36%"></span><span style="height:64%"></span><span style="height:48%"></span><span style="height:72%"></span><span style="height:26%"></span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -548,8 +647,8 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
       <div class="foot-brand">
         <a class="brand" href="#top">
           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-            <circle cx="11" cy="11" r="10" stroke="#76b900" stroke-width="1.4" opacity=".55"/>
-            <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
+            <circle cx="11" cy="11" r="10" stroke="#3E8BFF" stroke-width="1.4" opacity=".55"/>
+            <rect x="8" y="8" width="6" height="6" fill="#3E8BFF"/>
           </svg>
           <b data-i18n="brand_name">Hikaru Foundation</b>
         </a>
@@ -620,7 +719,7 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
         if (q.d < 0.5) continue;
         var dist = Math.sqrt((p.sx-q.sx)*(p.sx-q.sx) + (p.sy-q.sy)*(p.sy-q.sy));
         if (dist < LINK) {
-          ctx.strokeStyle = 'rgba(143,212,20,' + (0.16 * (1 - dist/LINK) * p.d * p.k * q.k).toFixed(3) + ')';
+          ctx.strokeStyle = 'rgba(90,150,255,' + (0.16 * (1 - dist/LINK) * p.d * p.k * q.k).toFixed(3) + ')';
           ctx.beginPath(); ctx.moveTo(p.sx, p.sy); ctx.lineTo(q.sx, q.sy); ctx.stroke();
         }
       }
@@ -629,7 +728,7 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
     proj.sort(function(m,n){ return m.d - n.d; }).forEach(function(p){
       ctx.beginPath();
       ctx.arc(p.sx, p.sy, 0.7 + p.d * 2.4, 0, Math.PI*2);
-      ctx.fillStyle = 'rgba(' + Math.round(150 + p.d*105) + ',' + Math.round(215 + p.d*40) + ',' + Math.round(90 + p.d*70) + ',' + ((0.12 + p.d*0.8) * p.k).toFixed(3) + ')';
+      ctx.fillStyle = 'rgba(' + Math.round(70 + p.d*70) + ',' + Math.round(140 + p.d*70) + ',' + Math.round(220 + p.d*35) + ',' + ((0.12 + p.d*0.8) * p.k).toFixed(3) + ')';
       ctx.fill();
     });
 
