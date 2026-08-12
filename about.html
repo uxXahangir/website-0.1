@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About — Hikaru Foundation</title>
+<script>(function(){try{var t=localStorage.getItem('hikaru-theme');if(!t)t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
 <style>
 /* ============================================================
    Same token set as the homepage. Nothing new except the
@@ -245,7 +247,7 @@ section{padding:var(--sp-section) 0}
 }
 </style>
 </head>
-<body>
+<body data-page="about">
 
 <!-- ==================== STAGE: nav + mission banner ==================== -->
 <div class="stage">
@@ -257,16 +259,21 @@ section{padding:var(--sp-section) 0}
           <circle cx="11" cy="11" r="5.6" stroke="#76b900" stroke-width="1.2" opacity=".8"/>
           <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
         </svg>
-        <b>Hikaru Foundation</b>
+        <b data-i18n="brand_name">Hikaru Foundation</b>
       </a>
       <div class="nav-links">
-        <a href="about.html" aria-current="page">About</a>
-        <a href="work.html">Our Work</a>
-        <a href="news.html">Research</a>
-        <a href="contact.html">Contact</a>
+        <a href="about.html" aria-current="page" data-i18n="nav_about">About</a>
+        <a href="work.html" data-i18n="nav_work">Our Work</a>
+        <a href="news.html" data-i18n="nav_research">Research</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
       </div>
       <div class="nav-cta">
-        <a class="pill pill-solid" href="involved.html">Get Involved</a>
+        <button class="icon-btn js-theme-toggle" type="button" aria-pressed="false" aria-label="Switch to light mode">
+          <svg class="i-dark" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.8 9.6A6.3 6.3 0 016.4 2.2a6.3 6.3 0 108.9 8.9c-.5.3-1 .5-1.5.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <svg class="i-light" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.6v1.7M8 12.7v1.7M14.4 8h-1.7M3.3 8H1.6M12.7 3.3l-1.2 1.2M4.5 11.5l-1.2 1.2M12.7 12.7l-1.2-1.2M4.5 4.5L3.3 3.3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </button>
+        <button class="icon-btn lang-btn js-lang-toggle" type="button" aria-label="Switch to Bangla">বাং</button>
+        <a class="pill pill-solid" href="involved.html" data-i18n="nav_getinvolved">Get Involved</a>
       </div>
     </nav>
   </div>
@@ -274,20 +281,20 @@ section{padding:var(--sp-section) 0}
   <!-- ===== 1. MISSION & VISION ===== -->
   <header class="banner" id="top">
     <div class="shell">
-      <span class="eyebrow kicker" style="display:block">About Hikaru Foundation</span>
+      <span class="eyebrow kicker" style="display:block" data-i18n="abt_kicker">About Hikaru Foundation</span>
 
       <blockquote class="quote">
-        <span class="mark">“</span>Bangladesh's digital future should belong to its people.<span class="mark">”</span>
+        <span class="mark">“</span><span data-i18n="abt_quote">Bangladesh's digital future should belong to its people.</span><span class="mark">”</span>
       </blockquote>
 
       <div class="vm-pair">
         <div class="vm-card">
-          <span class="eyebrow">Our vision</span>
-          <p>A digitally empowered world where technology and innovation ensure justice, equity, and social welfare.</p>
+          <span class="eyebrow" data-i18n="abt_vision_label">Our vision</span>
+          <p data-i18n="abt_vision_p">A digitally empowered world where technology and innovation ensure justice, equity, and social welfare.</p>
         </div>
         <div class="vm-card">
-          <span class="eyebrow">Our mission</span>
-          <p>To apply emerging technologies to real-world challenges, promoting social justice and inclusive development. We work to improve digital literacy, promote ethical technological innovation, and advance technology policy through collaborative research and engagement.</p>
+          <span class="eyebrow" data-i18n="abt_mission_label">Our mission</span>
+          <p data-i18n="abt_mission_p">To apply emerging technologies to real-world challenges, promoting social justice and inclusive development. We work to improve digital literacy, promote ethical technological innovation, and advance technology policy through collaborative research and engagement.</p>
         </div>
       </div>
     </div>
@@ -302,42 +309,42 @@ section{padding:var(--sp-section) 0}
     <div class="story">
 
       <div class="story-copy rv">
-        <span class="eyebrow">The origin story</span>
-        <p class="first">Bangladesh's digital landscape runs on infrastructure it does not own.</p>
-        <p>Foreign companies hold exclusive control and centralized data centers hold a monopoly. International business organizations collect and use citizen data for their own commercial interests, an uncontrolled interference in the data rights and freedoms of people here.</p>
-        <p>That was the observation the work started from in 2021. Not a product idea, a dependency: every layer of the country's digital life sitting on infrastructure owned and governed somewhere else, and no domestic alternative being built.</p>
-        <p>A sovereign blockchain decentralizes that control. It makes activity transparent, secures access to financial and civic systems, and returns the digital commons to the people who depend on it. Everything Hikaru Foundation does follows from that one conclusion.</p>
+        <span class="eyebrow" data-i18n="abt_story_eyebrow">The origin story</span>
+        <p class="first" data-i18n="abt_story_first">Bangladesh's digital landscape runs on infrastructure it does not own.</p>
+        <p data-i18n="abt_story_p1">Foreign companies hold exclusive control and centralized data centers hold a monopoly. International business organizations collect and use citizen data for their own commercial interests, an uncontrolled interference in the data rights and freedoms of people here.</p>
+        <p data-i18n="abt_story_p2">That was the observation the work started from in 2021. Not a product idea, a dependency: every layer of the country's digital life sitting on infrastructure owned and governed somewhere else, and no domestic alternative being built.</p>
+        <p data-i18n="abt_story_p3">A sovereign blockchain decentralizes that control. It makes activity transparent, secures access to financial and civic systems, and returns the digital commons to the people who depend on it. Everything Hikaru Foundation does follows from that one conclusion.</p>
       </div>
 
       <div class="tl rv" id="timeline">
 
         <div class="tl-item">
           <span class="tl-dot" aria-hidden="true"></span>
-          <div class="tl-year">2021</div>
-          <h3 class="tl-head">The work begins</h3>
-          <p class="tl-body">Research and groundwork start, driven by a single question: what would it take for Bangladesh to run digital infrastructure it actually controls?</p>
+          <div class="tl-year" data-i18n="abt_tl1_y">2021</div>
+          <h3 class="tl-head" data-i18n="abt_tl1_h">The work begins</h3>
+          <p class="tl-body" data-i18n="abt_tl1_b">Research and groundwork start, driven by a single question: what would it take for Bangladesh to run digital infrastructure it actually controls?</p>
         </div>
 
         <div class="tl-item">
           <span class="tl-dot" aria-hidden="true"></span>
-          <div class="tl-year">March 2024</div>
-          <h3 class="tl-head">Onchain Software and Research Limited established</h3>
-          <p class="tl-body">The research effort takes formal shape as a registered entity, giving the work a legal home and a structure to build from.</p>
+          <div class="tl-year" data-i18n="abt_tl2_y">March 2024</div>
+          <h3 class="tl-head" data-i18n="abt_tl2_h">Onchain Software and Research Limited established</h3>
+          <p class="tl-body" data-i18n="abt_tl2_b">The research effort takes formal shape as a registered entity, giving the work a legal home and a structure to build from.</p>
         </div>
 
         <div class="tl-item">
           <span class="tl-dot" aria-hidden="true"></span>
-          <div class="tl-year">2025</div>
-          <h3 class="tl-head">Hikaru Layer-1 project initiated</h3>
-          <p class="tl-body">Development starts on the sovereign Layer-1 network: an immutable ledger run on community infrastructure, built to carry payments, supply chain records, and digital identity.</p>
+          <div class="tl-year" data-i18n="abt_tl3_y">2025</div>
+          <h3 class="tl-head" data-i18n="abt_tl3_h">Hikaru Layer-1 project initiated</h3>
+          <p class="tl-body" data-i18n="abt_tl3_b">Development starts on the sovereign Layer-1 network: an immutable ledger run on community infrastructure, built to carry payments, supply chain records, and digital identity.</p>
         </div>
 
         <div class="tl-item">
           <span class="tl-dot" aria-hidden="true"></span>
-          <div class="tl-year">2026</div>
-          <h3 class="tl-head">Hikaru Foundation</h3>
-          <p class="tl-body">The foundation brings the three initiatives under one purpose: the network, the research and policy work, and Hikaru Academy.</p>
-          <span class="tl-note">Confirm founding date and entity</span>
+          <div class="tl-year" data-i18n="abt_tl4_y">2026</div>
+          <h3 class="tl-head" data-i18n="abt_tl4_h">Hikaru Foundation</h3>
+          <p class="tl-body" data-i18n="abt_tl4_b">The foundation brings the three initiatives under one purpose: the network, the research and policy work, and Hikaru Academy.</p>
+          <span class="tl-note" data-i18n="abt_tl4_note">Confirm founding date and entity</span>
         </div>
 
       </div>
@@ -350,9 +357,9 @@ section{padding:var(--sp-section) 0}
   <div class="shell center">
     <div class="rule"></div>
     <div class="rv">
-      <span class="eyebrow">What we hold to</span>
-      <h2 style="margin-top:16px">Five commitments, not slogans</h2>
-      <p class="lede">These are the standards the work is judged against, including by us. Each one is testable: you can look at what we ship and tell whether we kept it.</p>
+      <span class="eyebrow" data-i18n="abt_values_eyebrow">What we hold to</span>
+      <h2 style="margin-top:16px" data-i18n="abt_values_h2">Five commitments, not slogans</h2>
+      <p class="lede" data-i18n="abt_values_lede">These are the standards the work is judged against, including by us. Each one is testable: you can look at what we ship and tell whether we kept it.</p>
     </div>
 
     <div class="values">
@@ -362,8 +369,8 @@ section{padding:var(--sp-section) 0}
           <circle cx="14" cy="14" r="10" stroke="currentColor" stroke-width="1.6"/>
           <path d="M9.5 14.5l3 3 6-6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <h3>Transparency and accountability</h3>
-        <p>A ledger anyone can inspect is only useful if the organization behind it works the same way. We publish what we decide and why, and we expect to be held to it.</p>
+        <h3 data-i18n="abt_v1_h3">Transparency and accountability</h3>
+        <p data-i18n="abt_v1_p">A ledger anyone can inspect is only useful if the organization behind it works the same way. We publish what we decide and why, and we expect to be held to it.</p>
       </article>
 
       <article class="value rv">
@@ -371,8 +378,8 @@ section{padding:var(--sp-section) 0}
           <path d="M14 3v4M14 21v4M3 14h4M21 14h4M6.2 6.2l2.9 2.9M18.9 18.9l2.9 2.9M21.8 6.2l-2.9 2.9M9.1 18.9l-2.9 2.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           <circle cx="14" cy="14" r="4.2" stroke="currentColor" stroke-width="1.6"/>
         </svg>
-        <h3>Ethical innovation</h3>
-        <p>New technology is not neutral, and speed is not a defence. We weigh who carries the risk of what we build before we build it.</p>
+        <h3 data-i18n="abt_v2_h3">Ethical innovation</h3>
+        <p data-i18n="abt_v2_p">New technology is not neutral, and speed is not a defence. We weigh who carries the risk of what we build before we build it.</p>
       </article>
 
       <article class="value rv">
@@ -382,8 +389,8 @@ section{padding:var(--sp-section) 0}
           <circle cx="23" cy="21" r="3" stroke="currentColor" stroke-width="1.6"/>
           <path d="M12 8.5L7 18.5M16 8.5l5 10M8 21h12" stroke="currentColor" stroke-width="1.6"/>
         </svg>
-        <h3>Decentralized governance</h3>
-        <p>Infrastructure the public depends on should not have a single owner, and that includes us. Control is designed to distribute as the network grows.</p>
+        <h3 data-i18n="abt_v3_h3">Decentralized governance</h3>
+        <p data-i18n="abt_v3_p">Infrastructure the public depends on should not have a single owner, and that includes us. Control is designed to distribute as the network grows.</p>
       </article>
 
       <article class="value rv">
@@ -391,8 +398,8 @@ section{padding:var(--sp-section) 0}
           <path d="M14 24s9-5.5 9-12.5A9 9 0 005 11.5C5 18.5 14 24 14 24z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
           <path d="M14 24V11M14 15l4-3.5M14 18l-4-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
-        <h3>Sustainability</h3>
-        <p>Infrastructure that outlives its funding cycle is the only kind worth building. We plan for decades of operation, not a launch.</p>
+        <h3 data-i18n="abt_v4_h3">Sustainability</h3>
+        <p data-i18n="abt_v4_p">Infrastructure that outlives its funding cycle is the only kind worth building. We plan for decades of operation, not a launch.</p>
       </article>
 
       <article class="value rv">
@@ -401,16 +408,16 @@ section{padding:var(--sp-section) 0}
           <path d="M9.5 12V9a4.5 4.5 0 019 0v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           <circle cx="14" cy="18" r="1.8" fill="currentColor"/>
         </svg>
-        <h3>Technological autonomy</h3>
-        <p>A country that cannot run its own critical systems is negotiating from a weak position permanently. Autonomy is the whole point of the work.</p>
+        <h3 data-i18n="abt_v5_h3">Technological autonomy</h3>
+        <p data-i18n="abt_v5_p">A country that cannot run its own critical systems is negotiating from a weak position permanently. Autonomy is the whole point of the work.</p>
       </article>
 
       <article class="value rv">
         <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
           <path d="M4 6h7a3 3 0 013 3v14a3 3 0 00-3-3H4V6zM24 6h-7a3 3 0 00-3 3v14a3 3 0 013-3h7V6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
         </svg>
-        <h3>Knowledge in public hands</h3>
-        <p>Infrastructure people cannot understand is not really theirs. Hikaru Academy exists so the knowledge spreads as widely as the network does.</p>
+        <h3 data-i18n="abt_v6_h3">Knowledge in public hands</h3>
+        <p data-i18n="abt_v6_p">Infrastructure people cannot understand is not really theirs. Hikaru Academy exists so the knowledge spreads as widely as the network does.</p>
       </article>
 
     </div>
@@ -422,9 +429,9 @@ section{padding:var(--sp-section) 0}
   <div class="shell center">
     <div class="rule"></div>
     <div class="rv">
-      <span class="eyebrow">Who we are</span>
-      <h2 style="margin-top:16px">The people behind the work</h2>
-      <p class="lede">Hikaru Foundation is a collaboration between technologists, activists, researchers, economists, and legal experts.</p>
+      <span class="eyebrow" data-i18n="abt_team_eyebrow">Who we are</span>
+      <h2 style="margin-top:16px" data-i18n="abt_team_h2">The people behind the work</h2>
+      <p class="lede" data-i18n="abt_team_lede">Hikaru Foundation is a collaboration between technologists, activists, researchers, economists, and legal experts.</p>
     </div>
 
     <!-- ============================================================
@@ -437,40 +444,40 @@ section{padding:var(--sp-section) 0}
 
       <article class="person tbc rv">
         <div class="shot" aria-hidden="true">—</div>
-        <h3>Name to be confirmed</h3>
-        <div class="role">Executive role</div>
-        <p class="bio">One line on background and what this person is responsible for.</p>
-        <a href="#">View profile →</a>
+        <h3 data-i18n="abt_person_name">Name to be confirmed</h3>
+        <div class="role" data-i18n="abt_person_role_exec">Executive role</div>
+        <p class="bio" data-i18n="abt_person_bio">One line on background and what this person is responsible for.</p>
+        <a href="#" data-i18n="abt_person_link">View profile →</a>
       </article>
 
       <article class="person tbc rv">
         <div class="shot" aria-hidden="true">—</div>
-        <h3>Name to be confirmed</h3>
-        <div class="role">Executive role</div>
-        <p class="bio">One line on background and what this person is responsible for.</p>
-        <a href="#">View profile →</a>
+        <h3 data-i18n="abt_person_name">Name to be confirmed</h3>
+        <div class="role" data-i18n="abt_person_role_exec">Executive role</div>
+        <p class="bio" data-i18n="abt_person_bio">One line on background and what this person is responsible for.</p>
+        <a href="#" data-i18n="abt_person_link">View profile →</a>
       </article>
 
       <article class="person tbc rv">
         <div class="shot" aria-hidden="true">—</div>
-        <h3>Name to be confirmed</h3>
-        <div class="role">Board member</div>
-        <p class="bio">One line on background and what this person is responsible for.</p>
-        <a href="#">View profile →</a>
+        <h3 data-i18n="abt_person_name">Name to be confirmed</h3>
+        <div class="role" data-i18n="abt_person_role_board">Board member</div>
+        <p class="bio" data-i18n="abt_person_bio">One line on background and what this person is responsible for.</p>
+        <a href="#" data-i18n="abt_person_link">View profile →</a>
       </article>
 
       <article class="person tbc rv">
         <div class="shot" aria-hidden="true">—</div>
-        <h3>Name to be confirmed</h3>
-        <div class="role">Board member</div>
-        <p class="bio">One line on background and what this person is responsible for.</p>
-        <a href="#">View profile →</a>
+        <h3 data-i18n="abt_person_name">Name to be confirmed</h3>
+        <div class="role" data-i18n="abt_person_role_board">Board member</div>
+        <p class="bio" data-i18n="abt_person_bio">One line on background and what this person is responsible for.</p>
+        <a href="#" data-i18n="abt_person_link">View profile →</a>
       </article>
 
     </div>
 
     <div class="callout rv">
-      <b>Build note.</b> The source profile names no individuals, so these four cards carry no real data. Ship this section only once you have a headshot, full name, role, and a one-line bio for at least three people. Four half-filled cards read worse than a section that isn't there, and on an About page an unnamed leadership team costs more trust than an absent one.
+      <b>Build note.</b> <span data-i18n="abt_team_callout">The source profile names no individuals, so these four cards carry no real data. Ship this section only once you have a headshot, full name, role, and a one-line bio for at least three people. Four half-filled cards read worse than a section that isn't there, and on an About page an unnamed leadership team costs more trust than an absent one.</span>
     </div>
   </div>
 </section>
@@ -480,9 +487,9 @@ section{padding:var(--sp-section) 0}
   <div class="shell center">
     <div class="rule"></div>
     <div class="rv">
-      <span class="eyebrow">Accountability</span>
-      <h2 style="margin-top:16px">How we can be checked</h2>
-      <p class="lede">Hikaru Foundation is young, and pretending otherwise would undercut the first value on this page. Here is what exists today and what is coming.</p>
+      <span class="eyebrow" data-i18n="abt_gov_eyebrow">Accountability</span>
+      <h2 style="margin-top:16px" data-i18n="abt_gov_h2">How we can be checked</h2>
+      <p class="lede" data-i18n="abt_gov_lede">Hikaru Foundation is young, and pretending otherwise would undercut the first value on this page. Here is what exists today and what is coming.</p>
     </div>
 
     <div class="gov">
@@ -492,9 +499,9 @@ section{padding:var(--sp-section) 0}
           <rect x="6" y="4" width="16" height="20" rx="2.5" stroke="currentColor" stroke-width="1.6"/>
           <path d="M10 10h8M10 14h8M10 18h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
         </svg>
-        <h3>Legal entity</h3>
-        <p>Onchain Software and Research Limited, established March 2024, is the registered entity behind the work.</p>
-        <span class="status live">On record</span>
+        <h3 data-i18n="abt_gov1_h3">Legal entity</h3>
+        <p data-i18n="abt_gov1_p">Onchain Software and Research Limited, established March 2024, is the registered entity behind the work.</p>
+        <span class="status live" data-i18n="abt_gov1_status">On record</span>
       </div>
 
       <div class="gov-card rv">
@@ -502,9 +509,9 @@ section{padding:var(--sp-section) 0}
           <path d="M14 3l9 3.5v7c0 5.5-3.8 10-9 11.5C8.8 24.5 5 20 5 13.5v-7L14 3z" stroke="currentColor" stroke-width="1.6"/>
           <path d="M10 13.5l2.8 2.8L18 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
         </svg>
-        <h3>Annual reporting</h3>
-        <p>Financial statements and an activity report will be published once the first full operating year closes.</p>
-        <span class="status soon">Not yet available</span>
+        <h3 data-i18n="abt_gov2_h3">Annual reporting</h3>
+        <p data-i18n="abt_gov2_p">Financial statements and an activity report will be published once the first full operating year closes.</p>
+        <span class="status soon" data-i18n="abt_gov2_status">Not yet available</span>
       </div>
 
       <div class="gov-card rv">
@@ -512,15 +519,15 @@ section{padding:var(--sp-section) 0}
           <circle cx="14" cy="14" r="10" stroke="currentColor" stroke-width="1.6"/>
           <path d="M14 9v5.5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
         </svg>
-        <h3>Open research</h3>
-        <p>Findings from the security, privacy, and policy work will be published as they complete, not held back.</p>
-        <span class="status soon">In progress</span>
+        <h3 data-i18n="abt_gov3_h3">Open research</h3>
+        <p data-i18n="abt_gov3_p">Findings from the security, privacy, and policy work will be published as they complete, not held back.</p>
+        <span class="status soon" data-i18n="abt_gov3_status">In progress</span>
       </div>
 
     </div>
 
     <div class="callout rv">
-      <b>Build note.</b> Your brief called for downloadable annual reports and 501(c)(3) certification. Neither applies: the organization was founded in 2026 so no annual report exists, and 501(c)(3) is US tax law, not Bangladeshi. This block states what is verifiable now. Swap the "not yet available" chips for download buttons as each document is published.
+      <b>Build note.</b> <span data-i18n="abt_gov_callout">Your brief called for downloadable annual reports and 501(c)(3) certification. Neither applies: the organization was founded in 2026 so no annual report exists, and 501(c)(3) is US tax law, not Bangladeshi. This block states what is verifiable now. Swap the "not yet available" chips for download buttons as each document is published.</span>
     </div>
   </div>
 </section>
@@ -533,12 +540,12 @@ section{padding:var(--sp-section) 0}
     <div class="shell center">
       <div class="rule"></div>
       <div class="rv">
-        <span class="eyebrow">Get involved</span>
-        <h2 style="margin:16px auto 0;max-width:20ch">There is a place here for what you already do.</h2>
-        <p class="lede">Hikaru Foundation brings together technologists, activists, researchers, economists, legal experts, and citizens. Build the protocol, join the research, or help shape Hikaru Academy.</p>
+        <span class="eyebrow" data-i18n="abt_close_eyebrow">Get involved</span>
+        <h2 style="margin:16px auto 0;max-width:20ch" data-i18n="abt_close_h2">There is a place here for what you already do.</h2>
+        <p class="lede" data-i18n="abt_close_lede">Hikaru Foundation brings together technologists, activists, researchers, economists, legal experts, and citizens. Build the protocol, join the research, or help shape Hikaru Academy.</p>
         <div style="margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-          <a class="pill pill-solid pill-lg" href="involved.html">Get Involved</a>
-          <a class="pill pill-ghost pill-lg" href="work.html">See our work</a>
+          <a class="pill pill-solid pill-lg" href="involved.html" data-i18n="abt_close_btn1">Get Involved</a>
+          <a class="pill pill-ghost pill-lg" href="work.html" data-i18n="abt_close_btn2">See our work</a>
         </div>
       </div>
     </div>
@@ -555,21 +562,26 @@ section{padding:var(--sp-section) 0}
             <circle cx="11" cy="11" r="10" stroke="#76b900" stroke-width="1.4" opacity=".55"/>
             <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
           </svg>
-          <b>Hikaru Foundation</b>
+          <b data-i18n="brand_name">Hikaru Foundation</b>
         </a>
-        <p>Technology with conscience. A non-profit building decentralized digital infrastructure for Bangladesh.</p>
+        <p data-i18n="foot_tagline">Technology with conscience. A non-profit building decentralized digital infrastructure for Bangladesh.</p>
       </div>
-      <div><h4>About</h4><a href="about.html#story">Our story</a><a href="about.html">Vision and mission</a><a href="about.html#values">Values</a><a href="about.html#team">People</a></div>
-      <div><h4>Our Work</h4><a href="network.html">Hikaru Layer-1</a><a href="work.html#research">Research and policy</a><a href="work.html#academy">Hikaru Academy</a><a href="work.html">All programmes</a></div>
-      <div><h4>Take part</h4><a href="involved.html">Get involved</a><a href="news.html">Research and updates</a><a href="contact.html">Contact</a><a href="contact.html#hours">Opening hours</a></div>
-      <div><h4>Legal</h4><a href="#">Privacy policy</a><a href="#">Terms of use</a></div>
+      <div><h4 data-i18n="foot_h_about">About</h4><a href="about.html#story" data-i18n="foot_our_story">Our story</a><a href="about.html" data-i18n="foot_vision_mission">Vision and mission</a><a href="about.html#values" data-i18n="foot_values">Values</a><a href="about.html#team" data-i18n="foot_people">People</a></div>
+      <div><h4 data-i18n="foot_h_work">Our Work</h4><a href="network.html" data-i18n="foot_hikaru_l1">Hikaru Layer-1</a><a href="work.html#research" data-i18n="foot_research_policy">Research and policy</a><a href="work.html#academy" data-i18n="foot_academy">Hikaru Academy</a><a href="work.html" data-i18n="foot_all_programmes">All programmes</a></div>
+      <div><h4 data-i18n="foot_h_takepart">Take part</h4><a href="involved.html" data-i18n="foot_get_involved">Get involved</a><a href="news.html" data-i18n="foot_research_updates">Research and updates</a><a href="contact.html" data-i18n="foot_contact">Contact</a><a href="contact.html#hours" data-i18n="foot_opening_hours">Opening hours</a></div>
+      <div><h4 data-i18n="foot_h_legal">Legal</h4><a href="#" data-i18n="foot_privacy">Privacy policy</a><a href="#" data-i18n="foot_terms">Terms of use</a></div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Hikaru Foundation. All rights reserved.</span>
-      <a href="#top">Back to top ↑</a>
+      <span data-i18n="foot_copyright">© 2026 Hikaru Foundation. All rights reserved.</span>
+      <a href="#top" data-i18n="foot_back_to_top">Back to top ↑</a>
     </div>
   </div>
 </footer>
+
+<script src="assets/i18n-core.js"></script>
+<script src="assets/i18n-about.js"></script>
+<script src="assets/theme.js"></script>
+<script src="assets/i18n.js"></script>
 
 <script>
 /* ---------- scroll reveal ---------- */

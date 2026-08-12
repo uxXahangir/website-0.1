@@ -1,0 +1,96 @@
+/* ============================================================
+   Shared light/dark theme + toggle button styles.
+   Linked by every page. Overrides the dark-mode custom properties
+   each page defines in its own <style> block when
+   :root[data-theme="light"] is set (see theme.js).
+   ============================================================ */
+
+:root[data-theme="light"]{
+  --ink:#f2f5ec;
+  --ink-deep:#ffffff;
+  --on-dark:#0b1108;
+  --on-dark-mute:rgba(11,17,8,.66);
+  --on-dark-faint:rgba(11,17,8,.42);
+  --hairline:rgba(11,17,8,.10);
+  --hairline-lit:rgba(11,17,8,.18);
+  --panel:rgba(11,17,8,.03);
+  --amber:#93590a;
+  --amber-line:rgba(180,110,10,.4);
+  --amber-bg:rgba(200,130,20,.10);
+  --red:#c23c30;
+}
+
+/* surfaces that hardcode rgba(255,255,255,x) / rgba(0,0,0,x) instead of
+   reading the tokens above need their own light-mode overrides */
+:root[data-theme="light"] .nav{
+  background:rgba(11,17,8,.045);border-color:rgba(11,17,8,.14);
+  box-shadow:0 8px 30px rgba(11,17,8,.10);
+}
+:root[data-theme="light"] .pill-ghost{background:rgba(11,17,8,.045)}
+:root[data-theme="light"] .pill-ghost:hover{border-color:rgba(11,17,8,.35)}
+:root[data-theme="light"] .card:hover,
+:root[data-theme="light"] .dest:hover,
+:root[data-theme="light"] .value:hover{background:rgba(11,17,8,.045)}
+:root[data-theme="light"] .field,
+:root[data-theme="light"] .select,
+:root[data-theme="light"] .area{background:rgba(11,17,8,.035);color:var(--on-dark)}
+:root[data-theme="light"] .select option{background:#fff;color:#0b1108}
+:root[data-theme="light"] .vm-card{background:rgba(11,17,8,.04)}
+:root[data-theme="light"] .vm-card p{color:rgba(11,17,8,.75)}
+:root[data-theme="light"] .story-copy p.first{color:rgba(11,17,8,.88)}
+:root[data-theme="light"] .callout{color:rgba(11,17,8,.78)}
+:root[data-theme="light"] .person.tbc{border-color:rgba(11,17,8,.16)}
+:root[data-theme="light"] .foot-bottom span,
+:root[data-theme="light"] .foot-bottom a{color:rgba(11,17,8,.4)}
+:root[data-theme="light"] .filterbar,
+:root[data-theme="light"] .catbar,
+:root[data-theme="light"] .regbar{background:rgba(255,255,255,.86)}
+:root[data-theme="light"] .chip,
+:root[data-theme="light"] .cat,
+:root[data-theme="light"] .tab,
+:root[data-theme="light"] .opt{background:rgba(11,17,8,.035)}
+:root[data-theme="light"] .toggle{background:rgba(11,17,8,.035)}
+:root[data-theme="light"] .status.dev{color:rgba(11,17,8,.68)}
+:root[data-theme="light"] .srow .v{color:rgba(11,17,8,.82)}
+:root[data-theme="light"] .crumb span[style]{color:rgba(11,17,8,.6) !important}
+:root[data-theme="light"] .status[style]{color:rgba(11,17,8,.68)}
+:root[data-theme="light"] .q .qlabel{color:rgba(11,17,8,.8)}
+:root[data-theme="light"] .fg label{color:rgba(11,17,8,.8)}
+:root[data-theme="light"] .dc .val{color:rgba(11,17,8,.35);background:rgba(11,17,8,.025)}
+:root[data-theme="light"] .dc .val.ready{color:#0b1108;background:rgba(11,17,8,.05)}
+:root[data-theme="light"] .field::placeholder,
+:root[data-theme="light"] .area::placeholder{color:rgba(11,17,8,.35)}
+:root[data-theme="light"] .side-card,
+:root[data-theme="light"] .empty,
+:root[data-theme="light"] .honest{background:rgba(11,17,8,.025)}
+:root[data-theme="light"] .helpbar-inner{background:rgba(255,255,255,.92);border-color:rgba(143,212,20,.4)}
+:root[data-theme="light"] .helpbar b{color:#0b1108}
+
+/* catches a handful of one-off inline style="color:#fff" spots that would
+   otherwise render as invisible white-on-white text in light mode */
+:root[data-theme="light"] [style*="color:#fff"]{color:var(--on-dark) !important}
+
+/* the bloom art stays intentionally dark in both themes — it is a media
+   panel, not body text, the same way a photo or code block would stay
+   dark inside an otherwise light page */
+:root[data-theme="light"] .stage::before{opacity:.6}
+
+/* ---------- toggle buttons ---------- */
+.icon-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--hairline-lit);
+  background:rgba(255,255,255,.06);color:var(--on-dark);cursor:pointer;
+  font:inherit;font-size:13px;font-weight:700;
+  transition:transform .18s, border-color .18s, background .18s;
+}
+:root[data-theme="light"] .icon-btn{background:rgba(11,17,8,.045)}
+.icon-btn:hover{border-color:var(--hairline-lit);transform:translateY(-1px)}
+.icon-btn svg{display:block;flex:none}
+.icon-btn .i-light{display:none}
+:root[data-theme="light"] .icon-btn .i-dark{display:none}
+:root[data-theme="light"] .icon-btn .i-light{display:block}
+.lang-btn{min-width:36px}
+
+@media (max-width:1000px){
+  .icon-btn{height:32px;padding:0 10px;font-size:12px}
+}

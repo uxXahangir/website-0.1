@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hikaru Layer-1 — Hikaru Foundation</title>
+<script>(function(){try{var t=localStorage.getItem('hikaru-theme');if(!t)t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
 <style>
 :root{
   --primary:#76b900; --primary-lift:#8fd414; --on-primary:#000;
@@ -216,7 +218,7 @@ body.reg-tech li.tech{display:flex}
 }
 </style>
 </head>
-<body class="reg-plain">
+<body class="reg-plain" data-page="network">
 
 <div class="stage">
   <div class="nav-wrap">
@@ -227,39 +229,44 @@ body.reg-tech li.tech{display:flex}
           <circle cx="11" cy="11" r="5.6" stroke="#76b900" stroke-width="1.2" opacity=".8"/>
           <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
         </svg>
-        <b>Hikaru Foundation</b>
+        <b data-i18n="brand_name">Hikaru Foundation</b>
       </a>
       <div class="nav-links">
-        <a href="about.html">About</a>
-        <a href="work.html" aria-current="page">Our Work</a>
-        <a href="news.html">Research</a>
-        <a href="contact.html">Contact</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="work.html" aria-current="page" data-i18n="nav_work">Our Work</a>
+        <a href="news.html" data-i18n="nav_research">Research</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
       </div>
       <div class="nav-cta">
-        <a class="pill pill-solid" href="involved.html">Get Involved</a>
+        <button class="icon-btn js-theme-toggle" type="button" aria-pressed="false" aria-label="Switch to light mode">
+          <svg class="i-dark" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.8 9.6A6.3 6.3 0 016.4 2.2a6.3 6.3 0 108.9 8.9c-.5.3-1 .5-1.5.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <svg class="i-light" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.6v1.7M8 12.7v1.7M14.4 8h-1.7M3.3 8H1.6M12.7 3.3l-1.2 1.2M4.5 11.5l-1.2 1.2M12.7 12.7l-1.2-1.2M4.5 4.5L3.3 3.3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </button>
+        <button class="icon-btn lang-btn js-lang-toggle" type="button" aria-label="Switch to Bangla">বাং</button>
+        <a class="pill pill-solid" href="involved.html" data-i18n="nav_getinvolved">Get Involved</a>
       </div>
     </nav>
   </div>
 
   <div class="shell">
     <nav class="crumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a><span>/</span>
-      <a href="work.html">Our Work</a><span>/</span>
-      <span style="color:rgba(255,255,255,.7)">Hikaru Layer-1</span>
+      <a href="index.html" data-i18n="net_crumb_home">Home</a><span>/</span>
+      <a href="work.html" data-i18n="net_crumb_work">Our Work</a><span>/</span>
+      <span style="color:rgba(255,255,255,.7)" data-i18n="net_crumb_current">Hikaru Layer-1</span>
     </nav>
   </div>
 
   <header class="head" id="top">
     <div class="shell">
       <div class="row">
-        <span class="eyebrow">Initiative 01</span>
-        <span class="status">In development</span>
+        <span class="eyebrow" data-i18n="net_initiative">Initiative 01</span>
+        <span class="status" data-i18n="net_status">In development</span>
       </div>
-      <h1>A ledger the country <em>runs itself.</em></h1>
-      <p class="sub">Hikaru is a sovereign Layer-1 blockchain powered by community-driven decentralized infrastructure. It maintains an immutable ledger, enables secure peer-to-peer interaction, and carries payments, supply chain records, and digital identity.</p>
+      <h1><span data-i18n="net_h1_lead">A ledger the country</span> <em data-i18n="net_h1_em">runs itself.</em></h1>
+      <p class="sub" data-i18n="net_sub">Hikaru is a sovereign Layer-1 blockchain powered by community-driven decentralized infrastructure. It maintains an immutable ledger, enables secure peer-to-peer interaction, and carries payments, supply chain records, and digital identity.</p>
       <div class="acts">
-        <a class="pill pill-solid pill-lg" href="involved.html">Contribute to the network</a>
-        <a class="pill pill-ghost pill-lg" href="#how">How it works</a>
+        <a class="pill pill-solid pill-lg" href="involved.html" data-i18n="net_act1">Contribute to the network</a>
+        <a class="pill pill-ghost pill-lg" href="#how" data-i18n="net_act2">How it works</a>
       </div>
     </div>
   </header>
@@ -269,12 +276,12 @@ body.reg-tech li.tech{display:flex}
 <div class="regbar" id="regbar">
   <div class="shell">
     <div class="regrow">
-      <span class="lbl">Explain this to me as</span>
+      <span class="lbl" data-i18n="net_reg_lbl1">Explain this to me as</span>
       <div class="toggle" role="group" aria-label="Choose explanation level">
-        <button type="button" data-reg="plain" aria-pressed="true">Someone new to this</button>
-        <button type="button" data-reg="tech" aria-pressed="false">An engineer</button>
+        <button type="button" data-reg="plain" aria-pressed="true" data-i18n="net_reg_plain">Someone new to this</button>
+        <button type="button" data-reg="tech" aria-pressed="false" data-i18n="net_reg_tech">An engineer</button>
       </div>
-      <span class="lbl" style="text-align:right">Changes the whole page</span>
+      <span class="lbl" style="text-align:right" data-i18n="net_reg_lbl2">Changes the whole page</span>
     </div>
   </div>
 </div>
@@ -285,38 +292,38 @@ body.reg-tech li.tech{display:flex}
 <section id="how">
   <div class="shell">
     <div class="center rv">
-      <span class="eyebrow">What it is</span>
-      <h2 style="margin-top:16px">The short version</h2>
+      <span class="eyebrow" data-i18n="net_how_eyebrow">What it is</span>
+      <h2 style="margin-top:16px" data-i18n="net_how_h2">The short version</h2>
     </div>
 
     <div class="explain rv">
       <div>
         <div class="plain">
-          <h3>What problem it solves</h3>
-          <p>Almost every digital service you use in Bangladesh keeps its records on computers owned by a company somewhere else. Your payment history, your identity documents, the record that a shipment arrived. Someone else holds the original, and you hold a copy they let you see.</p>
-          <p>That arrangement works right up until it doesn't. The owner changes their terms, raises their price, gets acquired, is compelled by a foreign government, or simply switches you off.</p>
-          <p>Hikaru is an attempt to keep the original here, held by many independent people at once rather than one company.</p>
+          <h3 data-i18n="net_p1_plain_h3">What problem it solves</h3>
+          <p data-i18n="net_p1_plain_p1">Almost every digital service you use in Bangladesh keeps its records on computers owned by a company somewhere else. Your payment history, your identity documents, the record that a shipment arrived. Someone else holds the original, and you hold a copy they let you see.</p>
+          <p data-i18n="net_p1_plain_p2">That arrangement works right up until it doesn't. The owner changes their terms, raises their price, gets acquired, is compelled by a foreign government, or simply switches you off.</p>
+          <p data-i18n="net_p1_plain_p3">Hikaru is an attempt to keep the original here, held by many independent people at once rather than one company.</p>
         </div>
         <div class="tech">
-          <h3>What problem it solves</h3>
-          <p>Critical national record-keeping currently depends on custodial infrastructure operated under foreign jurisdiction. That creates a single point of both control and failure, with no domestic recourse when terms, pricing, or legal compulsion change upstream.</p>
-          <p>A Layer-1 with domestically distributed validation moves the authoritative record inside the jurisdiction and removes the single custodian, at the cost of the usual consistency and throughput trade-offs.</p>
-          <p>The design target is sovereignty and censorship resistance first, throughput second. <code>L1</code> rather than a rollup because settlement assurance cannot be inherited from a chain outside the jurisdiction.</p>
+          <h3 data-i18n="net_p1_tech_h3">What problem it solves</h3>
+          <p data-i18n="net_p1_tech_p1">Critical national record-keeping currently depends on custodial infrastructure operated under foreign jurisdiction. That creates a single point of both control and failure, with no domestic recourse when terms, pricing, or legal compulsion change upstream.</p>
+          <p data-i18n="net_p1_tech_p2">A Layer-1 with domestically distributed validation moves the authoritative record inside the jurisdiction and removes the single custodian, at the cost of the usual consistency and throughput trade-offs.</p>
+          <p data-i18n="net_p1_tech_p3">The design target is sovereignty and censorship resistance first, throughput second. <code>L1</code> rather than a rollup because settlement assurance cannot be inherited from a chain outside the jurisdiction.</p>
         </div>
       </div>
 
       <div>
         <div class="plain">
-          <h3>How it actually works</h3>
-          <p>Instead of one company keeping the record, hundreds of independent computers each keep an identical copy. When something new happens, they all check it and all write it down together.</p>
-          <p>Changing a past entry would mean convincing most of those machines simultaneously, which is hard on purpose. That difficulty is the security.</p>
-          <p>Anyone can run one of those machines. That is what makes it belong to the public rather than to us.</p>
+          <h3 data-i18n="net_p2_plain_h3">How it actually works</h3>
+          <p data-i18n="net_p2_plain_p1">Instead of one company keeping the record, hundreds of independent computers each keep an identical copy. When something new happens, they all check it and all write it down together.</p>
+          <p data-i18n="net_p2_plain_p2">Changing a past entry would mean convincing most of those machines simultaneously, which is hard on purpose. That difficulty is the security.</p>
+          <p data-i18n="net_p2_plain_p3">Anyone can run one of those machines. That is what makes it belong to the public rather than to us.</p>
         </div>
         <div class="tech">
-          <h3>How it actually works</h3>
-          <p>Independent validators maintain replicated state and reach agreement on ordering through consensus. Blocks commit once a supermajority signs, and history is protected by the cost of rewriting it.</p>
-          <p>Rewriting committed history requires controlling a supermajority of stake or validators, so the security budget is a function of how widely and independently validation is distributed, not of any cryptographic claim on its own.</p>
-          <p>Validator entry is permissionless by design. Concentration of validation is the primary threat to the sovereignty property this network exists to provide.</p>
+          <h3 data-i18n="net_p2_tech_h3">How it actually works</h3>
+          <p data-i18n="net_p2_tech_p1">Independent validators maintain replicated state and reach agreement on ordering through consensus. Blocks commit once a supermajority signs, and history is protected by the cost of rewriting it.</p>
+          <p data-i18n="net_p2_tech_p2">Rewriting committed history requires controlling a supermajority of stake or validators, so the security budget is a function of how widely and independently validation is distributed, not of any cryptographic claim on its own.</p>
+          <p data-i18n="net_p2_tech_p3">Validator entry is permissionless by design. Concentration of validation is the primary threat to the sovereignty property this network exists to provide.</p>
         </div>
       </div>
     </div>
@@ -328,16 +335,16 @@ body.reg-tech li.tech{display:flex}
   <div class="shell center">
     <div class="rule"></div>
     <div class="rv">
-      <span class="eyebrow">What it carries</span>
-      <h2 style="margin-top:16px">Four applications</h2>
-      <p class="lede">None of these are live. Each describes what the network is designed to support.</p>
+      <span class="eyebrow" data-i18n="net_uses_eyebrow">What it carries</span>
+      <h2 style="margin-top:16px" data-i18n="net_uses_h2">Four applications</h2>
+      <p class="lede" data-i18n="net_uses_lede">None of these are live. Each describes what the network is designed to support.</p>
     </div>
 
     <div class="tabs" role="tablist" aria-label="Applications">
-      <button class="tab" role="tab" aria-selected="true" data-p="pay" type="button">Payments</button>
-      <button class="tab" role="tab" aria-selected="false" data-p="chain" type="button">Supply chain</button>
-      <button class="tab" role="tab" aria-selected="false" data-p="id" type="button">Digital identity</button>
-      <button class="tab" role="tab" aria-selected="false" data-p="node" type="button">Node infrastructure</button>
+      <button class="tab" role="tab" aria-selected="true" data-p="pay" type="button" data-i18n="net_tab_pay">Payments</button>
+      <button class="tab" role="tab" aria-selected="false" data-p="chain" type="button" data-i18n="net_tab_chain">Supply chain</button>
+      <button class="tab" role="tab" aria-selected="false" data-p="id" type="button" data-i18n="net_tab_id">Digital identity</button>
+      <button class="tab" role="tab" aria-selected="false" data-p="node" type="button" data-i18n="net_tab_node">Node infrastructure</button>
     </div>
 
     <div class="panel on" data-p="pay" role="tabpanel">
@@ -345,17 +352,17 @@ body.reg-tech li.tech{display:flex}
         <svg width="110" height="110" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="4" y="8" width="20" height="14" rx="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M4 13h20" stroke="currentColor" stroke-width="1.2"/><path d="M8 18h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
       </div>
       <div class="txt">
-        <span class="eyebrow">Application 01</span>
-        <h3>Financial transactions</h3>
-        <p class="plain">Sending value directly to another person, with the record of it kept by the network rather than by a company that can freeze it, price it, or lose it.</p>
-        <p class="tech">Peer-to-peer value transfer with settlement finality on the native ledger. No custodial intermediary in the settlement path and no dependency on correspondent infrastructure outside the jurisdiction.</p>
+        <span class="eyebrow" data-i18n="net_app1_eyebrow">Application 01</span>
+        <h3 data-i18n="net_app1_h3">Financial transactions</h3>
+        <p class="plain" data-i18n="net_app1_plain_p">Sending value directly to another person, with the record of it kept by the network rather than by a company that can freeze it, price it, or lose it.</p>
+        <p class="tech" data-i18n="net_app1_tech_p">Peer-to-peer value transfer with settlement finality on the native ledger. No custodial intermediary in the settlement path and no dependency on correspondent infrastructure outside the jurisdiction.</p>
         <ul>
-          <li class="plain">No single company can block a payment between two people</li>
-          <li class="plain">The record survives even if any one operator disappears</li>
-          <li class="plain">Works the same whether the amount is large or tiny</li>
-          <li class="tech">Censorship resistance scales with validator decentralization</li>
-          <li class="tech">Finality guarantees depend on the consensus parameters, still being set</li>
-          <li class="tech">Fee model must not price out low-value domestic transfers</li>
+          <li class="plain" data-i18n="net_app1_li1_p">No single company can block a payment between two people</li>
+          <li class="plain" data-i18n="net_app1_li2_p">The record survives even if any one operator disappears</li>
+          <li class="plain" data-i18n="net_app1_li3_p">Works the same whether the amount is large or tiny</li>
+          <li class="tech" data-i18n="net_app1_li1_t">Censorship resistance scales with validator decentralization</li>
+          <li class="tech" data-i18n="net_app1_li2_t">Finality guarantees depend on the consensus parameters, still being set</li>
+          <li class="tech" data-i18n="net_app1_li3_t">Fee model must not price out low-value domestic transfers</li>
         </ul>
       </div>
     </div>
@@ -365,17 +372,17 @@ body.reg-tech li.tech{display:flex}
         <svg width="110" height="110" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="3" y="10" width="9" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/><rect x="16" y="10" width="9" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M12 14h4M7.5 10V6M20.5 18v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
       </div>
       <div class="txt">
-        <span class="eyebrow">Application 02</span>
-        <h3>Supply chain tracking</h3>
-        <p class="plain">A record of where something came from and who handled it, written as it happens and impossible to quietly edit afterwards.</p>
-        <p class="tech">Append-only custody attestations anchored on-chain. The ledger guarantees the record was not altered after commitment; it cannot guarantee the record was true when written.</p>
+        <span class="eyebrow" data-i18n="net_app2_eyebrow">Application 02</span>
+        <h3 data-i18n="net_app2_h3">Supply chain tracking</h3>
+        <p class="plain" data-i18n="net_app2_plain_p">A record of where something came from and who handled it, written as it happens and impossible to quietly edit afterwards.</p>
+        <p class="tech" data-i18n="net_app2_tech_p">Append-only custody attestations anchored on-chain. The ledger guarantees the record was not altered after commitment; it cannot guarantee the record was true when written.</p>
         <ul>
-          <li class="plain">Provenance claims can be checked, not just trusted</li>
-          <li class="plain">Exporters can prove chain of custody to buyers abroad</li>
-          <li class="plain">Nobody can rewrite the history after a problem appears</li>
-          <li class="tech">The oracle problem is unsolved here and always will be</li>
-          <li class="tech">Integrity of input data remains an off-chain governance question</li>
-          <li class="tech">Useful mainly where the dispute is about tampering, not accuracy</li>
+          <li class="plain" data-i18n="net_app2_li1_p">Provenance claims can be checked, not just trusted</li>
+          <li class="plain" data-i18n="net_app2_li2_p">Exporters can prove chain of custody to buyers abroad</li>
+          <li class="plain" data-i18n="net_app2_li3_p">Nobody can rewrite the history after a problem appears</li>
+          <li class="tech" data-i18n="net_app2_li1_t">The oracle problem is unsolved here and always will be</li>
+          <li class="tech" data-i18n="net_app2_li2_t">Integrity of input data remains an off-chain governance question</li>
+          <li class="tech" data-i18n="net_app2_li3_t">Useful mainly where the dispute is about tampering, not accuracy</li>
         </ul>
       </div>
     </div>
@@ -385,17 +392,17 @@ body.reg-tech li.tech{display:flex}
         <svg width="110" height="110" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="4" y="6" width="20" height="16" rx="2.5" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="13" r="2.8" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 19c1-2 3-3 4.5-3s3.5 1 4.5 3M18 11h4M18 15h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
       </div>
       <div class="txt">
-        <span class="eyebrow">Application 03</span>
-        <h3>Digital identity management</h3>
-        <p class="plain">Credentials you hold and present yourself, instead of records held about you by organisations you never chose and cannot audit.</p>
-        <p class="tech">Holder-controlled credentials with selective disclosure. Personal data stays off-chain by design; only proofs and revocation state touch the ledger.</p>
+        <span class="eyebrow" data-i18n="net_app3_eyebrow">Application 03</span>
+        <h3 data-i18n="net_app3_h3">Digital identity management</h3>
+        <p class="plain" data-i18n="net_app3_plain_p">Credentials you hold and present yourself, instead of records held about you by organisations you never chose and cannot audit.</p>
+        <p class="tech" data-i18n="net_app3_tech_p">Holder-controlled credentials with selective disclosure. Personal data stays off-chain by design; only proofs and revocation state touch the ledger.</p>
         <ul>
-          <li class="plain">You show only the fact needed, not your whole file</li>
-          <li class="plain">No central database of citizens to breach or sell</li>
-          <li class="plain">Works offline where the network reaches unevenly</li>
-          <li class="tech">Personal data on-chain would be irreversible and unlawful. Never do it.</li>
-          <li class="tech">Revocation and key recovery are the hard problems, not issuance</li>
-          <li class="tech">Highest-risk application on this list. Slowest to ship, correctly.</li>
+          <li class="plain" data-i18n="net_app3_li1_p">You show only the fact needed, not your whole file</li>
+          <li class="plain" data-i18n="net_app3_li2_p">No central database of citizens to breach or sell</li>
+          <li class="plain" data-i18n="net_app3_li3_p">Works offline where the network reaches unevenly</li>
+          <li class="tech" data-i18n="net_app3_li1_t">Personal data on-chain would be irreversible and unlawful. Never do it.</li>
+          <li class="tech" data-i18n="net_app3_li2_t">Revocation and key recovery are the hard problems, not issuance</li>
+          <li class="tech" data-i18n="net_app3_li3_t">Highest-risk application on this list. Slowest to ship, correctly.</li>
         </ul>
       </div>
     </div>
@@ -405,17 +412,17 @@ body.reg-tech li.tech{display:flex}
         <svg width="110" height="110" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="6" r="3" stroke="currentColor" stroke-width="1.2"/><circle cx="5" cy="21" r="3" stroke="currentColor" stroke-width="1.2"/><circle cx="23" cy="21" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M12 8.5L7 18.5M16 8.5l5 10M8 21h12" stroke="currentColor" stroke-width="1.2"/></svg>
       </div>
       <div class="txt">
-        <span class="eyebrow">Application 04</span>
-        <h3>Community node infrastructure</h3>
-        <p class="plain">The network runs on machines contributed by the people who use it. This is not a feature of the system. It is the system.</p>
-        <p class="tech">Permissionless validation with hardware requirements set deliberately low. Decentralization is the security property; every efficiency gain that concentrates validation erodes the thing being built.</p>
+        <span class="eyebrow" data-i18n="net_app4_eyebrow">Application 04</span>
+        <h3 data-i18n="net_app4_h3">Community node infrastructure</h3>
+        <p class="plain" data-i18n="net_app4_plain_p">The network runs on machines contributed by the people who use it. This is not a feature of the system. It is the system.</p>
+        <p class="tech" data-i18n="net_app4_tech_p">Permissionless validation with hardware requirements set deliberately low. Decentralization is the security property; every efficiency gain that concentrates validation erodes the thing being built.</p>
         <ul>
-          <li class="plain">Anyone can run one, which is what keeps it public</li>
-          <li class="plain">No single operator can be pressured into shutting it down</li>
-          <li class="plain">Ownership is distributed by participation, not by decree</li>
-          <li class="tech">Minimum spec must stay reachable on hardware available locally</li>
-          <li class="tech">Geographic and operator diversity matter more than node count</li>
-          <li class="tech">Concentration is the failure mode to monitor from day one</li>
+          <li class="plain" data-i18n="net_app4_li1_p">Anyone can run one, which is what keeps it public</li>
+          <li class="plain" data-i18n="net_app4_li2_p">No single operator can be pressured into shutting it down</li>
+          <li class="plain" data-i18n="net_app4_li3_p">Ownership is distributed by participation, not by decree</li>
+          <li class="tech" data-i18n="net_app4_li1_t">Minimum spec must stay reachable on hardware available locally</li>
+          <li class="tech" data-i18n="net_app4_li2_t">Geographic and operator diversity matter more than node count</li>
+          <li class="tech" data-i18n="net_app4_li3_t">Concentration is the failure mode to monitor from day one</li>
         </ul>
       </div>
     </div>
@@ -427,21 +434,21 @@ body.reg-tech li.tech{display:flex}
   <div class="shell center">
     <div class="rule"></div>
     <div class="rv">
-      <span class="eyebrow">Technical detail</span>
-      <h2 style="margin-top:16px">What is decided, and what is not</h2>
-      <p class="lede">Publishing the open questions alongside the settled ones is the point. A spec sheet with no gaps in a first-year project would not be credible.</p>
+      <span class="eyebrow" data-i18n="net_spec_eyebrow">Technical detail</span>
+      <h2 style="margin-top:16px" data-i18n="net_spec_h2">What is decided, and what is not</h2>
+      <p class="lede" data-i18n="net_spec_lede">Publishing the open questions alongside the settled ones is the point. A spec sheet with no gaps in a first-year project would not be credible.</p>
     </div>
 
     <div class="spec rv">
-      <div class="srow"><span class="k">Type</span><span class="v">Sovereign Layer-1, independent settlement</span></div>
-      <div class="srow"><span class="k">Ledger</span><span class="v">Immutable, append-only, publicly verifiable</span></div>
-      <div class="srow"><span class="k">Validation</span><span class="v">Community-operated, permissionless entry</span></div>
-      <div class="srow"><span class="k">Consensus mechanism</span><span class="v tbd">Under evaluation <span class="needs" style="margin-left:8px">Confirm</span></span></div>
-      <div class="srow"><span class="k">Block time</span><span class="v tbd">Not yet fixed <span class="needs" style="margin-left:8px">Confirm</span></span></div>
-      <div class="srow"><span class="k">Minimum node spec</span><span class="v tbd">Being determined against locally available hardware <span class="needs" style="margin-left:8px">Confirm</span></span></div>
-      <div class="srow"><span class="k">Source code</span><span class="v tbd">Repository not yet public <span class="needs" style="margin-left:8px">Add link</span></span></div>
-      <div class="srow"><span class="k">Token</span><span class="v">None. There is nothing to buy and no offering.</span></div>
-      <div class="srow"><span class="k">Security disclosures</span><span class="v tbd">Contact form, subject line "security" <span class="needs" style="margin-left:8px">Dedicated route needed</span></span></div>
+      <div class="srow"><span class="k" data-i18n="net_spec_k1">Type</span><span class="v" data-i18n="net_spec_v1">Sovereign Layer-1, independent settlement</span></div>
+      <div class="srow"><span class="k" data-i18n="net_spec_k2">Ledger</span><span class="v" data-i18n="net_spec_v2">Immutable, append-only, publicly verifiable</span></div>
+      <div class="srow"><span class="k" data-i18n="net_spec_k3">Validation</span><span class="v" data-i18n="net_spec_v3">Community-operated, permissionless entry</span></div>
+      <div class="srow"><span class="k" data-i18n="net_spec_k4">Consensus mechanism</span><span class="v tbd"><span data-i18n="net_spec_v4">Under evaluation</span> <span class="needs" style="margin-left:8px" data-i18n="net_needs_confirm">Confirm</span></span></div>
+      <div class="srow"><span class="k" data-i18n="net_spec_k5">Block time</span><span class="v tbd"><span data-i18n="net_spec_v5">Not yet fixed</span> <span class="needs" style="margin-left:8px" data-i18n="net_needs_confirm">Confirm</span></span></div>
+      <div class="srow"><span class="k" data-i18n="net_spec_k6">Minimum node spec</span><span class="v tbd"><span data-i18n="net_spec_v6">Being determined against locally available hardware</span> <span class="needs" style="margin-left:8px" data-i18n="net_needs_confirm">Confirm</span></span></div>
+      <div class="srow"><span class="k" data-i18n="net_spec_k7">Source code</span><span class="v tbd"><span data-i18n="net_spec_v7">Repository not yet public</span> <span class="needs" style="margin-left:8px" data-i18n="net_needs_addlink">Add link</span></span></div>
+      <div class="srow"><span class="k" data-i18n="net_spec_k8">Token</span><span class="v" data-i18n="net_spec_v8">None. There is nothing to buy and no offering.</span></div>
+      <div class="srow"><span class="k" data-i18n="net_spec_k9">Security disclosures</span><span class="v tbd"><span data-i18n="net_spec_v9">Contact form, subject line "security"</span> <span class="needs" style="margin-left:8px" data-i18n="net_needs_route">Dedicated route needed</span></span></div>
     </div>
   </div>
 </section>
@@ -451,31 +458,31 @@ body.reg-tech li.tech{display:flex}
   <div class="shell center">
     <div class="rule"></div>
     <div class="rv">
-      <span class="eyebrow">Where it stands</span>
-      <h2 style="margin-top:16px">No dates we can't keep</h2>
-      <p class="lede">Phases, not deadlines. An infrastructure project that misses published launch dates loses more credibility than one that declines to publish them.</p>
+      <span class="eyebrow" data-i18n="net_road_eyebrow">Where it stands</span>
+      <h2 style="margin-top:16px" data-i18n="net_road_h2">No dates we can't keep</h2>
+      <p class="lede" data-i18n="net_road_lede">Phases, not deadlines. An infrastructure project that misses published launch dates loses more credibility than one that declines to publish them.</p>
     </div>
 
     <div class="phases rv">
       <div class="ph done">
-        <span class="badge">Complete</span>
-        <h3>Groundwork</h3>
-        <p>Research from 2021, formalised as Onchain Software and Research Limited in March 2024.</p>
+        <span class="badge" data-i18n="net_ph1_badge">Complete</span>
+        <h3 data-i18n="net_ph1_h3">Groundwork</h3>
+        <p data-i18n="net_ph1_p">Research from 2021, formalised as Onchain Software and Research Limited in March 2024.</p>
       </div>
       <div class="ph now">
-        <span class="badge">Current</span>
-        <h3>Protocol design</h3>
-        <p>Layer-1 project initiated 2025. Consensus, security model, and node requirements under active work.</p>
+        <span class="badge" data-i18n="net_ph2_badge">Current</span>
+        <h3 data-i18n="net_ph2_h3">Protocol design</h3>
+        <p data-i18n="net_ph2_p">Layer-1 project initiated 2025. Consensus, security model, and node requirements under active work.</p>
       </div>
       <div class="ph next">
-        <span class="badge">Next</span>
-        <h3>Public testnet</h3>
-        <p>Open validation, community operators, and the first real-world failure reports.</p>
+        <span class="badge" data-i18n="net_ph3_badge">Next</span>
+        <h3 data-i18n="net_ph3_h3">Public testnet</h3>
+        <p data-i18n="net_ph3_p">Open validation, community operators, and the first real-world failure reports.</p>
       </div>
       <div class="ph next">
-        <span class="badge">Later</span>
-        <h3>Mainnet</h3>
-        <p>Only once decentralization, security review, and the regulatory picture all support it.</p>
+        <span class="badge" data-i18n="net_ph4_badge">Later</span>
+        <h3 data-i18n="net_ph4_h3">Mainnet</h3>
+        <p data-i18n="net_ph4_p">Only once decentralization, security review, and the regulatory picture all support it.</p>
       </div>
     </div>
   </div>
@@ -485,34 +492,34 @@ body.reg-tech li.tech{display:flex}
 <section id="faq" style="padding-top:0">
   <div class="shell center">
     <div class="rule"></div>
-    <div class="rv"><h2>Common questions</h2></div>
+    <div class="rv"><h2 data-i18n="net_faq_h2">Common questions</h2></div>
 
     <div class="faq">
       <div class="qa">
-        <button type="button">Is there a token I can buy?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-        <div class="a"><p>No. There is no token sale, no presale, and no investment offering of any kind. If anyone contacts you selling a Hikaru token, it is not us and you should tell us about it.</p></div>
+        <button type="button"><span data-i18n="net_faq1_q">Is there a token I can buy?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        <div class="a"><p data-i18n="net_faq1_a">No. There is no token sale, no presale, and no investment offering of any kind. If anyone contacts you selling a Hikaru token, it is not us and you should tell us about it.</p></div>
       </div>
       <div class="qa">
-        <button type="button">Can I use it today?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-        <div class="a"><p>No. The network is in protocol design. There is no public testnet yet, and the four applications above describe what it is built to support rather than what runs now.</p></div>
+        <button type="button"><span data-i18n="net_faq2_q">Can I use it today?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        <div class="a"><p data-i18n="net_faq2_a">No. The network is in protocol design. There is no public testnet yet, and the four applications above describe what it is built to support rather than what runs now.</p></div>
       </div>
       <div class="qa">
-        <button type="button">Why build a new Layer-1 instead of using an existing chain?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-        <div class="a"><p>Because settlement assurance cannot be borrowed from infrastructure outside the jurisdiction without reintroducing the dependency the project exists to remove. Building on an existing chain would mean domestic records ultimately settling somewhere Bangladesh does not control, which is the original problem in a new shape.</p></div>
+        <button type="button"><span data-i18n="net_faq3_q">Why build a new Layer-1 instead of using an existing chain?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        <div class="a"><p data-i18n="net_faq3_a">Because settlement assurance cannot be borrowed from infrastructure outside the jurisdiction without reintroducing the dependency the project exists to remove. Building on an existing chain would mean domestic records ultimately settling somewhere Bangladesh does not control, which is the original problem in a new shape.</p></div>
       </div>
       <div class="qa">
-        <button type="button">Isn't a public ledger bad for privacy?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-        <div class="a"><p>It can be, and that risk is real. A ledger everyone can read is a surveillance tool unless privacy is designed in from the start. That is exactly why privacy research is a named initiative rather than an afterthought, and why no personal data is intended to touch the chain.</p></div>
+        <button type="button"><span data-i18n="net_faq4_q">Isn't a public ledger bad for privacy?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        <div class="a"><p data-i18n="net_faq4_a">It can be, and that risk is real. A ledger everyone can read is a surveillance tool unless privacy is designed in from the start. That is exactly why privacy research is a named initiative rather than an afterthought, and why no personal data is intended to touch the chain.</p></div>
       </div>
       <div class="qa">
-        <button type="button">When will it launch?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-        <div class="a"><p>We are not publishing a date. Mainnet depends on decentralization being real, security review being complete, and the regulatory picture supporting it. Any date announced before those resolve would be a guess dressed as a commitment.</p></div>
+        <button type="button"><span data-i18n="net_faq5_q">When will it launch?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        <div class="a"><p data-i18n="net_faq5_a">We are not publishing a date. Mainnet depends on decentralization being real, security review being complete, and the regulatory picture supporting it. Any date announced before those resolve would be a guess dressed as a commitment.</p></div>
       </div>
     </div>
 
     <div class="sibs rv">
-      <a class="sib" href="work.html#research"><span>Initiative 02</span><b>Research and policy advocacy →</b></a>
-      <a class="sib" href="work.html#academy"><span>Initiative 03</span><b>Hikaru Academy →</b></a>
+      <a class="sib" href="work.html#research"><span data-i18n="net_sib1_span">Initiative 02</span><b data-i18n="net_sib1_b">Research and policy advocacy →</b></a>
+      <a class="sib" href="work.html#academy"><span data-i18n="net_sib2_span">Initiative 03</span><b data-i18n="net_sib2_b">Hikaru Academy →</b></a>
     </div>
   </div>
 </section>
@@ -524,11 +531,11 @@ body.reg-tech li.tech{display:flex}
     <div class="shell">
       <div class="rule"></div>
       <div class="rv">
-        <h2 style="margin:0 auto;max-width:20ch">The network only decentralizes if people run it.</h2>
-        <p class="lede">Protocol work, node operation, security research, and plain-language documentation are all open. So is telling us where this page confused you.</p>
+        <h2 style="margin:0 auto;max-width:20ch" data-i18n="net_close_h2">The network only decentralizes if people run it.</h2>
+        <p class="lede" data-i18n="net_close_lede">Protocol work, node operation, security research, and plain-language documentation are all open. So is telling us where this page confused you.</p>
         <div style="margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-          <a class="pill pill-solid pill-lg" href="involved.html">Find your route in</a>
-          <a class="pill pill-ghost pill-lg" href="contact.html">Ask a question</a>
+          <a class="pill pill-solid pill-lg" href="involved.html" data-i18n="net_close_btn1">Find your route in</a>
+          <a class="pill pill-ghost pill-lg" href="contact.html" data-i18n="net_close_btn2">Ask a question</a>
         </div>
       </div>
     </div>
@@ -544,21 +551,26 @@ body.reg-tech li.tech{display:flex}
             <circle cx="11" cy="11" r="10" stroke="#76b900" stroke-width="1.4" opacity=".55"/>
             <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
           </svg>
-          <b>Hikaru Foundation</b>
+          <b data-i18n="brand_name">Hikaru Foundation</b>
         </a>
-        <p>Technology with conscience. A non-profit building decentralized digital infrastructure for Bangladesh.</p>
+        <p data-i18n="foot_tagline">Technology with conscience. A non-profit building decentralized digital infrastructure for Bangladesh.</p>
       </div>
-      <div><h4>About</h4><a href="about.html#story">Our story</a><a href="about.html">Vision and mission</a><a href="about.html#values">Values</a><a href="about.html#team">People</a></div>
-      <div><h4>Our Work</h4><a href="network.html">Hikaru Layer-1</a><a href="work.html#research">Research and policy</a><a href="work.html#academy">Hikaru Academy</a><a href="work.html">All programmes</a></div>
-      <div><h4>Take part</h4><a href="involved.html">Get involved</a><a href="news.html">Research and updates</a><a href="contact.html">Contact</a><a href="contact.html#hours">Opening hours</a></div>
-      <div><h4>Legal</h4><a href="#">Privacy policy</a><a href="#">Terms of use</a></div>
+      <div><h4 data-i18n="foot_h_about">About</h4><a href="about.html#story" data-i18n="foot_our_story">Our story</a><a href="about.html" data-i18n="foot_vision_mission">Vision and mission</a><a href="about.html#values" data-i18n="foot_values">Values</a><a href="about.html#team" data-i18n="foot_people">People</a></div>
+      <div><h4 data-i18n="foot_h_work">Our Work</h4><a href="network.html" data-i18n="foot_hikaru_l1">Hikaru Layer-1</a><a href="work.html#research" data-i18n="foot_research_policy">Research and policy</a><a href="work.html#academy" data-i18n="foot_academy">Hikaru Academy</a><a href="work.html" data-i18n="foot_all_programmes">All programmes</a></div>
+      <div><h4 data-i18n="foot_h_takepart">Take part</h4><a href="involved.html" data-i18n="foot_get_involved">Get involved</a><a href="news.html" data-i18n="foot_research_updates">Research and updates</a><a href="contact.html" data-i18n="foot_contact">Contact</a><a href="contact.html#hours" data-i18n="foot_opening_hours">Opening hours</a></div>
+      <div><h4 data-i18n="foot_h_legal">Legal</h4><a href="#" data-i18n="foot_privacy">Privacy policy</a><a href="#" data-i18n="foot_terms">Terms of use</a></div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Hikaru Foundation. All rights reserved.</span>
-      <a href="#top">Back to top ↑</a>
+      <span data-i18n="foot_copyright">© 2026 Hikaru Foundation. All rights reserved.</span>
+      <a href="#top" data-i18n="foot_back_to_top">Back to top ↑</a>
     </div>
   </div>
 </footer>
+
+<script src="assets/i18n-core.js"></script>
+<script src="assets/i18n-network.js"></script>
+<script src="assets/theme.js"></script>
+<script src="assets/i18n.js"></script>
 
 <script>
 var io = new IntersectionObserver(function(es){

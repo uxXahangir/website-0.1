@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Get Involved — Hikaru Foundation</title>
+<script>(function(){try{var t=localStorage.getItem('hikaru-theme');if(!t)t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
 <style>
 :root{
   --primary:#76b900; --primary-lift:#8fd414; --on-primary:#000;
@@ -206,7 +208,7 @@ section{padding:var(--sp-section) 0}
 }
 </style>
 </head>
-<body>
+<body data-page="involved">
 
 <div class="stage">
   <div class="nav-wrap">
@@ -217,25 +219,30 @@ section{padding:var(--sp-section) 0}
           <circle cx="11" cy="11" r="5.6" stroke="#76b900" stroke-width="1.2" opacity=".8"/>
           <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
         </svg>
-        <b>Hikaru Foundation</b>
+        <b data-i18n="brand_name">Hikaru Foundation</b>
       </a>
       <div class="nav-links">
-        <a href="about.html">About</a>
-        <a href="work.html">Our Work</a>
-        <a href="news.html">Research</a>
-        <a href="contact.html">Contact</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="work.html" data-i18n="nav_work">Our Work</a>
+        <a href="news.html" data-i18n="nav_research">Research</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
       </div>
       <div class="nav-cta">
-        <a class="pill pill-solid" href="#top" aria-current="page">Get Involved</a>
+        <button class="icon-btn js-theme-toggle" type="button" aria-pressed="false" aria-label="Switch to light mode">
+          <svg class="i-dark" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.8 9.6A6.3 6.3 0 016.4 2.2a6.3 6.3 0 108.9 8.9c-.5.3-1 .5-1.5.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <svg class="i-light" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.6v1.7M8 12.7v1.7M14.4 8h-1.7M3.3 8H1.6M12.7 3.3l-1.2 1.2M4.5 11.5l-1.2 1.2M12.7 12.7l-1.2-1.2M4.5 4.5L3.3 3.3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </button>
+        <button class="icon-btn lang-btn js-lang-toggle" type="button" aria-label="Switch to Bangla">বাং</button>
+        <a class="pill pill-solid" href="#top" aria-current="page" data-i18n="nav_getinvolved">Get Involved</a>
       </div>
     </nav>
   </div>
 
   <header class="head" id="top">
     <div class="shell">
-      <span class="eyebrow">Get involved</span>
-      <h1>There is a place here for <em>what you already do.</em></h1>
-      <p>Technologists, activists, researchers, economists, legal experts, and citizens. Nine routes in, and none of them require you to become a blockchain person first.</p>
+      <span class="eyebrow" data-i18n="inv_eyebrow">Get involved</span>
+      <h1><span data-i18n="inv_h1_lead">There is a place here for</span> <em data-i18n="inv_h1_em">what you already do.</em></h1>
+      <p data-i18n="inv_p">Technologists, activists, researchers, economists, legal experts, and citizens. Nine routes in, and none of them require you to become a blockchain person first.</p>
     </div>
   </header>
 </div>
@@ -245,37 +252,37 @@ section{padding:var(--sp-section) 0}
 <!-- ==================== MATCHER ==================== -->
 <div class="shell">
   <div class="matcher rv" id="matcher">
-    <span class="eyebrow">Find your route</span>
-    <h2>Two questions, then a shortlist</h2>
-    <p>Nothing is stored and nothing is sent. This just filters the list below.</p>
+    <span class="eyebrow" data-i18n="inv_matcher_eyebrow">Find your route</span>
+    <h2 data-i18n="inv_matcher_h2">Two questions, then a shortlist</h2>
+    <p data-i18n="inv_matcher_p">Nothing is stored and nothing is sent. This just filters the list below.</p>
 
     <div class="q">
-      <span class="qlabel" id="q1">What do you actually do?</span>
+      <span class="qlabel" id="q1" data-i18n="inv_q1">What do you actually do?</span>
       <div class="opts" role="group" aria-labelledby="q1">
-        <button class="opt" data-skill="all" aria-pressed="true" type="button">Show everything</button>
-        <button class="opt" data-skill="code" aria-pressed="false" type="button">I write code</button>
-        <button class="opt" data-skill="ops" aria-pressed="false" type="button">I run infrastructure</button>
-        <button class="opt" data-skill="research" aria-pressed="false" type="button">I research</button>
-        <button class="opt" data-skill="legal" aria-pressed="false" type="button">Law or policy</button>
-        <button class="opt" data-skill="teach" aria-pressed="false" type="button">I teach</button>
-        <button class="opt" data-skill="write" aria-pressed="false" type="button">I write or design</button>
-        <button class="opt" data-skill="none" aria-pressed="false" type="button">None of these</button>
+        <button class="opt" data-skill="all" aria-pressed="true" type="button" data-i18n="inv_q1_all">Show everything</button>
+        <button class="opt" data-skill="code" aria-pressed="false" type="button" data-i18n="inv_q1_code">I write code</button>
+        <button class="opt" data-skill="ops" aria-pressed="false" type="button" data-i18n="inv_q1_ops">I run infrastructure</button>
+        <button class="opt" data-skill="research" aria-pressed="false" type="button" data-i18n="inv_q1_research">I research</button>
+        <button class="opt" data-skill="legal" aria-pressed="false" type="button" data-i18n="inv_q1_legal">Law or policy</button>
+        <button class="opt" data-skill="teach" aria-pressed="false" type="button" data-i18n="inv_q1_teach">I teach</button>
+        <button class="opt" data-skill="write" aria-pressed="false" type="button" data-i18n="inv_q1_write">I write or design</button>
+        <button class="opt" data-skill="none" aria-pressed="false" type="button" data-i18n="inv_q1_none">None of these</button>
       </div>
     </div>
 
     <div class="q">
-      <span class="qlabel" id="q2">How much time can you give?</span>
+      <span class="qlabel" id="q2" data-i18n="inv_q2">How much time can you give?</span>
       <div class="opts" role="group" aria-labelledby="q2">
-        <button class="opt" data-time="all" aria-pressed="true" type="button">Any amount</button>
-        <button class="opt" data-time="light" aria-pressed="false" type="button">An hour here and there</button>
-        <button class="opt" data-time="steady" aria-pressed="false" type="button">A few hours a week</button>
-        <button class="opt" data-time="deep" aria-pressed="false" type="button">Serious commitment</button>
+        <button class="opt" data-time="all" aria-pressed="true" type="button" data-i18n="inv_q2_all">Any amount</button>
+        <button class="opt" data-time="light" aria-pressed="false" type="button" data-i18n="inv_q2_light">An hour here and there</button>
+        <button class="opt" data-time="steady" aria-pressed="false" type="button" data-i18n="inv_q2_steady">A few hours a week</button>
+        <button class="opt" data-time="deep" aria-pressed="false" type="button" data-i18n="inv_q2_deep">Serious commitment</button>
       </div>
     </div>
 
     <div class="mfoot">
-      <span class="result" id="result"><b>9</b> routes match</span>
-      <button class="pill pill-ghost" type="button" id="reset">Reset</button>
+      <span class="result" id="result"><b>9</b> <span data-i18n="inv_routes_match">routes match</span></span>
+      <button class="pill pill-ghost" type="button" id="reset" data-i18n="inv_reset">Reset</button>
     </div>
   </div>
 </div>
@@ -289,17 +296,17 @@ section{padding:var(--sp-section) 0}
       <article class="route rv" data-skill="code" data-time="steady deep">
         <div class="top">
           <svg class="ico" width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M10 8l-6 6 6 6M18 8l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.5 5.5l-3 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          <span class="load">Few hours a week</span>
+          <span class="load" data-i18n="inv_load_steady">Few hours a week</span>
         </div>
-        <h3>Build on the protocol</h3>
-        <p>Work on the Layer-1 itself: consensus, the ledger, the client. The deepest technical route and the one with the highest bar.</p>
-        <div class="tags"><span>Rust or Go helpful</span><span>Distributed systems</span></div>
-        <button class="more-btn" type="button">What you'd actually do <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <h3 data-i18n="inv_r1_h3">Build on the protocol</h3>
+        <p data-i18n="inv_r1_p">Work on the Layer-1 itself: consensus, the ledger, the client. The deepest technical route and the one with the highest bar.</p>
+        <div class="tags"><span data-i18n="inv_r1_tag1">Rust or Go helpful</span><span data-i18n="inv_r1_tag2">Distributed systems</span></div>
+        <button class="more-btn" type="button"><span data-i18n="inv_more_btn">What you'd actually do</span> <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="detail"><div class="detail-in">
-          <h4>Typical first tasks</h4>
-          <ul><li>Read the current spec and file the questions it doesn't answer</li><li>Pick up a scoped issue rather than proposing an architecture</li><li>Review someone else's patch before writing your own</li></ul>
-          <h4>What we can't promise</h4>
-          <ul><li>The codebase is early. Expect churn, not stability.</li></ul>
+          <h4 data-i18n="inv_first_tasks">Typical first tasks</h4>
+          <ul><li data-i18n="inv_r1_t1">Read the current spec and file the questions it doesn't answer</li><li data-i18n="inv_r1_t2">Pick up a scoped issue rather than proposing an architecture</li><li data-i18n="inv_r1_t3">Review someone else's patch before writing your own</li></ul>
+          <h4 data-i18n="inv_cant_promise">What we can't promise</h4>
+          <ul><li data-i18n="inv_r1_promise">The codebase is early. Expect churn, not stability.</li></ul>
         </div></div>
       </article>
 
@@ -307,17 +314,17 @@ section{padding:var(--sp-section) 0}
       <article class="route rv" data-skill="ops" data-time="steady deep">
         <div class="top">
           <svg class="ico" width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="6" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="5" cy="21" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="23" cy="21" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M12 8.5L7 18.5M16 8.5l5 10M8 21h12" stroke="currentColor" stroke-width="1.6"/></svg>
-          <span class="load">Few hours a week</span>
+          <span class="load" data-i18n="inv_load_steady">Few hours a week</span>
         </div>
-        <h3>Run a node</h3>
-        <p>The network only stays decentralized if enough independent people run it. This is the route where participation and governance are the same act.</p>
-        <div class="tags"><span>Linux</span><span>Always-on machine</span></div>
-        <button class="more-btn" type="button">What you'd actually do <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <h3 data-i18n="inv_r2_h3">Run a node</h3>
+        <p data-i18n="inv_r2_p">The network only stays decentralized if enough independent people run it. This is the route where participation and governance are the same act.</p>
+        <div class="tags"><span data-i18n="inv_r2_tag1">Linux</span><span data-i18n="inv_r2_tag2">Always-on machine</span></div>
+        <button class="more-btn" type="button"><span data-i18n="inv_more_btn">What you'd actually do</span> <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="detail"><div class="detail-in">
-          <h4>Typical first tasks</h4>
-          <ul><li>Run a testnet node and report what broke</li><li>Document the setup so the next person has it easier</li><li>Help define what minimum hardware actually needs to be</li></ul>
-          <h4>What we can't promise</h4>
-          <ul><li>No mainnet yet, so no rewards and no uptime expectations.</li></ul>
+          <h4 data-i18n="inv_first_tasks">Typical first tasks</h4>
+          <ul><li data-i18n="inv_r2_t1">Run a testnet node and report what broke</li><li data-i18n="inv_r2_t2">Document the setup so the next person has it easier</li><li data-i18n="inv_r2_t3">Help define what minimum hardware actually needs to be</li></ul>
+          <h4 data-i18n="inv_cant_promise">What we can't promise</h4>
+          <ul><li data-i18n="inv_r2_promise">No mainnet yet, so no rewards and no uptime expectations.</li></ul>
         </div></div>
       </article>
 
@@ -325,17 +332,17 @@ section{padding:var(--sp-section) 0}
       <article class="route rv" data-skill="research" data-time="steady deep">
         <div class="top">
           <svg class="ico" width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 3l9 3.5v7c0 5.5-3.8 10-9 11.5C8.8 24.5 5 20 5 13.5v-7L14 3z" stroke="currentColor" stroke-width="1.6"/><path d="M10 13.5l2.8 2.8L18 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          <span class="load">Few hours a week</span>
+          <span class="load" data-i18n="inv_load_steady">Few hours a week</span>
         </div>
-        <h3>Protocol security research</h3>
-        <p>Examine the security properties of the network at the protocol layer, where the assumptions everything else rests on get made.</p>
-        <div class="tags"><span>Cryptography</span><span>Formal methods</span></div>
-        <button class="more-btn" type="button">What you'd actually do <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <h3 data-i18n="inv_r3_h3">Protocol security research</h3>
+        <p data-i18n="inv_r3_p">Examine the security properties of the network at the protocol layer, where the assumptions everything else rests on get made.</p>
+        <div class="tags"><span data-i18n="inv_r3_tag1">Cryptography</span><span data-i18n="inv_r3_tag2">Formal methods</span></div>
+        <button class="more-btn" type="button"><span data-i18n="inv_more_btn">What you'd actually do</span> <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="detail"><div class="detail-in">
-          <h4>Typical first tasks</h4>
-          <ul><li>Review the threat model and attack the assumptions in it</li><li>Reproduce a known class of attack against the testnet</li><li>Co-author a finding for publication</li></ul>
-          <h4>What we can offer</h4>
-          <ul><li>Co-authorship and full publication. We don't sit on findings.</li></ul>
+          <h4 data-i18n="inv_first_tasks">Typical first tasks</h4>
+          <ul><li data-i18n="inv_r3_t1">Review the threat model and attack the assumptions in it</li><li data-i18n="inv_r3_t2">Reproduce a known class of attack against the testnet</li><li data-i18n="inv_r3_t3">Co-author a finding for publication</li></ul>
+          <h4 data-i18n="inv_can_offer">What we can offer</h4>
+          <ul><li data-i18n="inv_r3_offer">Co-authorship and full publication. We don't sit on findings.</li></ul>
         </div></div>
       </article>
 
@@ -343,15 +350,15 @@ section{padding:var(--sp-section) 0}
       <article class="route rv" data-skill="research legal" data-time="steady deep">
         <div class="top">
           <svg class="ico" width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="5" y="12" width="18" height="12" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M9.5 12V9a4.5 4.5 0 019 0v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="14" cy="18" r="1.8" fill="currentColor"/></svg>
-          <span class="load">Few hours a week</span>
+          <span class="load" data-i18n="inv_load_steady">Few hours a week</span>
         </div>
-        <h3>Privacy research</h3>
-        <p>Study how much a public ledger reveals and what can be done about it. Transparency and surveillance are separated by design choices, and this is where they get made.</p>
-        <div class="tags"><span>Privacy engineering</span><span>Data protection law</span></div>
-        <button class="more-btn" type="button">What you'd actually do <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <h3 data-i18n="inv_r4_h3">Privacy research</h3>
+        <p data-i18n="inv_r4_p">Study how much a public ledger reveals and what can be done about it. Transparency and surveillance are separated by design choices, and this is where they get made.</p>
+        <div class="tags"><span data-i18n="inv_r4_tag1">Privacy engineering</span><span data-i18n="inv_r4_tag2">Data protection law</span></div>
+        <button class="more-btn" type="button"><span data-i18n="inv_more_btn">What you'd actually do</span> <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="detail"><div class="detail-in">
-          <h4>Typical first tasks</h4>
-          <ul><li>Map what the current design leaks and to whom</li><li>Compare against data protection expectations in Bangladesh</li><li>Propose mitigations that survive contact with real usage</li></ul>
+          <h4 data-i18n="inv_first_tasks">Typical first tasks</h4>
+          <ul><li data-i18n="inv_r4_t1">Map what the current design leaks and to whom</li><li data-i18n="inv_r4_t2">Compare against data protection expectations in Bangladesh</li><li data-i18n="inv_r4_t3">Propose mitigations that survive contact with real usage</li></ul>
         </div></div>
       </article>
 
@@ -359,17 +366,17 @@ section{padding:var(--sp-section) 0}
       <article class="route rv" data-skill="legal" data-time="light steady deep">
         <div class="top">
           <svg class="ico" width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 4v20M6 9h16M9 9l-3.5 8h7L9 9zM19 9l-3.5 8h7L19 9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 24h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          <span class="load light">An hour at a time</span>
+          <span class="load light" data-i18n="inv_load_light">An hour at a time</span>
         </div>
-        <h3>Policy and regulatory work</h3>
-        <p>Help shape the legal frameworks blockchain adoption in Bangladesh will need. We work with government authorities, industry, and academic institutions.</p>
-        <div class="tags"><span>Bangladeshi law</span><span>Financial regulation</span></div>
-        <button class="more-btn" type="button">What you'd actually do <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <h3 data-i18n="inv_r5_h3">Policy and regulatory work</h3>
+        <p data-i18n="inv_r5_p">Help shape the legal frameworks blockchain adoption in Bangladesh will need. We work with government authorities, industry, and academic institutions.</p>
+        <div class="tags"><span data-i18n="inv_r5_tag1">Bangladeshi law</span><span data-i18n="inv_r5_tag2">Financial regulation</span></div>
+        <button class="more-btn" type="button"><span data-i18n="inv_more_btn">What you'd actually do</span> <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="detail"><div class="detail-in">
-          <h4>Typical first tasks</h4>
-          <ul><li>Review a draft submission before it goes to a consultation</li><li>Flag where our technical claims overreach legally</li><li>Brief us on a regulation we've misread</li></ul>
-          <h4>Why this route matters</h4>
-          <ul><li>The best protocol in the world fails if the law makes it unusable.</li></ul>
+          <h4 data-i18n="inv_first_tasks">Typical first tasks</h4>
+          <ul><li data-i18n="inv_r5_t1">Review a draft submission before it goes to a consultation</li><li data-i18n="inv_r5_t2">Flag where our technical claims overreach legally</li><li data-i18n="inv_r5_t3">Brief us on a regulation we've misread</li></ul>
+          <h4 data-i18n="inv_why_matters">Why this route matters</h4>
+          <ul><li data-i18n="inv_r5_matters">The best protocol in the world fails if the law makes it unusable.</li></ul>
         </div></div>
       </article>
 
@@ -377,17 +384,17 @@ section{padding:var(--sp-section) 0}
       <article class="route rv" data-skill="teach" data-time="light steady">
         <div class="top">
           <svg class="ico" width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 5l11 5-11 5-11-5 11-5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 12.5V19c0 1.7 3.1 3 7 3s7-1.3 7-3v-6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          <span class="load light">An hour at a time</span>
+          <span class="load light" data-i18n="inv_load_light">An hour at a time</span>
         </div>
-        <h3>Teach with Hikaru Academy</h3>
-        <p>Help build and deliver the curriculum: fundamentals for students and citizens, advanced material for people who will operate the network.</p>
-        <div class="tags"><span>Teaching experience</span><span>Bangla and English</span></div>
-        <button class="more-btn" type="button">What you'd actually do <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <h3 data-i18n="inv_r6_h3">Teach with Hikaru Academy</h3>
+        <p data-i18n="inv_r6_p">Help build and deliver the curriculum: fundamentals for students and citizens, advanced material for people who will operate the network.</p>
+        <div class="tags"><span data-i18n="inv_r6_tag1">Teaching experience</span><span data-i18n="inv_r6_tag2">Bangla and English</span></div>
+        <button class="more-btn" type="button"><span data-i18n="inv_more_btn">What you'd actually do</span> <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="detail"><div class="detail-in">
-          <h4>Typical first tasks</h4>
-          <ul><li>Read a draft lesson and mark every sentence that assumes prior knowledge</li><li>Run one workshop and tell us what didn't land</li><li>Translate material into Bangla that reads naturally, not literally</li></ul>
-          <h4>Be aware</h4>
-          <ul><li>The Academy is planned, not running. You'd be helping start it.</li></ul>
+          <h4 data-i18n="inv_first_tasks">Typical first tasks</h4>
+          <ul><li data-i18n="inv_r6_t1">Read a draft lesson and mark every sentence that assumes prior knowledge</li><li data-i18n="inv_r6_t2">Run one workshop and tell us what didn't land</li><li data-i18n="inv_r6_t3">Translate material into Bangla that reads naturally, not literally</li></ul>
+          <h4 data-i18n="inv_be_aware">Be aware</h4>
+          <ul><li data-i18n="inv_r6_aware">The Academy is planned, not running. You'd be helping start it.</li></ul>
         </div></div>
       </article>
 
@@ -395,15 +402,15 @@ section{padding:var(--sp-section) 0}
       <article class="route rv" data-skill="write" data-time="light steady">
         <div class="top">
           <svg class="ico" width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M4 24l1.4-5.2L18.6 5.6a2.4 2.4 0 013.4 0l.4.4a2.4 2.4 0 010 3.4L9.2 22.6 4 24z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M17 7.5l3.5 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
-          <span class="load light">An hour at a time</span>
+          <span class="load light" data-i18n="inv_load_light">An hour at a time</span>
         </div>
-        <h3>Write and explain</h3>
-        <p>Turn protocol decisions into language a citizen can act on. This is the scarcest skill in the whole field and the one we need most.</p>
-        <div class="tags"><span>Plain-language writing</span><span>Bangla</span><span>Design</span></div>
-        <button class="more-btn" type="button">What you'd actually do <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <h3 data-i18n="inv_r7_h3">Write and explain</h3>
+        <p data-i18n="inv_r7_p">Turn protocol decisions into language a citizen can act on. This is the scarcest skill in the whole field and the one we need most.</p>
+        <div class="tags"><span data-i18n="inv_r7_tag1">Plain-language writing</span><span data-i18n="inv_r7_tag2">Bangla</span><span data-i18n="inv_r7_tag3">Design</span></div>
+        <button class="more-btn" type="button"><span data-i18n="inv_more_btn">What you'd actually do</span> <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="detail"><div class="detail-in">
-          <h4>Typical first tasks</h4>
-          <ul><li>Rewrite one page of technical documentation for a non-technical reader</li><li>Sit in on a design discussion and write what was actually decided</li><li>Tell us where our own site is unclear</li></ul>
+          <h4 data-i18n="inv_first_tasks">Typical first tasks</h4>
+          <ul><li data-i18n="inv_r7_t1">Rewrite one page of technical documentation for a non-technical reader</li><li data-i18n="inv_r7_t2">Sit in on a design discussion and write what was actually decided</li><li data-i18n="inv_r7_t3">Tell us where our own site is unclear</li></ul>
         </div></div>
       </article>
 
@@ -411,17 +418,17 @@ section{padding:var(--sp-section) 0}
       <article class="route rv" data-skill="none write teach" data-time="light">
         <div class="top">
           <svg class="ico" width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="10" cy="9" r="3.2" stroke="currentColor" stroke-width="1.6"/><circle cx="19.5" cy="10.5" r="2.6" stroke="currentColor" stroke-width="1.6"/><path d="M4 21c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M17 15.6c2.9.2 5 2.2 5 5.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          <span class="load light">An hour at a time</span>
+          <span class="load light" data-i18n="inv_load_light">An hour at a time</span>
         </div>
-        <h3>Test as an ordinary user</h3>
-        <p>The most valuable feedback comes from people who don't know how it works. If a wallet confuses you, that is a finding, not a failing.</p>
-        <div class="tags"><span>No experience needed</span><span>Curiosity</span></div>
-        <button class="more-btn" type="button">What you'd actually do <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <h3 data-i18n="inv_r8_h3">Test as an ordinary user</h3>
+        <p data-i18n="inv_r8_p">The most valuable feedback comes from people who don't know how it works. If a wallet confuses you, that is a finding, not a failing.</p>
+        <div class="tags"><span data-i18n="inv_r8_tag1">No experience needed</span><span data-i18n="inv_r8_tag2">Curiosity</span></div>
+        <button class="more-btn" type="button"><span data-i18n="inv_more_btn">What you'd actually do</span> <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="detail"><div class="detail-in">
-          <h4>Typical first tasks</h4>
-          <ul><li>Try a task on the testnet and record where you got stuck</li><li>Tell us which words meant nothing to you</li><li>Say what you expected to happen and what happened instead</li></ul>
-          <h4>Why this counts</h4>
-          <ul><li>Infrastructure only people like us can use isn't public infrastructure.</li></ul>
+          <h4 data-i18n="inv_first_tasks">Typical first tasks</h4>
+          <ul><li data-i18n="inv_r8_t1">Try a task on the testnet and record where you got stuck</li><li data-i18n="inv_r8_t2">Tell us which words meant nothing to you</li><li data-i18n="inv_r8_t3">Say what you expected to happen and what happened instead</li></ul>
+          <h4 data-i18n="inv_why_counts">Why this counts</h4>
+          <ul><li data-i18n="inv_r8_counts">Infrastructure only people like us can use isn't public infrastructure.</li></ul>
         </div></div>
       </article>
 
@@ -429,24 +436,24 @@ section{padding:var(--sp-section) 0}
       <article class="route rv" data-skill="none code ops research legal teach write" data-time="light">
         <div class="top">
           <svg class="ico" width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true"><rect x="3" y="6" width="22" height="16" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M3.8 7.5L14 15l10.2-7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          <span class="load light">Five minutes</span>
+          <span class="load light" data-i18n="inv_load_five">Five minutes</span>
         </div>
-        <h3>Just follow along</h3>
-        <p>Not ready to commit anything. Subscribe, read what publishes, and decide later. This is a legitimate answer and always will be.</p>
-        <div class="tags"><span>No commitment</span></div>
-        <button class="more-btn" type="button">What you'd actually do <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <h3 data-i18n="inv_r9_h3">Just follow along</h3>
+        <p data-i18n="inv_r9_p">Not ready to commit anything. Subscribe, read what publishes, and decide later. This is a legitimate answer and always will be.</p>
+        <div class="tags"><span data-i18n="inv_r9_tag1">No commitment</span></div>
+        <button class="more-btn" type="button"><span data-i18n="inv_more_btn">What you'd actually do</span> <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5l5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="detail"><div class="detail-in">
-          <h4>What happens</h4>
-          <ul><li>One email a month at most, covering research, policy, and network progress</li><li>No sales sequence, no drip campaign, no sharing your address</li><li>Unsubscribe in one click, no exit survey</li></ul>
+          <h4 data-i18n="inv_what_happens">What happens</h4>
+          <ul><li data-i18n="inv_r9_t1">One email a month at most, covering research, policy, and network progress</li><li data-i18n="inv_r9_t2">No sales sequence, no drip campaign, no sharing your address</li><li data-i18n="inv_r9_t3">Unsubscribe in one click, no exit survey</li></ul>
         </div></div>
       </article>
 
     </div>
 
     <div class="empty" id="empty">
-      <p style="font-size:var(--t-h-md);font-weight:700;color:#fff;margin-bottom:10px">No route matches that exactly.</p>
-      <p style="font-size:var(--t-sm);max-width:46ch;margin:0 auto">That combination isn't covered yet, which is worth knowing. Write to us anyway and describe what you do. Gaps in this list are our problem, not yours.</p>
-      <a class="pill pill-solid" style="margin-top:22px" href="contact.html">Tell us what you do</a>
+      <p style="font-size:var(--t-h-md);font-weight:700;color:#fff;margin-bottom:10px" data-i18n="inv_empty_h">No route matches that exactly.</p>
+      <p style="font-size:var(--t-sm);max-width:46ch;margin:0 auto" data-i18n="inv_empty_p">That combination isn't covered yet, which is worth knowing. Write to us anyway and describe what you do. Gaps in this list are our problem, not yours.</p>
+      <a class="pill pill-solid" style="margin-top:22px" href="contact.html" data-i18n="inv_empty_btn">Tell us what you do</a>
     </div>
   </div>
 </section>
@@ -456,29 +463,29 @@ section{padding:var(--sp-section) 0}
   <div class="shell center">
     <div class="rule"></div>
     <div class="rv">
-      <span class="eyebrow">No wrong entry point</span>
-      <h2 style="margin-top:16px">Start smaller than you think</h2>
-      <p class="lede">Most people who try to join an early project commit too much too fast, then disappear. Pick the lowest rung that feels honest and move up only if you want to.</p>
+      <span class="eyebrow" data-i18n="inv_ladder_eyebrow">No wrong entry point</span>
+      <h2 style="margin-top:16px" data-i18n="inv_ladder_h2">Start smaller than you think</h2>
+      <p class="lede" data-i18n="inv_ladder_lede">Most people who try to join an early project commit too much too fast, then disappear. Pick the lowest rung that feels honest and move up only if you want to.</p>
     </div>
 
     <div class="ladder">
       <div class="rung rv">
         <div class="n"><svg width="26" height="26" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="16" rx="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M3.8 7.5L14 15l10.2-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-        <span class="cost">Five minutes, once</span>
-        <h3>Watch</h3>
-        <p>Subscribe and read. You will know within three emails whether this is worth your time.</p>
+        <span class="cost" data-i18n="inv_rung1_cost">Five minutes, once</span>
+        <h3 data-i18n="inv_rung1_h3">Watch</h3>
+        <p data-i18n="inv_rung1_p">Subscribe and read. You will know within three emails whether this is worth your time.</p>
       </div>
       <div class="rung rv">
         <div class="n"><svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M6 14l5 5L22 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <span class="cost">One afternoon</span>
-        <h3>Try one thing</h3>
-        <p>Take a single task from a route above. Finish it or don't. Nobody chases you either way.</p>
+        <span class="cost" data-i18n="inv_rung2_cost">One afternoon</span>
+        <h3 data-i18n="inv_rung2_h3">Try one thing</h3>
+        <p data-i18n="inv_rung2_p">Take a single task from a route above. Finish it or don't. Nobody chases you either way.</p>
       </div>
       <div class="rung rv">
         <div class="n"><svg width="26" height="26" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="6" r="2.6" stroke="currentColor" stroke-width="1.5"/><circle cx="5.5" cy="21" r="2.6" stroke="currentColor" stroke-width="1.5"/><circle cx="22.5" cy="21" r="2.6" stroke="currentColor" stroke-width="1.5"/><path d="M12.4 8.2L7.6 18.4M15.6 8.2l4.8 10.2M8.4 21h11" stroke="currentColor" stroke-width="1.5"/></svg></div>
-        <span class="cost">Ongoing</span>
-        <h3>Stay</h3>
-        <p>Take responsibility for a piece of work. This is where governance actually starts distributing.</p>
+        <span class="cost" data-i18n="inv_rung3_cost">Ongoing</span>
+        <h3 data-i18n="inv_rung3_h3">Stay</h3>
+        <p data-i18n="inv_rung3_p">Take responsibility for a piece of work. This is where governance actually starts distributing.</p>
       </div>
     </div>
   </div>
@@ -488,25 +495,25 @@ section{padding:var(--sp-section) 0}
 <section id="honest" style="padding-top:0">
   <div class="shell">
     <div class="honest rv">
-      <span class="eyebrow">Straight answers</span>
-      <h3>What contributing here does and doesn't get you</h3>
+      <span class="eyebrow" data-i18n="inv_honest_eyebrow">Straight answers</span>
+      <h3 data-i18n="inv_honest_h3">What contributing here does and doesn't get you</h3>
       <div class="grid2">
         <div>
-          <h4 class="yes">What we can offer</h4>
+          <h4 class="yes" data-i18n="inv_yes_h4">What we can offer</h4>
           <ul>
-            <li class="y"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Public credit for your work, by name</li>
-            <li class="y"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Co-authorship on research you contribute to</li>
-            <li class="y"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Real influence on decisions, because the team is small</li>
-            <li class="y"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>An honest answer when we don't know something</li>
+            <li class="y"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="inv_yes1">Public credit for your work, by name</span></li>
+            <li class="y"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="inv_yes2">Co-authorship on research you contribute to</span></li>
+            <li class="y"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="inv_yes3">Real influence on decisions, because the team is small</span></li>
+            <li class="y"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="inv_yes4">An honest answer when we don't know something</span></li>
           </ul>
         </div>
         <div>
-          <h4 class="no">What we can't, yet</h4>
+          <h4 class="no" data-i18n="inv_no_h4">What we can't, yet</h4>
           <ul>
-            <li class="n"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Payment. This is volunteer work today. <span class="needs" style="margin-left:6px">Confirm</span></li>
-            <li class="n"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>A structured onboarding programme</li>
-            <li class="n"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Certainty that the network ships on any timeline</li>
-            <li class="n"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Tokens, equity, or financial return of any kind</li>
+            <li class="n"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i18n="inv_no1">Payment. This is volunteer work today.</span> <span class="needs" style="margin-left:6px" data-i18n="inv_no1_needs">Confirm</span></li>
+            <li class="n"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i18n="inv_no2">A structured onboarding programme</span></li>
+            <li class="n"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i18n="inv_no3">Certainty that the network ships on any timeline</span></li>
+            <li class="n"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span data-i18n="inv_no4">Tokens, equity, or financial return of any kind</span></li>
           </ul>
         </div>
       </div>
@@ -518,32 +525,32 @@ section{padding:var(--sp-section) 0}
 <section id="faq" style="padding-top:0">
   <div class="shell center">
     <div class="rule"></div>
-    <div class="rv"><h2>Before you write to us</h2></div>
+    <div class="rv"><h2 data-i18n="inv_faq_h2">Before you write to us</h2></div>
 
     <div class="faq">
       <div class="qa">
-        <button type="button">Do I need to know anything about blockchain?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-        <div class="a"><p>For four of the nine routes, no. Policy work needs legal knowledge, teaching needs teaching ability, writing needs clarity, and user testing specifically benefits from not knowing. The technical routes do need technical background, and they say so.</p></div>
+        <button type="button"><span data-i18n="inv_faq1_q">Do I need to know anything about blockchain?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        <div class="a"><p data-i18n="inv_faq1_a">For four of the nine routes, no. Policy work needs legal knowledge, teaching needs teaching ability, writing needs clarity, and user testing specifically benefits from not knowing. The technical routes do need technical background, and they say so.</p></div>
       </div>
       <div class="qa">
-        <button type="button">Is this paid?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-        <div class="a"><p>Not currently. Hikaru Foundation is a non-profit in its first year and contribution is voluntary. If that changes, this page changes with it. We would rather lose you here than surprise you later.</p></div>
+        <button type="button"><span data-i18n="inv_faq2_q">Is this paid?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        <div class="a"><p data-i18n="inv_faq2_a">Not currently. Hikaru Foundation is a non-profit in its first year and contribution is voluntary. If that changes, this page changes with it. We would rather lose you here than surprise you later.</p></div>
       </div>
       <div class="qa">
-        <button type="button">Is there a token or an investment opportunity?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-        <div class="a"><p>No. Nothing on this site is a financial offer, and there is nothing to buy. If someone approaches you claiming to sell a Hikaru token, it is not us. Tell us about it.</p></div>
+        <button type="button"><span data-i18n="inv_faq3_q">Is there a token or an investment opportunity?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        <div class="a"><p data-i18n="inv_faq3_a">No. Nothing on this site is a financial offer, and there is nothing to buy. If someone approaches you claiming to sell a Hikaru token, it is not us. Tell us about it.</p></div>
       </div>
       <div class="qa">
-        <button type="button">Do I have to be in Bangladesh?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-        <div class="a"><p>The work is for Bangladesh, and people who live with the problem understand it best. But protocol research and code have no location. Policy work realistically does.</p></div>
+        <button type="button"><span data-i18n="inv_faq4_q">Do I have to be in Bangladesh?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        <div class="a"><p data-i18n="inv_faq4_a">The work is for Bangladesh, and people who live with the problem understand it best. But protocol research and code have no location. Policy work realistically does.</p></div>
       </div>
       <div class="qa">
-        <button type="button">What if I commit and then can't continue?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-        <div class="a"><p>Then you stop. Tell us so nobody waits on work that isn't coming, and that's the whole obligation. Volunteer projects that guilt people into staying end up with resentful contributors and worse output.</p></div>
+        <button type="button"><span data-i18n="inv_faq5_q">What if I commit and then can't continue?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        <div class="a"><p data-i18n="inv_faq5_a">Then you stop. Tell us so nobody waits on work that isn't coming, and that's the whole obligation. Volunteer projects that guilt people into staying end up with resentful contributors and worse output.</p></div>
       </div>
       <div class="qa">
-        <button type="button">I found a security problem. Where does that go?<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-        <div class="a"><p>Use the contact form and say "security" in the subject line so it gets priority. A dedicated disclosure address and policy are still to be set up, which is a gap we know about.</p></div>
+        <button type="button"><span data-i18n="inv_faq6_q">I found a security problem. Where does that go?</span><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        <div class="a"><p data-i18n="inv_faq6_a">Use the contact form and say "security" in the subject line so it gets priority. A dedicated disclosure address and policy are still to be set up, which is a gap we know about.</p></div>
       </div>
     </div>
   </div>
@@ -556,11 +563,11 @@ section{padding:var(--sp-section) 0}
     <div class="shell">
       <div class="rule"></div>
       <div class="rv">
-        <h2 style="margin:0 auto;max-width:22ch">Name the route and tell us what you bring.</h2>
-        <p class="lede">One paragraph is enough. We reply with the current state of that work, who else is on it, and where you could pick something up.</p>
+        <h2 style="margin:0 auto;max-width:22ch" data-i18n="inv_close_h2">Name the route and tell us what you bring.</h2>
+        <p class="lede" data-i18n="inv_close_lede">One paragraph is enough. We reply with the current state of that work, who else is on it, and where you could pick something up.</p>
         <div style="margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-          <a class="pill pill-solid pill-lg" href="contact.html#form">Send a message</a>
-          <a class="pill pill-ghost pill-lg" href="work.html">See the work first</a>
+          <a class="pill pill-solid pill-lg" href="contact.html#form" data-i18n="inv_close_btn1">Send a message</a>
+          <a class="pill pill-ghost pill-lg" href="work.html" data-i18n="inv_close_btn2">See the work first</a>
         </div>
       </div>
     </div>
@@ -576,21 +583,26 @@ section{padding:var(--sp-section) 0}
             <circle cx="11" cy="11" r="10" stroke="#76b900" stroke-width="1.4" opacity=".55"/>
             <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
           </svg>
-          <b>Hikaru Foundation</b>
+          <b data-i18n="brand_name">Hikaru Foundation</b>
         </a>
-        <p>Technology with conscience. A non-profit building decentralized digital infrastructure for Bangladesh.</p>
+        <p data-i18n="foot_tagline">Technology with conscience. A non-profit building decentralized digital infrastructure for Bangladesh.</p>
       </div>
-      <div><h4>About</h4><a href="about.html#story">Our story</a><a href="about.html">Vision and mission</a><a href="about.html#values">Values</a><a href="about.html#team">People</a></div>
-      <div><h4>Our Work</h4><a href="network.html">Hikaru Layer-1</a><a href="work.html#research">Research and policy</a><a href="work.html#academy">Hikaru Academy</a><a href="work.html">All programmes</a></div>
-      <div><h4>Take part</h4><a href="involved.html">Get involved</a><a href="news.html">Research and updates</a><a href="contact.html">Contact</a><a href="contact.html#hours">Opening hours</a></div>
-      <div><h4>Legal</h4><a href="#">Privacy policy</a><a href="#">Terms of use</a></div>
+      <div><h4 data-i18n="foot_h_about">About</h4><a href="about.html#story" data-i18n="foot_our_story">Our story</a><a href="about.html" data-i18n="foot_vision_mission">Vision and mission</a><a href="about.html#values" data-i18n="foot_values">Values</a><a href="about.html#team" data-i18n="foot_people">People</a></div>
+      <div><h4 data-i18n="foot_h_work">Our Work</h4><a href="network.html" data-i18n="foot_hikaru_l1">Hikaru Layer-1</a><a href="work.html#research" data-i18n="foot_research_policy">Research and policy</a><a href="work.html#academy" data-i18n="foot_academy">Hikaru Academy</a><a href="work.html" data-i18n="foot_all_programmes">All programmes</a></div>
+      <div><h4 data-i18n="foot_h_takepart">Take part</h4><a href="involved.html" data-i18n="foot_get_involved">Get involved</a><a href="news.html" data-i18n="foot_research_updates">Research and updates</a><a href="contact.html" data-i18n="foot_contact">Contact</a><a href="contact.html#hours" data-i18n="foot_opening_hours">Opening hours</a></div>
+      <div><h4 data-i18n="foot_h_legal">Legal</h4><a href="#" data-i18n="foot_privacy">Privacy policy</a><a href="#" data-i18n="foot_terms">Terms of use</a></div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Hikaru Foundation. All rights reserved.</span>
-      <a href="#top">Back to top ↑</a>
+      <span data-i18n="foot_copyright">© 2026 Hikaru Foundation. All rights reserved.</span>
+      <a href="#top" data-i18n="foot_back_to_top">Back to top ↑</a>
     </div>
   </div>
 </footer>
+
+<script src="assets/i18n-core.js"></script>
+<script src="assets/i18n-involved.js"></script>
+<script src="assets/theme.js"></script>
+<script src="assets/i18n.js"></script>
 
 <script>
 var io = new IntersectionObserver(function(es){
@@ -613,14 +625,17 @@ Array.prototype.forEach.call(document.querySelectorAll('.rv'), function(el){ io.
 
   function apply(){
     var n = 0;
+    var pick = window.hikaruPick || function(en){ return en; };
     cards.forEach(function(c){
       var hit = has(c, 'data-skill', skill) && has(c, 'data-time', time);
       c.classList.toggle('hide', !hit);
       if (hit) n++;
     });
-    out.innerHTML = '<b>' + n + '</b> route' + (n === 1 ? '' : 's') + ' match' + (n === 1 ? 'es' : '');
+    out.innerHTML = '<b>' + n + '</b> ' + (n === 1 ? pick('route matches','টি পথ মিলেছে') : pick('routes match','টি পথ মিলেছে'));
     empty.classList.toggle('show', n === 0);
   }
+
+  window.addEventListener('hikaru:langchange', apply);
 
   skillBtns.forEach(function(b){
     b.addEventListener('click', function(){

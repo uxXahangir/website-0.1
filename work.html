@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Our Work — Hikaru Foundation</title>
+<script>(function(){try{var t=localStorage.getItem('hikaru-theme');if(!t)t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
 <style>
 /* ============================================================
    Same token set as the homepage and About page.
@@ -267,7 +269,7 @@ section{padding:var(--sp-section) 0}
 }
 </style>
 </head>
-<body>
+<body data-page="work">
 
 <!-- ==================== STAGE: nav + header ==================== -->
 <div class="stage">
@@ -279,29 +281,34 @@ section{padding:var(--sp-section) 0}
           <circle cx="11" cy="11" r="5.6" stroke="#76b900" stroke-width="1.2" opacity=".8"/>
           <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
         </svg>
-        <b>Hikaru Foundation</b>
+        <b data-i18n="brand_name">Hikaru Foundation</b>
       </a>
       <div class="nav-links">
-        <a href="about.html">About</a>
-        <a href="work.html" aria-current="page">Our Work</a>
-        <a href="news.html">Research</a>
-        <a href="contact.html">Contact</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="work.html" aria-current="page" data-i18n="nav_work">Our Work</a>
+        <a href="news.html" data-i18n="nav_research">Research</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
       </div>
       <div class="nav-cta">
-        <a class="pill pill-solid" href="involved.html">Get Involved</a>
+        <button class="icon-btn js-theme-toggle" type="button" aria-pressed="false" aria-label="Switch to light mode">
+          <svg class="i-dark" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.8 9.6A6.3 6.3 0 016.4 2.2a6.3 6.3 0 108.9 8.9c-.5.3-1 .5-1.5.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <svg class="i-light" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.6v1.7M8 12.7v1.7M14.4 8h-1.7M3.3 8H1.6M12.7 3.3l-1.2 1.2M4.5 11.5l-1.2 1.2M12.7 12.7l-1.2-1.2M4.5 4.5L3.3 3.3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </button>
+        <button class="icon-btn lang-btn js-lang-toggle" type="button" aria-label="Switch to Bangla">বাং</button>
+        <a class="pill pill-solid" href="involved.html" data-i18n="nav_getinvolved">Get Involved</a>
       </div>
     </nav>
   </div>
 
   <header class="head" id="top">
     <div class="shell">
-      <span class="eyebrow">Our work</span>
-      <h1>Ten programmes across <em>three initiatives.</em></h1>
-      <p class="lede">Digital autonomy needs more than working code. It needs infrastructure people control, rules that protect them, and the knowledge to use both. Filter by who you are, or read the whole catalogue.</p>
+      <span class="eyebrow" data-i18n="wrk_eyebrow">Our work</span>
+      <h1><span data-i18n="wrk_h1_lead">Ten programmes across</span> <em data-i18n="wrk_h1_em">three initiatives.</em></h1>
+      <p class="lede" data-i18n="wrk_lede">Digital autonomy needs more than working code. It needs infrastructure people control, rules that protect them, and the knowledge to use both. Filter by who you are, or read the whole catalogue.</p>
       <div class="pillar-jump">
-        <a class="pill pill-ghost" href="#network">The network</a>
-        <a class="pill pill-ghost" href="#research">Research and policy</a>
-        <a class="pill pill-ghost" href="#academy">Hikaru Academy</a>
+        <a class="pill pill-ghost" href="#network" data-i18n="wrk_jump1">The network</a>
+        <a class="pill pill-ghost" href="#research" data-i18n="wrk_jump2">Research and policy</a>
+        <a class="pill pill-ghost" href="#academy" data-i18n="wrk_jump3">Hikaru Academy</a>
       </div>
     </div>
   </header>
@@ -311,17 +318,17 @@ section{padding:var(--sp-section) 0}
 <div class="filterbar" id="filters">
   <div class="shell">
     <div class="filter-row">
-      <span class="filter-label">Show work for</span>
+      <span class="filter-label" data-i18n="wrk_filter_label">Show work for</span>
       <div class="chips" role="group" aria-label="Filter programmes by audience">
-        <button class="chip" data-f="all" aria-pressed="true" type="button">Everyone</button>
-        <button class="chip" data-f="tech" aria-pressed="false" type="button">Technologists</button>
-        <button class="chip" data-f="research" aria-pressed="false" type="button">Researchers</button>
-        <button class="chip" data-f="legal" aria-pressed="false" type="button">Policy and legal</button>
-        <button class="chip" data-f="student" aria-pressed="false" type="button">Students</button>
-        <button class="chip" data-f="business" aria-pressed="false" type="button">Business</button>
-        <button class="chip" data-f="citizen" aria-pressed="false" type="button">Citizens</button>
+        <button class="chip" data-f="all" aria-pressed="true" type="button" data-i18n="wrk_f_all">Everyone</button>
+        <button class="chip" data-f="tech" aria-pressed="false" type="button" data-i18n="wrk_f_tech">Technologists</button>
+        <button class="chip" data-f="research" aria-pressed="false" type="button" data-i18n="wrk_f_research">Researchers</button>
+        <button class="chip" data-f="legal" aria-pressed="false" type="button" data-i18n="wrk_f_legal">Policy and legal</button>
+        <button class="chip" data-f="student" aria-pressed="false" type="button" data-i18n="wrk_f_student">Students</button>
+        <button class="chip" data-f="business" aria-pressed="false" type="button" data-i18n="wrk_f_business">Business</button>
+        <button class="chip" data-f="citizen" aria-pressed="false" type="button" data-i18n="wrk_f_citizen">Citizens</button>
       </div>
-      <span class="count" id="count" aria-live="polite"><b>10</b> of 10</span>
+      <span class="count" id="count" aria-live="polite"><b>10</b> <span data-i18n="wrk_count_of">of</span> 10</span>
     </div>
   </div>
 </div>
@@ -332,10 +339,10 @@ section{padding:var(--sp-section) 0}
 <div class="pillar" id="network">
   <div class="shell">
     <div class="pillar-head rv">
-      <h2>Hikaru, a Layer-1 blockchain</h2>
+      <h2 data-i18n="wrk_p1_h2">Hikaru, a Layer-1 blockchain</h2>
       <span class="n" data-pillar-count>4 programmes</span>
     </div>
-    <p class="pillar-intro rv">A sovereign Layer-1 network powered by community-driven decentralized infrastructure. It maintains an immutable ledger and enables secure peer-to-peer interaction. These are the applications it is built to carry.</p>
+    <p class="pillar-intro rv" data-i18n="wrk_p1_intro">A sovereign Layer-1 network powered by community-driven decentralized infrastructure. It maintains an immutable ledger and enables secure peer-to-peer interaction. These are the applications it is built to carry.</p>
 
     <div class="grid">
 
@@ -346,12 +353,12 @@ section{padding:var(--sp-section) 0}
             <path d="M4 13h20" stroke="currentColor" stroke-width="1.6"/>
             <path d="M8 18h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          <span class="status dev">In development</span>
+          <span class="status dev" data-i18n="wrk_c1_status">In development</span>
         </div>
-        <h3>Financial transactions</h3>
-        <p>Peer-to-peer value transfer settled on the network's own ledger, without a foreign intermediary holding the rails or the record.</p>
-        <div class="who"><span>Citizens</span><span>Business</span><span>Developers</span></div>
-        <a class="more" href="network.html">Learn more →</a>
+        <h3 data-i18n="wrk_c1_h3">Financial transactions</h3>
+        <p data-i18n="wrk_c1_p">Peer-to-peer value transfer settled on the network's own ledger, without a foreign intermediary holding the rails or the record.</p>
+        <div class="who"><span data-i18n="wrk_c1_who1">Citizens</span><span data-i18n="wrk_c1_who2">Business</span><span data-i18n="wrk_c1_who3">Developers</span></div>
+        <a class="more" href="network.html" data-i18n="wrk_more">Learn more →</a>
       </article>
 
       <article class="card rv" data-a="tech business">
@@ -362,12 +369,12 @@ section{padding:var(--sp-section) 0}
             <path d="M12 14h4" stroke="currentColor" stroke-width="1.6"/>
             <path d="M7.5 10V6M20.5 18v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          <span class="status dev">In development</span>
+          <span class="status dev" data-i18n="wrk_c2_status">In development</span>
         </div>
-        <h3>Supply chain tracking</h3>
-        <p>An immutable record of custody and movement, so provenance claims can be checked rather than taken on trust.</p>
-        <div class="who"><span>Business</span><span>Developers</span></div>
-        <a class="more" href="network.html">Learn more →</a>
+        <h3 data-i18n="wrk_c2_h3">Supply chain tracking</h3>
+        <p data-i18n="wrk_c2_p">An immutable record of custody and movement, so provenance claims can be checked rather than taken on trust.</p>
+        <div class="who"><span data-i18n="wrk_c2_who1">Business</span><span data-i18n="wrk_c2_who2">Developers</span></div>
+        <a class="more" href="network.html" data-i18n="wrk_more">Learn more →</a>
       </article>
 
       <article class="card rv" data-a="tech citizen legal">
@@ -377,12 +384,12 @@ section{padding:var(--sp-section) 0}
             <circle cx="11" cy="13" r="2.8" stroke="currentColor" stroke-width="1.6"/>
             <path d="M6.5 19c1-2 3-3 4.5-3s3.5 1 4.5 3M18 11h4M18 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          <span class="status dev">In development</span>
+          <span class="status dev" data-i18n="wrk_c3_status">In development</span>
         </div>
-        <h3>Digital identity management</h3>
-        <p>Identity credentials the holder controls, rather than records held and monetised by organisations outside the country.</p>
-        <div class="who"><span>Citizens</span><span>Policy and legal</span><span>Developers</span></div>
-        <a class="more" href="network.html">Learn more →</a>
+        <h3 data-i18n="wrk_c3_h3">Digital identity management</h3>
+        <p data-i18n="wrk_c3_p">Identity credentials the holder controls, rather than records held and monetised by organisations outside the country.</p>
+        <div class="who"><span data-i18n="wrk_c3_who1">Citizens</span><span data-i18n="wrk_c3_who2">Policy and legal</span><span data-i18n="wrk_c3_who3">Developers</span></div>
+        <a class="more" href="network.html" data-i18n="wrk_more">Learn more →</a>
       </article>
 
       <article class="card rv" data-a="tech">
@@ -393,12 +400,12 @@ section{padding:var(--sp-section) 0}
             <circle cx="23" cy="21" r="3" stroke="currentColor" stroke-width="1.6"/>
             <path d="M12 8.5L7 18.5M16 8.5l5 10M8 21h12" stroke="currentColor" stroke-width="1.6"/>
           </svg>
-          <span class="status dev">In development</span>
+          <span class="status dev" data-i18n="wrk_c4_status">In development</span>
         </div>
-        <h3>Community node infrastructure</h3>
-        <p>The network runs on infrastructure contributed by its participants. Operating a node is how ownership stays distributed in practice, not just in principle.</p>
-        <div class="who"><span>Technologists</span></div>
-        <a class="more" href="network.html">Learn more →</a>
+        <h3 data-i18n="wrk_c4_h3">Community node infrastructure</h3>
+        <p data-i18n="wrk_c4_p">The network runs on infrastructure contributed by its participants. Operating a node is how ownership stays distributed in practice, not just in principle.</p>
+        <div class="who"><span data-i18n="wrk_c4_who1">Technologists</span></div>
+        <a class="more" href="network.html" data-i18n="wrk_more">Learn more →</a>
       </article>
 
     </div>
@@ -409,10 +416,10 @@ section{padding:var(--sp-section) 0}
 <div class="pillar" id="research">
   <div class="shell">
     <div class="pillar-head rv">
-      <h2>Research and policy advocacy</h2>
+      <h2 data-i18n="wrk_p2_h2">Research and policy advocacy</h2>
       <span class="n" data-pillar-count>3 programmes</span>
     </div>
-    <p class="pillar-intro rv">We research blockchain networks at the protocol level, and work with government authorities, industry experts, and academic institutions on the legal and regulatory frameworks adoption in Bangladesh will need.</p>
+    <p class="pillar-intro rv" data-i18n="wrk_p2_intro">We research blockchain networks at the protocol level, and work with government authorities, industry experts, and academic institutions on the legal and regulatory frameworks adoption in Bangladesh will need.</p>
 
     <div class="grid">
 
@@ -422,12 +429,12 @@ section{padding:var(--sp-section) 0}
             <path d="M14 3l9 3.5v7c0 5.5-3.8 10-9 11.5C8.8 24.5 5 20 5 13.5v-7L14 3z" stroke="currentColor" stroke-width="1.6"/>
             <path d="M10 13.5l2.8 2.8L18 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          <span class="status live">Active</span>
+          <span class="status live" data-i18n="wrk_c5_status">Active</span>
         </div>
-        <h3>Protocol security research</h3>
-        <p>Examining the security properties of blockchain networks at the protocol layer, where the assumptions everything else rests on are made.</p>
-        <div class="who"><span>Researchers</span><span>Technologists</span></div>
-        <a class="more" href="#">Learn more →</a>
+        <h3 data-i18n="wrk_c5_h3">Protocol security research</h3>
+        <p data-i18n="wrk_c5_p">Examining the security properties of blockchain networks at the protocol layer, where the assumptions everything else rests on are made.</p>
+        <div class="who"><span data-i18n="wrk_c5_who1">Researchers</span><span data-i18n="wrk_c5_who2">Technologists</span></div>
+        <a class="more" href="#" data-i18n="wrk_more">Learn more →</a>
       </article>
 
       <article class="card rv" data-a="research legal citizen">
@@ -437,12 +444,12 @@ section{padding:var(--sp-section) 0}
             <path d="M9.5 12V9a4.5 4.5 0 019 0v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
             <circle cx="14" cy="18" r="1.8" fill="currentColor"/>
           </svg>
-          <span class="status live">Active</span>
+          <span class="status live" data-i18n="wrk_c6_status">Active</span>
         </div>
-        <h3>Privacy research</h3>
-        <p>Studying how much a public ledger reveals and what can be done about it, because transparency and surveillance are separated by design choices.</p>
-        <div class="who"><span>Researchers</span><span>Policy and legal</span><span>Citizens</span></div>
-        <a class="more" href="#">Learn more →</a>
+        <h3 data-i18n="wrk_c6_h3">Privacy research</h3>
+        <p data-i18n="wrk_c6_p">Studying how much a public ledger reveals and what can be done about it, because transparency and surveillance are separated by design choices.</p>
+        <div class="who"><span data-i18n="wrk_c6_who1">Researchers</span><span data-i18n="wrk_c6_who2">Policy and legal</span><span data-i18n="wrk_c6_who3">Citizens</span></div>
+        <a class="more" href="#" data-i18n="wrk_more">Learn more →</a>
       </article>
 
       <article class="card rv" data-a="legal research business">
@@ -451,12 +458,12 @@ section{padding:var(--sp-section) 0}
             <path d="M14 4v20M6 9h16M9 9l-3.5 8h7L9 9zM19 9l-3.5 8h7L19 9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
             <path d="M10 24h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          <span class="status live">Active</span>
+          <span class="status live" data-i18n="wrk_c7_status">Active</span>
         </div>
-        <h3>Regulatory and legal engagement</h3>
-        <p>Working with government authorities, industry experts, and academic institutions to shape the frameworks blockchain adoption in Bangladesh will require.</p>
-        <div class="who"><span>Policy and legal</span><span>Researchers</span><span>Business</span></div>
-        <a class="more" href="#">Learn more →</a>
+        <h3 data-i18n="wrk_c7_h3">Regulatory and legal engagement</h3>
+        <p data-i18n="wrk_c7_p">Working with government authorities, industry experts, and academic institutions to shape the frameworks blockchain adoption in Bangladesh will require.</p>
+        <div class="who"><span data-i18n="wrk_c7_who1">Policy and legal</span><span data-i18n="wrk_c7_who2">Researchers</span><span data-i18n="wrk_c7_who3">Business</span></div>
+        <a class="more" href="#" data-i18n="wrk_more">Learn more →</a>
       </article>
 
     </div>
@@ -467,10 +474,10 @@ section{padding:var(--sp-section) 0}
 <div class="pillar" id="academy">
   <div class="shell">
     <div class="pillar-head rv">
-      <h2>Hikaru Academy</h2>
+      <h2 data-i18n="wrk_p3_h2">Hikaru Academy</h2>
       <span class="n" data-pillar-count>3 programmes</span>
     </div>
-    <p class="pillar-intro rv">Hikaru Academy will deliver educational programmes, workshops, and training sessions covering fundamental and advanced blockchain concepts, built for students, professionals, and community leaders. All three are planned, not yet running.</p>
+    <p class="pillar-intro rv" data-i18n="wrk_p3_intro">Hikaru Academy will deliver educational programmes, workshops, and training sessions covering fundamental and advanced blockchain concepts, built for students, professionals, and community leaders. All three are planned, not yet running.</p>
 
     <div class="grid">
 
@@ -480,12 +487,12 @@ section{padding:var(--sp-section) 0}
             <path d="M14 5l11 5-11 5-11-5 11-5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
             <path d="M7 12.5V19c0 1.7 3.1 3 7 3s7-1.3 7-3v-6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          <span class="status plan">Planned</span>
+          <span class="status plan" data-i18n="wrk_c8_status">Planned</span>
         </div>
-        <h3>Blockchain fundamentals</h3>
-        <p>The foundational track: what a distributed ledger is, what it can and cannot do, and why any of it matters to people who will never write code.</p>
-        <div class="who"><span>Students</span><span>Citizens</span></div>
-        <a class="more" href="#">Learn more →</a>
+        <h3 data-i18n="wrk_c8_h3">Blockchain fundamentals</h3>
+        <p data-i18n="wrk_c8_p">The foundational track: what a distributed ledger is, what it can and cannot do, and why any of it matters to people who will never write code.</p>
+        <div class="who"><span data-i18n="wrk_c8_who1">Students</span><span data-i18n="wrk_c8_who2">Citizens</span></div>
+        <a class="more" href="#" data-i18n="wrk_more">Learn more →</a>
       </article>
 
       <article class="card rv" data-a="tech student research">
@@ -494,12 +501,12 @@ section{padding:var(--sp-section) 0}
             <path d="M10 8l-6 6 6 6M18 8l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M15.5 5.5l-3 17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          <span class="status plan">Planned</span>
+          <span class="status plan" data-i18n="wrk_c9_status">Planned</span>
         </div>
-        <h3>Advanced concepts</h3>
-        <p>The technical track for people who will build on or operate the network: consensus, cryptography, and protocol-level design decisions.</p>
-        <div class="who"><span>Technologists</span><span>Students</span><span>Researchers</span></div>
-        <a class="more" href="#">Learn more →</a>
+        <h3 data-i18n="wrk_c9_h3">Advanced concepts</h3>
+        <p data-i18n="wrk_c9_p">The technical track for people who will build on or operate the network: consensus, cryptography, and protocol-level design decisions.</p>
+        <div class="who"><span data-i18n="wrk_c9_who1">Technologists</span><span data-i18n="wrk_c9_who2">Students</span><span data-i18n="wrk_c9_who3">Researchers</span></div>
+        <a class="more" href="#" data-i18n="wrk_more">Learn more →</a>
       </article>
 
       <article class="card rv" data-a="citizen student business">
@@ -509,12 +516,12 @@ section{padding:var(--sp-section) 0}
             <circle cx="19.5" cy="10.5" r="2.6" stroke="currentColor" stroke-width="1.6"/>
             <path d="M4 21c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M17 15.6c2.9.2 5 2.2 5 5.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
           </svg>
-          <span class="status plan">Planned</span>
+          <span class="status plan" data-i18n="wrk_c10_status">Planned</span>
         </div>
-        <h3>Workshops and training sessions</h3>
-        <p>Shorter in-person and remote sessions aimed at professionals and community leaders who need working knowledge rather than a full course.</p>
-        <div class="who"><span>Citizens</span><span>Students</span><span>Business</span></div>
-        <a class="more" href="#">Learn more →</a>
+        <h3 data-i18n="wrk_c10_h3">Workshops and training sessions</h3>
+        <p data-i18n="wrk_c10_p">Shorter in-person and remote sessions aimed at professionals and community leaders who need working knowledge rather than a full course.</p>
+        <div class="who"><span data-i18n="wrk_c10_who1">Citizens</span><span data-i18n="wrk_c10_who2">Students</span><span data-i18n="wrk_c10_who3">Business</span></div>
+        <a class="more" href="#" data-i18n="wrk_more">Learn more →</a>
       </article>
 
     </div>
@@ -523,9 +530,9 @@ section{padding:var(--sp-section) 0}
 
 <div class="shell">
   <div class="empty" id="empty">
-    <p style="font-size:var(--t-h-md);font-weight:700;color:#fff;margin-bottom:10px">Nothing matches that filter yet.</p>
-    <p style="font-size:var(--t-sm)">Try another audience, or clear the filter to see all ten programmes.</p>
-    <button class="pill pill-ghost" style="margin-top:20px" type="button" data-clear>Clear filter</button>
+    <p style="font-size:var(--t-h-md);font-weight:700;color:#fff;margin-bottom:10px" data-i18n="wrk_empty_h">Nothing matches that filter yet.</p>
+    <p style="font-size:var(--t-sm)" data-i18n="wrk_empty_p">Try another audience, or clear the filter to see all ten programmes.</p>
+    <button class="pill pill-ghost" style="margin-top:20px" type="button" data-clear data-i18n="wrk_empty_btn">Clear filter</button>
   </div>
 </div>
 
@@ -534,31 +541,31 @@ section{padding:var(--sp-section) 0}
   <div class="shell center">
     <div class="rule"></div>
     <div class="rv">
-      <span class="eyebrow">Getting started</span>
-      <h2 style="margin-top:16px">Three steps in</h2>
-      <p class="lede">There is no application process and no fee. Find the work that fits what you already do, then tell us.</p>
+      <span class="eyebrow" data-i18n="wrk_start_eyebrow">Getting started</span>
+      <h2 style="margin-top:16px" data-i18n="wrk_start_h2">Three steps in</h2>
+      <p class="lede" data-i18n="wrk_start_lede">There is no application process and no fee. Find the work that fits what you already do, then tell us.</p>
     </div>
 
     <div class="road">
       <div class="step rv">
         <div class="num">1</div>
-        <h3>Find your fit</h3>
-        <p>Filter the catalogue above by what you do. Every programme lists who it is for and whether it is running yet.</p>
+        <h3 data-i18n="wrk_step1_h3">Find your fit</h3>
+        <p data-i18n="wrk_step1_p">Filter the catalogue above by what you do. Every programme lists who it is for and whether it is running yet.</p>
       </div>
       <div class="step rv">
         <div class="num">2</div>
-        <h3>Tell us where you'd help</h3>
-        <p>Send a short note naming the programme and what you bring. Code, research, legal work, teaching, or time.</p>
+        <h3 data-i18n="wrk_step2_h3">Tell us where you'd help</h3>
+        <p data-i18n="wrk_step2_p">Send a short note naming the programme and what you bring. Code, research, legal work, teaching, or time.</p>
       </div>
       <div class="step rv">
         <div class="num">3</div>
-        <h3>Start</h3>
-        <p>We reply with the current state of that work, who else is on it, and where you can pick something up.</p>
+        <h3 data-i18n="wrk_step3_h3">Start</h3>
+        <p data-i18n="wrk_step3_p">We reply with the current state of that work, who else is on it, and where you can pick something up.</p>
       </div>
     </div>
 
     <div class="note rv">
-      <b>Build note.</b> These three steps describe an intended process, not one documented in the source profile. Confirm the real onboarding path before launch, including who replies and how fast. A stated response time you cannot meet does more damage than no roadmap at all.
+      <b>Build note.</b> <span data-i18n="wrk_note">These three steps describe an intended process, not one documented in the source profile. Confirm the real onboarding path before launch, including who replies and how fast. A stated response time you cannot meet does more damage than no roadmap at all.</span>
     </div>
   </div>
 </section>
@@ -571,11 +578,11 @@ section{padding:var(--sp-section) 0}
     <div class="shell center">
       <div class="rule"></div>
       <div class="rv">
-        <h2 style="margin:0 auto;max-width:20ch">Ten programmes, one purpose.</h2>
-        <p class="lede">Infrastructure people control, rules that protect them, and the knowledge to use both. That is the whole plan.</p>
+        <h2 style="margin:0 auto;max-width:20ch" data-i18n="wrk_close_h2">Ten programmes, one purpose.</h2>
+        <p class="lede" data-i18n="wrk_close_lede">Infrastructure people control, rules that protect them, and the knowledge to use both. That is the whole plan.</p>
         <div style="margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-          <a class="pill pill-solid pill-lg" href="involved.html">Get Involved</a>
-          <a class="pill pill-ghost pill-lg" href="about.html">Read our story</a>
+          <a class="pill pill-solid pill-lg" href="involved.html" data-i18n="wrk_close_btn1">Get Involved</a>
+          <a class="pill pill-ghost pill-lg" href="about.html" data-i18n="wrk_close_btn2">Read our story</a>
         </div>
       </div>
     </div>
@@ -592,18 +599,18 @@ section{padding:var(--sp-section) 0}
             <circle cx="11" cy="11" r="10" stroke="#76b900" stroke-width="1.4" opacity=".55"/>
             <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
           </svg>
-          <b>Hikaru Foundation</b>
+          <b data-i18n="brand_name">Hikaru Foundation</b>
         </a>
-        <p>Technology with conscience. A non-profit building decentralized digital infrastructure for Bangladesh.</p>
+        <p data-i18n="foot_tagline">Technology with conscience. A non-profit building decentralized digital infrastructure for Bangladesh.</p>
       </div>
-      <div><h4>About</h4><a href="about.html#story">Our story</a><a href="about.html">Vision and mission</a><a href="about.html#values">Values</a><a href="about.html#team">People</a></div>
-      <div><h4>Our Work</h4><a href="network.html">Hikaru Layer-1</a><a href="work.html#research">Research and policy</a><a href="work.html#academy">Hikaru Academy</a><a href="work.html">All programmes</a></div>
-      <div><h4>Take part</h4><a href="involved.html">Get involved</a><a href="news.html">Research and updates</a><a href="contact.html">Contact</a><a href="contact.html#hours">Opening hours</a></div>
-      <div><h4>Legal</h4><a href="#">Privacy policy</a><a href="#">Terms of use</a></div>
+      <div><h4 data-i18n="foot_h_about">About</h4><a href="about.html#story" data-i18n="foot_our_story">Our story</a><a href="about.html" data-i18n="foot_vision_mission">Vision and mission</a><a href="about.html#values" data-i18n="foot_values">Values</a><a href="about.html#team" data-i18n="foot_people">People</a></div>
+      <div><h4 data-i18n="foot_h_work">Our Work</h4><a href="network.html" data-i18n="foot_hikaru_l1">Hikaru Layer-1</a><a href="work.html#research" data-i18n="foot_research_policy">Research and policy</a><a href="work.html#academy" data-i18n="foot_academy">Hikaru Academy</a><a href="work.html" data-i18n="foot_all_programmes">All programmes</a></div>
+      <div><h4 data-i18n="foot_h_takepart">Take part</h4><a href="involved.html" data-i18n="foot_get_involved">Get involved</a><a href="news.html" data-i18n="foot_research_updates">Research and updates</a><a href="contact.html" data-i18n="foot_contact">Contact</a><a href="contact.html#hours" data-i18n="foot_opening_hours">Opening hours</a></div>
+      <div><h4 data-i18n="foot_h_legal">Legal</h4><a href="#" data-i18n="foot_privacy">Privacy policy</a><a href="#" data-i18n="foot_terms">Terms of use</a></div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Hikaru Foundation. All rights reserved.</span>
-      <a href="#top">Back to top ↑</a>
+      <span data-i18n="foot_copyright">© 2026 Hikaru Foundation. All rights reserved.</span>
+      <a href="#top" data-i18n="foot_back_to_top">Back to top ↑</a>
     </div>
   </div>
 </footer>
@@ -612,15 +619,20 @@ section{padding:var(--sp-section) 0}
 <div class="helpbar" id="helpbar">
   <div class="helpbar-inner">
     <div>
-      <b>Not sure which programme fits you?</b><br>
-      <span>Tell us what you do and we'll point you at the right one.</span>
+      <b data-i18n="wrk_help_b">Not sure which programme fits you?</b><br>
+      <span data-i18n="wrk_help_span">Tell us what you do and we'll point you at the right one.</span>
     </div>
     <div class="acts">
-      <a class="pill pill-solid" href="contact.html">Talk to us</a>
+      <a class="pill pill-solid" href="contact.html" data-i18n="wrk_help_btn">Talk to us</a>
       <button class="close" type="button" id="helpClose" aria-label="Dismiss">×</button>
     </div>
   </div>
 </div>
+
+<script src="assets/i18n-core.js"></script>
+<script src="assets/i18n-work.js"></script>
+<script src="assets/theme.js"></script>
+<script src="assets/i18n.js"></script>
 
 <script>
 /* ---------- scroll reveal ---------- */
@@ -638,8 +650,12 @@ Array.prototype.forEach.call(document.querySelectorAll('.rv'), function(el){ io.
   var empty  = document.getElementById('empty');
   var total  = cards.length;
 
+  var lastFilter = 'all';
+
   function apply(f){
+    lastFilter = f;
     var shown = 0;
+    var pick = window.hikaruPick || function(en){ return en; };
 
     cards.forEach(function(c){
       var hit = f === 'all' || c.getAttribute('data-a').split(' ').indexOf(f) !== -1;
@@ -651,12 +667,14 @@ Array.prototype.forEach.call(document.querySelectorAll('.rv'), function(el){ io.
       var live = g.querySelectorAll('.card[data-a]:not(.hide)').length;
       g.classList.toggle('hide', live === 0);
       var tag = g.querySelector('[data-pillar-count]');
-      if (tag) tag.textContent = live + (live === 1 ? ' programme' : ' programmes');
+      if (tag) tag.textContent = live + ' ' + (live === 1 ? pick('programme','কার্যক্রম') : pick('programmes','কার্যক্রম'));
     });
 
-    count.innerHTML = '<b>' + shown + '</b> of ' + total;
+    count.innerHTML = '<b>' + shown + '</b> ' + pick('of','এর মধ্যে') + ' ' + total;
     empty.classList.toggle('show', shown === 0);
   }
+
+  window.addEventListener('hikaru:langchange', function(){ apply(lastFilter); });
 
   chips.forEach(function(chip){
     chip.addEventListener('click', function(){

@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hikaru Foundation — Digital infrastructure Bangladesh actually owns</title>
+<script>(function(){try{var t=localStorage.getItem('hikaru-theme');if(!t)t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
 <style>
 /* ============================================================
    NVIDIA tokens (core) + bloom extension for this composition
@@ -254,7 +256,7 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
 }
 </style>
 </head>
-<body>
+<body data-page="index">
 
 <!-- ==================== STAGE: nav + hero ==================== -->
 <div class="stage">
@@ -266,27 +268,33 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
           <circle cx="11" cy="11" r="5.6" stroke="#76b900" stroke-width="1.2" opacity=".8"/>
           <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
         </svg>
-        <b>Hikaru Foundation</b>
+        <b data-i18n="brand_name">Hikaru Foundation</b>
       </a>
       <div class="nav-links">
-        <a href="about.html">About</a>
-        <a href="work.html">Our Work</a>
-        <a href="news.html">Research</a>
-        <a href="contact.html">Contact</a>
+        <a href="about.html" data-i18n="nav_about">About</a>
+        <a href="work.html" data-i18n="nav_work">Our Work</a>
+        <a href="news.html" data-i18n="nav_research">Research</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact</a>
       </div>
       <div class="nav-cta">
-        <a class="pill pill-solid" href="involved.html">Get Involved</a>
+        <button class="icon-btn js-theme-toggle" type="button" aria-pressed="false" aria-label="Switch to light mode">
+          <svg class="i-dark" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.8 9.6A6.3 6.3 0 016.4 2.2a6.3 6.3 0 108.9 8.9c-.5.3-1 .5-1.5.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <svg class="i-light" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.6v1.7M8 12.7v1.7M14.4 8h-1.7M3.3 8H1.6M12.7 3.3l-1.2 1.2M4.5 11.5l-1.2 1.2M12.7 12.7l-1.2-1.2M4.5 4.5L3.3 3.3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </button>
+        <button class="icon-btn lang-btn js-lang-toggle" type="button" aria-label="Switch to Bangla">বাং</button>
+        <a class="pill pill-solid" href="involved.html" data-i18n="nav_getinvolved">Get Involved</a>
       </div>
     </nav>
   </div>
 
   <header class="hero" id="top">
     <div class="shell">
-      <h1>Digital infrastructure <em>Bangladesh actually owns.</em></h1>
-      <p class="hero-sub">A non-profit building decentralized public infrastructure, so data rights, financial access, and civic systems stay in the hands of citizens.</p>
+      <h1><span data-i18n="idx_hero_h1_lead">Digital infrastructure</span> <em data-i18n="idx_hero_h1_em">Bangladesh actually owns.</em></h1>
+      <p class="hero-sub" data-i18n="idx_hero_sub">A non-profit building decentralized public infrastructure, so data rights, financial access, and civic systems stay in the hands of citizens.</p>
 
       <div class="orb-wrap">
         <canvas id="orb" width="920" height="920" role="img"
+                data-i18n-attr="aria-label:idx_orb_aria"
                 aria-label="A rotating sphere of connected network nodes with the outline of Bangladesh at its centre"></canvas>
         <div class="orb-veil" aria-hidden="true"></div>
         <div class="orb-ring" aria-hidden="true"></div>
@@ -324,7 +332,7 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
             <path d="M2 7.5h11M9 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          Explore Our Work
+          <span data-i18n="idx_hero_cta">Explore Our Work</span>
         </a>
       </div>
     </div>
@@ -338,9 +346,9 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
   <div class="shell center">
     <div class="rule"></div>
     <div class="rv">
-      <span class="eyebrow">Our work</span>
-      <h2 style="margin-top:16px">Three initiatives, one purpose</h2>
-      <p class="lede">Digital autonomy needs more than working code. It needs infrastructure people control, rules that protect them, and the knowledge to use both.</p>
+      <span class="eyebrow" data-i18n="idx_work_eyebrow">Our work</span>
+      <h2 style="margin-top:16px" data-i18n="idx_work_h2">Three initiatives, one purpose</h2>
+      <p class="lede" data-i18n="idx_work_lede">Digital autonomy needs more than working code. It needs infrastructure people control, rules that protect them, and the knowledge to use both.</p>
     </div>
 
     <div class="cards">
@@ -351,9 +359,9 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
           <circle cx="23" cy="21" r="3" stroke="currentColor" stroke-width="1.6"/>
           <path d="M12 8.5L7 18.5M16 8.5l5 10M8 21h12" stroke="currentColor" stroke-width="1.6"/>
         </svg>
-        <h3>Hikaru, a Layer-1 blockchain</h3>
-        <p>A sovereign Layer-1 network run on community infrastructure. It keeps an immutable ledger and supports payments, supply chain tracking, and digital identity.</p>
-        <a href="network.html">Learn about Hikaru →</a>
+        <h3 data-i18n="idx_card1_h3">Hikaru, a Layer-1 blockchain</h3>
+        <p data-i18n="idx_card1_p">A sovereign Layer-1 network run on community infrastructure. It keeps an immutable ledger and supports payments, supply chain tracking, and digital identity.</p>
+        <a href="network.html" data-i18n="idx_card1_a">Learn about Hikaru →</a>
       </article>
 
       <article class="card rv">
@@ -361,18 +369,18 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
           <path d="M14 3l9 3.5v7c0 5.5-3.8 10-9 11.5C8.8 23.5 5 19 5 13.5v-7L14 3z" stroke="currentColor" stroke-width="1.6"/>
           <path d="M10 13.5l2.8 2.8L18 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
         </svg>
-        <h3>Research and policy advocacy</h3>
-        <p>We study blockchain security and privacy at the protocol level, and work with government, industry, and academia on the regulation adoption will require.</p>
-        <a href="work.html#research">See our research →</a>
+        <h3 data-i18n="idx_card2_h3">Research and policy advocacy</h3>
+        <p data-i18n="idx_card2_p">We study blockchain security and privacy at the protocol level, and work with government, industry, and academia on the regulation adoption will require.</p>
+        <a href="work.html#research" data-i18n="idx_card2_a">See our research →</a>
       </article>
 
       <article class="card rv">
         <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true">
           <path d="M4 6h7a3 3 0 013 3v14a3 3 0 00-3-3H4V6zM24 6h-7a3 3 0 00-3 3v14a3 3 0 013-3h7V6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
         </svg>
-        <h3>Digital literacy through Hikaru Academy</h3>
-        <p>Hikaru Academy will run programmes, workshops, and training on blockchain fundamentals and advanced practice, for students, professionals, and community leaders.</p>
-        <a href="work.html#academy">About the Academy →</a>
+        <h3 data-i18n="idx_card3_h3">Digital literacy through Hikaru Academy</h3>
+        <p data-i18n="idx_card3_p">Hikaru Academy will run programmes, workshops, and training on blockchain fundamentals and advanced practice, for students, professionals, and community leaders.</p>
+        <a href="work.html#academy" data-i18n="idx_card3_a">About the Academy →</a>
       </article>
     </div>
   </div>
@@ -383,41 +391,41 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
   <div class="shell center">
     <div class="rule"></div>
     <div class="rv">
-      <span class="eyebrow">Why we exist</span>
-      <p class="mission-lead" style="margin-top:20px">Bangladesh's digital landscape runs on infrastructure it does not own.</p>
+      <span class="eyebrow" data-i18n="idx_mission_eyebrow">Why we exist</span>
+      <p class="mission-lead" style="margin-top:20px" data-i18n="idx_mission_lead">Bangladesh's digital landscape runs on infrastructure it does not own.</p>
     </div>
 
     <div class="mission-cols rv">
-      <p>Foreign companies hold exclusive control and centralized data centers hold a monopoly. International business organizations collect and use citizen data for their own commercial interests, an uncontrolled interference in the data rights and freedoms of people here.</p>
-      <p>A sovereign blockchain decentralizes that control. It makes activity transparent, secures access to financial and civic systems, and returns the digital commons to the people who depend on it. That is the work Hikaru Foundation exists to do.</p>
+      <p data-i18n="idx_mission_p1">Foreign companies hold exclusive control and centralized data centers hold a monopoly. International business organizations collect and use citizen data for their own commercial interests, an uncontrolled interference in the data rights and freedoms of people here.</p>
+      <p data-i18n="idx_mission_p2">A sovereign blockchain decentralizes that control. It makes activity transparent, secures access to financial and civic systems, and returns the digital commons to the people who depend on it. That is the work Hikaru Foundation exists to do.</p>
     </div>
 
     <div class="vm rv">
       <div>
-        <span class="eyebrow" style="color:var(--on-dark-faint)">Vision</span>
-        <p>A digitally empowered world where technology and innovation ensure justice, equity, and social welfare.</p>
+        <span class="eyebrow" style="color:var(--on-dark-faint)" data-i18n="idx_vision_label">Vision</span>
+        <p data-i18n="idx_vision_p">A digitally empowered world where technology and innovation ensure justice, equity, and social welfare.</p>
       </div>
       <div>
-        <span class="eyebrow" style="color:var(--on-dark-faint)">Mission</span>
-        <p>To apply emerging technologies to real-world challenges, promoting social justice and inclusive development. We work to improve digital literacy, promote ethical technological innovation, and advance technology policy through collaborative research and engagement.</p>
+        <span class="eyebrow" style="color:var(--on-dark-faint)" data-i18n="idx_mission_label">Mission</span>
+        <p data-i18n="idx_mission_stmt">To apply emerging technologies to real-world challenges, promoting social justice and inclusive development. We work to improve digital literacy, promote ethical technological innovation, and advance technology policy through collaborative research and engagement.</p>
       </div>
     </div>
 
     <div class="values rv">
-      <span class="chip">Transparency and accountability</span>
-      <span class="chip">Ethical innovation</span>
-      <span class="chip">Decentralized governance</span>
-      <span class="chip">Sustainability</span>
-      <span class="chip">Technological autonomy</span>
+      <span class="chip" data-i18n="idx_chip1">Transparency and accountability</span>
+      <span class="chip" data-i18n="idx_chip2">Ethical innovation</span>
+      <span class="chip" data-i18n="idx_chip3">Decentralized governance</span>
+      <span class="chip" data-i18n="idx_chip4">Sustainability</span>
+      <span class="chip" data-i18n="idx_chip5">Technological autonomy</span>
     </div>
 
     <div class="tl rv">
-      <div><b>2021</b><span>Work begins</span></div>
-      <div><b>2024</b><span>Onchain Software and Research Limited established, March</span></div>
-      <div><b>2025</b><span>Hikaru Layer-1 project initiated</span></div>
+      <div><b data-i18n="idx_tl1_y">2021</b><span data-i18n="idx_tl1_s">Work begins</span></div>
+      <div><b data-i18n="idx_tl2_y">2024</b><span data-i18n="idx_tl2_s">Onchain Software and Research Limited established, March</span></div>
+      <div><b data-i18n="idx_tl3_y">2025</b><span data-i18n="idx_tl3_s">Hikaru Layer-1 project initiated</span></div>
     </div>
 
-    <a class="deep-link rv" href="about.html#story">Read our full story →</a>
+    <a class="deep-link rv" href="about.html#story" data-i18n="idx_deep_link">Read our full story →</a>
   </div>
 </section>
 
@@ -427,62 +435,62 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
   <div class="shell center">
     <div class="rule"></div>
     <div class="rv">
-      <span class="eyebrow">Where to next</span>
-      <h2 style="margin-top:16px">Six places to go from here</h2>
-      <p class="lede">Whatever brought you here, one of these answers it. Nothing on this site is behind a form.</p>
+      <span class="eyebrow" data-i18n="idx_explore_eyebrow">Where to next</span>
+      <h2 style="margin-top:16px" data-i18n="idx_explore_h2">Six places to go from here</h2>
+      <p class="lede" data-i18n="idx_explore_lede">Whatever brought you here, one of these answers it. Nothing on this site is behind a form.</p>
     </div>
 
     <div class="explore">
 
       <a class="dest rv" href="about.html">
-        <span class="n">01 · About</span>
-        <h3>Why this exists</h3>
-        <p>The origin story from 2021, the vision and mission, the five values, and how we can be held to them.</p>
-        <span class="go">Read our story →</span>
+        <span class="n" data-i18n="idx_dest1_n">01 · About</span>
+        <h3 data-i18n="idx_dest1_h3">Why this exists</h3>
+        <p data-i18n="idx_dest1_p">The origin story from 2021, the vision and mission, the five values, and how we can be held to them.</p>
+        <span class="go" data-i18n="idx_dest1_go">Read our story →</span>
       </a>
 
       <a class="dest rv" href="work.html">
-        <span class="n">02 · Our work</span>
-        <h3>Ten programmes, three initiatives</h3>
-        <p>The full catalogue, filterable by who you are. Every programme states plainly whether it is running yet.</p>
-        <span class="go">Browse the catalogue →</span>
+        <span class="n" data-i18n="idx_dest2_n">02 · Our work</span>
+        <h3 data-i18n="idx_dest2_h3">Ten programmes, three initiatives</h3>
+        <p data-i18n="idx_dest2_p">The full catalogue, filterable by who you are. Every programme states plainly whether it is running yet.</p>
+        <span class="go" data-i18n="idx_dest2_go">Browse the catalogue →</span>
       </a>
 
       <a class="dest rv" href="network.html">
-        <span class="n">03 · The network</span>
-        <h3>Hikaru Layer-1 in detail</h3>
-        <p>How the ledger works, what it carries, what is decided and what is not. Explained for engineers or for anyone.</p>
-        <span class="go">See the technical detail →</span>
+        <span class="n" data-i18n="idx_dest3_n">03 · The network</span>
+        <h3 data-i18n="idx_dest3_h3">Hikaru Layer-1 in detail</h3>
+        <p data-i18n="idx_dest3_p">How the ledger works, what it carries, what is decided and what is not. Explained for engineers or for anyone.</p>
+        <span class="go" data-i18n="idx_dest3_go">See the technical detail →</span>
       </a>
 
       <a class="dest rv" href="news.html">
-        <span class="n">04 · Research</span>
-        <h3>Findings and updates</h3>
-        <p>Protocol research, policy submissions, and development notes. Published as they complete, not held back.</p>
-        <span class="go">Read the latest →</span>
+        <span class="n" data-i18n="idx_dest4_n">04 · Research</span>
+        <h3 data-i18n="idx_dest4_h3">Findings and updates</h3>
+        <p data-i18n="idx_dest4_p">Protocol research, policy submissions, and development notes. Published as they complete, not held back.</p>
+        <span class="go" data-i18n="idx_dest4_go">Read the latest →</span>
       </a>
 
       <a class="dest rv" href="involved.html">
-        <span class="n">05 · Get involved</span>
-        <h3>Nine routes in</h3>
-        <p>Answer two questions and see which contribution routes fit what you already do. Four of them need no technical background.</p>
-        <span class="go">Find your route →</span>
+        <span class="n" data-i18n="idx_dest5_n">05 · Get involved</span>
+        <h3 data-i18n="idx_dest5_h3">Nine routes in</h3>
+        <p data-i18n="idx_dest5_p">Answer two questions and see which contribution routes fit what you already do. Four of them need no technical background.</p>
+        <span class="go" data-i18n="idx_dest5_go">Find your route →</span>
       </a>
 
       <a class="dest rv" href="contact.html">
-        <span class="n">06 · Contact</span>
-        <h3>Ask us directly</h3>
-        <p>A five-field form that routes to the right part of the work, plus phone, email, address, and opening hours.</p>
-        <span class="go">Send a message →</span>
+        <span class="n" data-i18n="idx_dest6_n">06 · Contact</span>
+        <h3 data-i18n="idx_dest6_h3">Ask us directly</h3>
+        <p data-i18n="idx_dest6_p">A five-field form that routes to the right part of the work, plus phone, email, address, and opening hours.</p>
+        <span class="go" data-i18n="idx_dest6_go">Send a message →</span>
       </a>
 
       <a class="dest wide rv" href="involved.html#faq">
         <div>
-          <span class="n">Quick answers</span>
-          <h3>Is there a token? Is this paid? Can I use it today?</h3>
-          <p>No, no, and not yet. The straight answers to the six questions people actually ask, in one place.</p>
+          <span class="n" data-i18n="idx_dest7_n">Quick answers</span>
+          <h3 data-i18n="idx_dest7_h3">Is there a token? Is this paid? Can I use it today?</h3>
+          <p data-i18n="idx_dest7_p">No, no, and not yet. The straight answers to the six questions people actually ask, in one place.</p>
         </div>
-        <span class="go">Read the answers →</span>
+        <span class="go" data-i18n="idx_dest7_go">Read the answers →</span>
       </a>
 
     </div>
@@ -493,18 +501,18 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
   <div class="shell center">
     <div class="rule"></div>
     <div class="rv">
-      <span class="eyebrow">Get involved</span>
-      <h2 style="margin:16px auto 0;max-width:20ch">Bangladesh's digital future should belong to its people.</h2>
-      <p class="lede">Hikaru Foundation brings together technologists, activists, researchers, economists, legal experts, and citizens. There is a place here for what you already do.</p>
+      <span class="eyebrow" data-i18n="idx_involved_eyebrow">Get involved</span>
+      <h2 style="margin:16px auto 0;max-width:20ch" data-i18n="idx_involved_h2">Bangladesh's digital future should belong to its people.</h2>
+      <p class="lede" data-i18n="idx_involved_lede">Hikaru Foundation brings together technologists, activists, researchers, economists, legal experts, and citizens. There is a place here for what you already do.</p>
     </div>
 
     <div class="paths rv">
-      <div class="path"><h3>Build</h3><p>Contribute to the protocol, the tooling, or node infrastructure.</p></div>
-      <div class="path"><h3>Research</h3><p>Join the security, privacy, or policy work.</p></div>
-      <div class="path"><h3>Teach and learn</h3><p>Help shape Hikaru Academy, or take part in it.</p></div>
+      <div class="path"><h3 data-i18n="idx_path1_h3">Build</h3><p data-i18n="idx_path1_p">Contribute to the protocol, the tooling, or node infrastructure.</p></div>
+      <div class="path"><h3 data-i18n="idx_path2_h3">Research</h3><p data-i18n="idx_path2_p">Join the security, privacy, or policy work.</p></div>
+      <div class="path"><h3 data-i18n="idx_path3_h3">Teach and learn</h3><p data-i18n="idx_path3_p">Help shape Hikaru Academy, or take part in it.</p></div>
     </div>
 
-    <a class="pill pill-solid pill-lg rv" href="involved.html">Get Involved</a>
+    <a class="pill pill-solid pill-lg rv" href="involved.html" data-i18n="idx_get_involved_btn">Get Involved</a>
   </div>
 </section>
 
@@ -516,18 +524,18 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
     <div class="shell center">
       <div class="rule"></div>
       <div class="rv">
-        <h2>Follow the work</h2>
-        <p class="lede">Updates on the Hikaru network, our research, and Hikaru Academy. No more than once a month.</p>
+        <h2 data-i18n="idx_contact_h2">Follow the work</h2>
+        <p class="lede" data-i18n="idx_contact_lede">Updates on the Hikaru network, our research, and Hikaru Academy. No more than once a month.</p>
 
         <div class="form">
-          <label class="sr" for="nm">Your name</label>
-          <input id="nm" class="field" type="text" placeholder="Name" autocomplete="name">
-          <label class="sr" for="em">Your email address</label>
-          <input id="em" class="field" type="email" placeholder="Email" autocomplete="email">
-          <button class="pill pill-solid" type="button">Subscribe</button>
+          <label class="sr" for="nm" data-i18n="idx_form_name_label">Your name</label>
+          <input id="nm" class="field" type="text" placeholder="Name" autocomplete="name" data-i18n-attr="placeholder:idx_form_name_ph">
+          <label class="sr" for="em" data-i18n="idx_form_email_label">Your email address</label>
+          <input id="em" class="field" type="email" placeholder="Email" autocomplete="email" data-i18n-attr="placeholder:idx_form_email_ph">
+          <button class="pill pill-solid" type="button" data-i18n="idx_subscribe_btn">Subscribe</button>
         </div>
-        <p class="consent">We use your address only to send these updates. Unsubscribe any time.</p>
-        <p style="margin-top:22px;font-size:var(--t-sm);color:var(--on-dark-mute)">Need to reach a person instead? <a href="contact.html" style="color:var(--primary);font-weight:700;text-decoration:none">Use the contact page →</a></p>
+        <p class="consent" data-i18n="idx_consent">We use your address only to send these updates. Unsubscribe any time.</p>
+        <p style="margin-top:22px;font-size:var(--t-sm);color:var(--on-dark-mute)"><span data-i18n="idx_reach_person">Need to reach a person instead? </span><a href="contact.html" style="color:var(--primary);font-weight:700;text-decoration:none" data-i18n="idx_contact_page_link">Use the contact page →</a></p>
       </div>
     </div>
   </section>
@@ -543,21 +551,26 @@ h2{font-size:var(--t-display);font-weight:700;line-height:1.2;letter-spacing:-.0
             <circle cx="11" cy="11" r="10" stroke="#76b900" stroke-width="1.4" opacity=".55"/>
             <rect x="8" y="8" width="6" height="6" fill="#76b900"/>
           </svg>
-          <b>Hikaru Foundation</b>
+          <b data-i18n="brand_name">Hikaru Foundation</b>
         </a>
-        <p>Technology with conscience. A non-profit building decentralized digital infrastructure for Bangladesh.</p>
+        <p data-i18n="foot_tagline">Technology with conscience. A non-profit building decentralized digital infrastructure for Bangladesh.</p>
       </div>
-      <div><h4>About</h4><a href="about.html#story">Our story</a><a href="about.html">Vision and mission</a><a href="about.html#values">Values</a><a href="about.html#team">People</a></div>
-      <div><h4>Our Work</h4><a href="network.html">Hikaru Layer-1</a><a href="work.html#research">Research and policy</a><a href="work.html#academy">Hikaru Academy</a><a href="work.html">All programmes</a></div>
-      <div><h4>Take part</h4><a href="involved.html">Get involved</a><a href="news.html">Research and updates</a><a href="contact.html">Contact</a><a href="contact.html#hours">Opening hours</a></div>
-      <div><h4>Legal</h4><a href="#">Privacy policy</a><a href="#">Terms of use</a></div>
+      <div><h4 data-i18n="foot_h_about">About</h4><a href="about.html#story" data-i18n="foot_our_story">Our story</a><a href="about.html" data-i18n="foot_vision_mission">Vision and mission</a><a href="about.html#values" data-i18n="foot_values">Values</a><a href="about.html#team" data-i18n="foot_people">People</a></div>
+      <div><h4 data-i18n="foot_h_work">Our Work</h4><a href="network.html" data-i18n="foot_hikaru_l1">Hikaru Layer-1</a><a href="work.html#research" data-i18n="foot_research_policy">Research and policy</a><a href="work.html#academy" data-i18n="foot_academy">Hikaru Academy</a><a href="work.html" data-i18n="foot_all_programmes">All programmes</a></div>
+      <div><h4 data-i18n="foot_h_takepart">Take part</h4><a href="involved.html" data-i18n="foot_get_involved">Get involved</a><a href="news.html" data-i18n="foot_research_updates">Research and updates</a><a href="contact.html" data-i18n="foot_contact">Contact</a><a href="contact.html#hours" data-i18n="foot_opening_hours">Opening hours</a></div>
+      <div><h4 data-i18n="foot_h_legal">Legal</h4><a href="#" data-i18n="foot_privacy">Privacy policy</a><a href="#" data-i18n="foot_terms">Terms of use</a></div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Hikaru Foundation. All rights reserved.</span>
-      <a href="#top">Back to top ↑</a>
+      <span data-i18n="foot_copyright">© 2026 Hikaru Foundation. All rights reserved.</span>
+      <a href="#top" data-i18n="foot_back_to_top">Back to top ↑</a>
     </div>
   </div>
 </footer>
+
+<script src="assets/i18n-core.js"></script>
+<script src="assets/i18n-index.js"></script>
+<script src="assets/theme.js"></script>
+<script src="assets/i18n.js"></script>
 
 <script>
 /* ---------- node-network orb ---------- */
